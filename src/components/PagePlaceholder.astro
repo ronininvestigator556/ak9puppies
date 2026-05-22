@@ -1,4 +1,9 @@
 ---
+import CTAButton from "./CTAButton.astro";
+import Section from "./Section.astro";
+import StatusBadge from "./StatusBadge.astro";
+import TraitChip from "./TraitChip.astro";
+
 interface Props {
   eyebrow: string;
   title: string;
@@ -8,15 +13,20 @@ interface Props {
 const { eyebrow, title, description } = Astro.props;
 ---
 
-<section class="mx-auto max-w-6xl px-6 py-20">
-  <p class="text-sm uppercase tracking-[0.2em] text-[#B08D57]">{eyebrow}</p>
-  <h1 class="mt-4 max-w-3xl font-serif text-4xl leading-tight text-[#F2F2F2] sm:text-5xl">
-    {title}
-  </h1>
-  <p class="mt-5 max-w-2xl text-lg leading-8 text-[#A3A3A3]">
-    {description}
-  </p>
-  <div class="mt-10 rounded-lg border border-[#B08D57]/20 bg-[#1B1B1B] p-6 text-sm leading-6 text-[#A3A3A3]">
-    Phase 1 placeholder. Full page content and visual design will be added in later MVP phases.
+<Section eyebrow={eyebrow} title={title} description={description}>
+  <div class="luxury-card luxury-card-hover mt-10 max-w-3xl p-6">
+    <div class="flex flex-wrap items-center gap-3">
+      <StatusBadge status="Evaluation Hold" />
+      <TraitChip label="Phase 2 system" />
+      <TraitChip label="Reusable components" />
+    </div>
+    <p class="mt-5 text-sm leading-6 text-stone">
+      Placeholder content remains intentionally light. This page is now using the shared design tokens,
+      card treatment, badges, trait chips, and CTA variants that will support the full MVP build.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <CTAButton href="/puppies">View Puppies</CTAButton>
+      <CTAButton href="/apply" variant="secondary">Apply / Inquire</CTAButton>
+    </div>
   </div>
-</section>
+</Section>

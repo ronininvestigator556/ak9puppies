@@ -10,17 +10,17 @@ const navItems = [
 ];
 ---
 
-<header class="border-b border-[#B08D57]/20 bg-[#0D0D0D]">
+<header class="sticky top-0 z-50 border-b border-gold/20 bg-midnight/90 backdrop-blur">
   <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
-    <a href="/" class="font-serif text-xl tracking-wide text-[#F2F2F2]">
+    <a href="/" class="font-heading text-xl tracking-wide text-ivory">
       Alliance K9
     </a>
     <nav aria-label="Primary navigation">
-      <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-[#A3A3A3]">
+      <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-stone">
         {
           navItems.map((item) => (
             <li>
-              <a class="transition hover:text-[#B08D57]" href={item.href}>
+              <a class="transition hover:text-gold" href={item.href}>
                 {item.label}
               </a>
             </li>
