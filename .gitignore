@@ -1,0 +1,12 @@
+﻿# Photo library - too large for GitHub
+AllianceK9_Litter_2026/
+
+# Zip files
+*.zip
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# OS
+.DS_Store
