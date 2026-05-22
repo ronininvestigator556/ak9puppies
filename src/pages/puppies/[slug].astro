@@ -1,37 +1,104 @@
 ---
+import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import PagePlaceholder from "../../components/PagePlaceholder.astro";
+import CTAButton from "../../components/CTAButton.astro";
+import Section from "../../components/Section.astro";
+import StatusBadge from "../../components/StatusBadge.astro";
+import TraitChip from "../../components/TraitChip.astro";
+import { getSimilarPuppies, sortPuppies } from "../../lib/puppies";
 
-export function getStaticPaths() {
-  return [
-    "aang",
-    "azula",
-    "bumi",
-    "hakoda",
-    "iroh",
-    "katara",
-    "kyoshi",
-    "mai",
-    "sokka",
-    "toph",
-    "ty-lee",
-    "zuko",
-  ].map((slug) => ({ params: { slug } }));
+export async function getStaticPaths() {
+  const puppies = await getCollection("puppies");
+
+  return puppies.map((puppy) => ({
+    params: { slug: puppy.data.slug },
+    props: { puppy, puppies },
+  }));
 }
 
-const { slug } = Astro.params;
-const puppyName = slug
-  ? slug
-      .split("-")
-      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-      .join(" ")
-  : "Puppy";
+const { puppy, puppies } = Astro.props;
+const { Content } = await render(puppy);
+const similarPuppies = getSimilarPuppies(puppy, sortPuppies(puppies));
 ---
 
-<BaseLayout title={`${puppyName} | Alliance K9 Puppies`}>
-  <PagePlaceholder
+<BaseLayout
+  title={`${puppy.data.name} | Alliance K9 Puppies`}
+  description={puppy.data.shortDescription}
+>
+  <Section
     eyebrow="Puppy Profile"
-    title={puppyName}
-    description="A placeholder for puppy stats, temperament notes, gallery, similar puppies, and inquiry CTA."
-  />
+    title={puppy.data.name}
+    description={puppy.data.shortDescription}
+  >
+    <div class="mt-8 flex flex-wrap items-center gap-3">
+      <StatusBadge status={puppy.data.status} />
+      {puppy.data.traits.map((trait) => <TraitChip label={trait} />)}
+    </div>
+
+    <div class="mt-10 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+      <aside class="luxury-card p-6">
+        <h2 class="font-heading text-2xl text-ivory">Profile Stats</h2>
+        <dl class="mt-5 grid gap-4 text-sm">
+          <div>
+            <dt class="text-stone">Sex</dt>
+            <dd class="mt-1 font-semibold text-ivory">{puppy.data.sex}</dd>
+          </div>
+          <div>
+            <dt class="text-stone">Collar</dt>
+            <dd class="mt-1 font-semibold text-ivory">{puppy.data.collar}</dd>
+          </div>
+          <div>
+            <dt class="text-stone">Birthdate</dt>
+            <dd class="mt-1 font-semibold text-ivory">March 21, 2026</dd>
+          </div>
+          <div>
+            <dt class="text-stone">Weight Notes</dt>
+            <dd class="mt-1 font-semibold text-ivory">{puppy.data.weightNotes}</dd>
+          </div>
+        </dl>
+      </aside>
+
+      <div class="luxury-card p-6">
+        <h2 class="font-heading text-2xl text-ivory">Placement Notes</h2>
+        <div class="prose prose-invert mt-5 max-w-none text-stone">
+          <Content />
+        </div>
+        <p class="mt-5 text-sm leading-6 text-stone">{puppy.data.fullDescription}</p>
+
+        <div class="mt-6">
+          <h3 class="font-heading text-xl text-ivory">Best Fit</h3>
+          <div class="mt-3 flex flex-wrap gap-2">
+            {puppy.data.bestFit.map((fit) => <TraitChip label={fit} />)}
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <h3 class="font-heading text-xl text-ivory">Development Checklist</h3>
+          <ul class="mt-3 grid gap-2 text-sm text-stone sm:grid-cols-2">
+            {puppy.data.developmentChecklist.map((item) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {
+      similarPuppies.length > 0 && (
+        <div class="mt-10">
+          <h2 class="font-heading text-2xl text-ivory">Similar Puppies</h2>
+          <div class="mt-4 flex flex-wrap gap-3">
+            {similarPuppies.map((similar) => (
+              <CTAButton href={`/puppies/${similar.data.slug}`} variant="secondary">
+                {similar.data.name}
+              </CTAButton>
+            ))}
+          </div>
+        </div>
+      )
+    }
+
+    <div class="mt-10 flex flex-wrap gap-3">
+      <CTAButton href="/apply">Apply / Inquire</CTAButton>
+      <CTAButton href="/parents" variant="secondary">Meet Ranger x Mila</CTAButton>
+    </div>
+  </Section>
 </BaseLayout>

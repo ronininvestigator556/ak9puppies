@@ -1,0 +1,32 @@
+---
+import type { CollectionEntry } from "astro:content";
+import CTAButton from "./CTAButton.astro";
+import StatusBadge from "./StatusBadge.astro";
+import TraitChip from "./TraitChip.astro";
+import { getPuppyUrl } from "../lib/puppies";
+
+interface Props {
+  puppy: CollectionEntry<"puppies">;
+}
+
+const { puppy } = Astro.props;
+const { data } = puppy;
+---
+
+<article class="luxury-card luxury-card-hover flex h-full flex-col p-5">
+  <div class="flex items-start justify-between gap-4">
+    <div>
+      <p class="text-sm uppercase tracking-[0.18em] text-gold">{data.collar} collar</p>
+      <h2 class="mt-2 font-heading text-2xl text-ivory">{data.name}</h2>
+      <p class="mt-1 text-sm text-stone">{data.sex}</p>
+    </div>
+    <StatusBadge status={data.status} />
+  </div>
+  <p class="mt-4 flex-1 text-sm leading-6 text-stone">{data.shortDescription}</p>
+  <div class="mt-5 flex flex-wrap gap-2">
+    {data.traits.slice(0, 3).map((trait) => <TraitChip label={trait} />)}
+  </div>
+  <div class="mt-6">
+    <CTAButton href={getPuppyUrl(puppy)} variant="secondary">View Profile</CTAButton>
+  </div>
+</article>

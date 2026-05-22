@@ -1,12 +1,32 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import PagePlaceholder from "../../components/PagePlaceholder.astro";
+import CTAButton from "../../components/CTAButton.astro";
+import PuppyCard from "../../components/PuppyCard.astro";
+import Section from "../../components/Section.astro";
+import { sortPuppies } from "../../lib/puppies";
+
+const puppies = sortPuppies(await getCollection("puppies"));
 ---
 
 <BaseLayout title="Available Puppies | Alliance K9">
-  <PagePlaceholder
+  <Section
     eyebrow="Current Litter"
     title="Ranger x Mila Puppies"
-    description="A placeholder for the litter overview, puppy grid, status badges, and application CTA."
-  />
+    description="Each puppy is represented as structured content so status, traits, and profile links can stay consistent across the MVP."
+  >
+    <div class="mt-8 grid gap-4 rounded-lg border border-gold/20 bg-graphite/60 p-5 text-sm text-stone sm:grid-cols-3">
+      <p><span class="font-semibold text-ivory">Born:</span> March 21, 2026</p>
+      <p><span class="font-semibold text-ivory">Litter:</span> 12 puppies</p>
+      <p><span class="font-semibold text-ivory">Split:</span> 6 males / 6 females</p>
+    </div>
+
+    <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+      {puppies.map((puppy) => <PuppyCard puppy={puppy} />)}
+    </div>
+
+    <div class="mt-10">
+      <CTAButton href="/apply">Apply / Inquire</CTAButton>
+    </div>
+  </Section>
 </BaseLayout>
