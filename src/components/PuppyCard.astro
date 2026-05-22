@@ -1,8 +1,10 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import CTAButton from "./CTAButton.astro";
+import ImageWithOverlay from "./ImageWithOverlay.astro";
 import StatusBadge from "./StatusBadge.astro";
 import TraitChip from "./TraitChip.astro";
+import { publicAsset } from "../lib/assets";
 import { getPuppyUrl } from "../lib/puppies";
 
 interface Props {
@@ -11,9 +13,16 @@ interface Props {
 
 const { puppy } = Astro.props;
 const { data } = puppy;
+const heroImage = publicAsset(data.heroImage);
 ---
 
 <article class="luxury-card luxury-card-hover flex h-full flex-col p-5">
+  <ImageWithOverlay
+    src={heroImage}
+    alt={`${data.name}, ${data.collar}-collar ${data.sex.toLowerCase()} puppy.`}
+    aspect="aspect-[4/5]"
+    class="mb-5"
+  />
   <div class="flex items-start justify-between gap-4">
     <div>
       <p class="text-sm uppercase tracking-[0.18em] text-gold">{data.collar} collar</p>

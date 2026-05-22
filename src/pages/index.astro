@@ -6,12 +6,14 @@ import HeroSection from "../components/HeroSection.astro";
 import PuppyCard from "../components/PuppyCard.astro";
 import Section from "../components/Section.astro";
 import TrainingServiceCard from "../components/TrainingServiceCard.astro";
+import { publicAsset } from "../lib/assets";
 import { sortPuppies } from "../lib/puppies";
 
 const puppies = sortPuppies(await getCollection("puppies"));
 const availablePuppies = puppies.filter((puppy) => puppy.data.status === "Available");
 const puppyPreview = availablePuppies.slice(0, 3);
 const trainingServices = (await getCollection("training")).slice(0, 2);
+const heroImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp");
 ---
 
 <BaseLayout
@@ -22,6 +24,7 @@ const trainingServices = (await getCollection("training")).slice(0, 2);
     eyebrow="Ranger x Mila"
     title="Ranger x Mila"
     description="Working dogs, loyal companions, and exceptional beginnings. Purpose-bred puppies raised with intention, evaluated for temperament, drive, confidence, and long-term fit."
+    image={heroImage}
     imageAlt="Mila with one of her puppies."
     primaryAction={{ href: "/puppies", label: "View Puppies" }}
     secondaryAction={{ href: "/apply", label: "Apply / Inquire" }}

@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CTAButton from "../components/CTAButton.astro";
 import ParentDogProfile from "../components/ParentDogProfile.astro";
 import Section from "../components/Section.astro";
+import { publicAsset } from "../lib/assets";
 
 const dogs = await getCollection("dogs");
 const ranger = dogs.find((dog) => dog.data.name === "Ranger");
@@ -20,8 +21,8 @@ const mila = dogs.find((dog) => dog.data.name === "Mila");
     description="Ranger and Mila bring together working genetics, strong temperaments, and the kind of stability we want to see in serious dogs that can also live closely with their people."
   >
     <div class="mt-10 grid gap-6">
-      {ranger && <ParentDogProfile dog={ranger} traits={["Sire Presence", "Working Genetics", "Stable Temperament"]} />}
-      {mila && <ParentDogProfile dog={mila} traits={["Maternal Stability", "Athletic", "Social Connection"]} />}
+      {ranger && <ParentDogProfile dog={ranger} imageReady={Boolean(publicAsset(ranger.data.heroImage))} traits={["Sire Presence", "Working Genetics", "Stable Temperament"]} />}
+      {mila && <ParentDogProfile dog={mila} imageReady={Boolean(publicAsset(mila.data.heroImage))} traits={["Maternal Stability", "Athletic", "Social Connection"]} />}
     </div>
   </Section>
 
