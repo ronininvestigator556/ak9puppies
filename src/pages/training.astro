@@ -1,12 +1,105 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PagePlaceholder from "../components/PagePlaceholder.astro";
+import CTAButton from "../components/CTAButton.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+import ProcessTimeline from "../components/ProcessTimeline.astro";
+import Section from "../components/Section.astro";
+import TrainingServiceCard from "../components/TrainingServiceCard.astro";
+
+const services = await getCollection("training");
+
+const processItems = [
+  {
+    title: "Evaluate the dog and goals",
+    description: "Training starts with the dog in front of us, the owner’s goals, and the practical environment the dog lives in.",
+  },
+  {
+    title: "Build communication",
+    description: "Clear marker work, structure, and consistent expectations create a foundation the dog can understand.",
+  },
+  {
+    title: "Develop reliability",
+    description: "Skills are strengthened through repetition, proofing, and real-world context instead of quick fixes.",
+  },
+  {
+    title: "Support the handler",
+    description: "Owners need a plan they can maintain, so training includes practical transfer and follow-through.",
+  },
+];
+
+const faqItems = [
+  {
+    question: "Do you only train Alliance K9 puppies?",
+    answer: "Training inquiries can be discussed for puppies, family dogs, and working prospects depending on goals and fit.",
+  },
+  {
+    question: "What training method do you use?",
+    answer: "Training is built around communication, structure, engagement, and fair expectations matched to the individual dog.",
+  },
+  {
+    question: "Can training fix every behavior issue?",
+    answer: "No responsible trainer should promise that. The first step is understanding the dog, the history, and what success realistically looks like.",
+  },
+];
 ---
 
-<BaseLayout title="Training | Alliance K9">
-  <PagePlaceholder
+<BaseLayout
+  title="Training | Alliance K9"
+  description="Professional K9 training built on communication, structure, and real-world results."
+>
+  <Section
     eyebrow="Training"
     title="Training With Purpose"
-    description="A placeholder for training services, process, results, FAQ, and inquiry CTA."
-  />
+    description="Professional training built on communication, structure, and real-world results for puppies, active family companions, and working prospects."
+  >
+    <div class="mt-10 grid gap-5 md:grid-cols-3">
+      {
+        services.map((service) => (
+          <TrainingServiceCard
+            title={service.data.title}
+            summary={service.data.summary}
+            bullets={service.data.bullets}
+          />
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Philosophy"
+    title="Structure Without Theater"
+    description="The goal is clear communication, stable behavior, and useful skills. Training should feel professional and grounded, not flashy or fear-based."
+    class="pt-0"
+  >
+    <div class="mt-8">
+      <ProcessTimeline items={processItems} />
+    </div>
+  </Section>
+
+  <Section eyebrow="Results" title="What Success Looks Like" class="pt-0">
+    <div class="mt-8 grid gap-5 md:grid-cols-3">
+      <div class="luxury-card p-6">
+        <h2 class="font-heading text-2xl text-ivory">Clearer Handling</h2>
+        <p class="mt-3 text-sm leading-6 text-stone">Owners understand what to ask for, when to help, and how to follow through.</p>
+      </div>
+      <div class="luxury-card p-6">
+        <h2 class="font-heading text-2xl text-ivory">Better Engagement</h2>
+        <p class="mt-3 text-sm leading-6 text-stone">Dogs learn to work with the handler instead of simply reacting to the environment.</p>
+      </div>
+      <div class="luxury-card p-6">
+        <h2 class="font-heading text-2xl text-ivory">Real-World Utility</h2>
+        <p class="mt-3 text-sm leading-6 text-stone">Training is measured by whether it helps daily life, not whether it looks impressive for a moment.</p>
+      </div>
+    </div>
+  </Section>
+
+  <Section eyebrow="Questions" title="Training FAQ" class="pt-0">
+    <div class="mt-8">
+      <FAQAccordion items={faqItems} />
+    </div>
+    <div class="mt-8">
+      <CTAButton href="/contact">Inquire About Training</CTAButton>
+    </div>
+  </Section>
 </BaseLayout>

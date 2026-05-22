@@ -1,12 +1,58 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PagePlaceholder from "../components/PagePlaceholder.astro";
+import CTAButton from "../components/CTAButton.astro";
+import ParentDogProfile from "../components/ParentDogProfile.astro";
+import Section from "../components/Section.astro";
+
+const dogs = await getCollection("dogs");
+const ranger = dogs.find((dog) => dog.data.name === "Ranger");
+const mila = dogs.find((dog) => dog.data.name === "Mila");
 ---
 
-<BaseLayout title="Meet the Parents | Alliance K9">
-  <PagePlaceholder
+<BaseLayout
+  title="Meet the Parents | Alliance K9"
+  description="Meet Ranger and Mila, the foundation of the current Alliance K9 litter."
+>
+  <Section
     eyebrow="Parents"
     title="The Foundation of the Litter"
-    description="A placeholder for Ranger and Mila profiles, pairing rationale, and parent gallery."
-  />
+    description="Ranger and Mila bring together working genetics, strong temperaments, and the kind of stability we want to see in serious dogs that can also live closely with their people."
+  >
+    <div class="mt-10 grid gap-6">
+      {ranger && <ParentDogProfile dog={ranger} traits={["Sire Presence", "Working Genetics", "Stable Temperament"]} />}
+      {mila && <ParentDogProfile dog={mila} traits={["Maternal Stability", "Athletic", "Social Connection"]} />}
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Pairing Rationale"
+    title="Purpose-Bred, Carefully Observed"
+    description="The Ranger x Mila pairing is presented through temperament, structure, engagement, and long-term placement fit rather than exaggerated guarantees."
+    class="pt-0"
+  >
+    <div class="mt-8 grid gap-5 md:grid-cols-3">
+      <div class="luxury-card p-6">
+        <h2 class="font-heading text-2xl text-ivory">Working Potential</h2>
+        <p class="mt-3 text-sm leading-6 text-stone">
+          Early puppy observations focus on confidence, drive, recovery, curiosity, and handler engagement.
+        </p>
+      </div>
+      <div class="luxury-card p-6">
+        <h2 class="font-heading text-2xl text-ivory">Family Compatibility</h2>
+        <p class="mt-3 text-sm leading-6 text-stone">
+          Placement considers household rhythm, experience, goals, children, other pets, and training commitment.
+        </p>
+      </div>
+      <div class="luxury-card p-6">
+        <h2 class="font-heading text-2xl text-ivory">Honest Matching</h2>
+        <p class="mt-3 text-sm leading-6 text-stone">
+          Puppies are not sold on pressure. They are matched with the homes most likely to help them succeed.
+        </p>
+      </div>
+    </div>
+    <div class="mt-8">
+      <CTAButton href="/puppies">View Current Puppies</CTAButton>
+    </div>
+  </Section>
 </BaseLayout>

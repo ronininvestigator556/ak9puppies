@@ -6,13 +6,17 @@ import TraitChip from "./TraitChip.astro";
 interface Props {
   dog: CollectionEntry<"dogs">;
   traits?: string[];
+  imageReady?: boolean;
 }
 
-const { dog, traits = [] } = Astro.props;
+const { dog, traits = [], imageReady = false } = Astro.props;
 ---
 
 <article class="luxury-card grid gap-6 p-5 lg:grid-cols-[0.85fr_1fr]">
-  <ImageWithOverlay src={dog.data.heroImage} alt={`${dog.data.name}, ${dog.data.role} for Alliance K9`} />
+  <ImageWithOverlay
+    src={imageReady ? dog.data.heroImage : undefined}
+    alt={`${dog.data.name}, ${dog.data.role} for Alliance K9`}
+  />
   <div class="flex flex-col justify-center">
     <p class="text-sm uppercase tracking-[0.18em] text-gold">{dog.data.role}</p>
     <h3 class="mt-2 font-heading text-3xl text-ivory">{dog.data.name}</h3>
