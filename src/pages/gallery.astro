@@ -4,11 +4,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CTAButton from "../components/CTAButton.astro";
 import ImageWithOverlay from "../components/ImageWithOverlay.astro";
 import Section from "../components/Section.astro";
-import { listPublicImages, publicAsset } from "../lib/assets";
+import { firstHeroImage, listPublicImages, publicAsset } from "../lib/assets";
 
 const galleryItems = await getCollection("gallery");
 const categories = ["puppies", "parents", "training", "group"];
 const manualGalleryImages = listPublicImages("/assets/processed/gallery");
+const galleryImage =
+  firstHeroImage("/assets/processed/gallery") ??
+  manualGalleryImages[0];
 const configuredGalleryItems = galleryItems
   .map((item) => ({
     ...item,
@@ -20,6 +23,7 @@ const configuredGalleryItems = galleryItems
 <BaseLayout
   title="Gallery | Alliance K9"
   description="Alliance K9 puppy, parent, training, and litter media gallery."
+  image={galleryImage}
 >
   <Section
     eyebrow="Gallery"

@@ -4,7 +4,7 @@ import CTAButton from "./CTAButton.astro";
 import ImageWithOverlay from "./ImageWithOverlay.astro";
 import StatusBadge from "./StatusBadge.astro";
 import TraitChip from "./TraitChip.astro";
-import { publicAsset } from "../lib/assets";
+import { puppyHeroImage } from "../lib/assets";
 import { getPuppyUrl } from "../lib/puppies";
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 
 const { puppy } = Astro.props;
 const { data } = puppy;
-const heroImage = publicAsset(data.heroImage);
+const heroImage = puppyHeroImage(data.slug, data.heroImage);
 ---
 
 <article class="luxury-card luxury-card-hover flex h-full flex-col p-5">

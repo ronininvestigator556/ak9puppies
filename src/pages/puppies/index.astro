@@ -4,16 +4,21 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTAButton from "../../components/CTAButton.astro";
 import PuppyCard from "../../components/PuppyCard.astro";
 import Section from "../../components/Section.astro";
+import { puppyHeroImage } from "../../lib/assets";
 import { sortPuppies } from "../../lib/puppies";
 
 const puppies = sortPuppies(await getCollection("puppies"));
 const availableCount = puppies.filter((puppy) => puppy.data.status === "Available").length;
 const reservedCount = puppies.filter((puppy) => puppy.data.status === "Reserved").length;
+const firstAvailableHero = puppyHeroImage(
+  puppies.find((puppy) => puppy.data.status === "Available")?.data.slug ?? "zuko",
+);
 ---
 
 <BaseLayout
   title="Available Puppies | Alliance K9"
   description="View the current Ranger x Mila litter, including available and reserved puppies."
+  image={firstAvailableHero}
 >
   <Section
     eyebrow="Current Litter"

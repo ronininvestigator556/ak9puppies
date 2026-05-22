@@ -6,12 +6,24 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  type?: "website" | "article" | "product";
+  noIndex?: boolean;
 }
 
 const {
   title = "Alliance K9 Puppies / Working Dogs",
   description = "Working-bred, family-raised puppies and professional K9 training from Alliance K9.",
+  image,
+  type = "website",
+  noIndex = false,
 } = Astro.props;
+
+const siteOrigin = import.meta.env.PUBLIC_SITE_URL ?? Astro.site?.origin ?? Astro.url.origin;
+const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
+const absoluteImageUrl = image
+  ? new URL(image, siteOrigin).href
+  : undefined;
 ---
 
 <!doctype html>
@@ -20,6 +32,19 @@ const {
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {noIndex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Alliance K9" />
+    {absoluteImageUrl && <meta property="og:image" content={absoluteImageUrl} />}
+    {absoluteImageUrl && <meta property="og:image:alt" content={title} />}
+    <meta name="twitter:card" content={absoluteImageUrl ? "summary_large_image" : "summary"} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {absoluteImageUrl && <meta name="twitter:image" content={absoluteImageUrl} />}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

@@ -4,16 +4,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import CTAButton from "../components/CTAButton.astro";
 import ParentDogProfile from "../components/ParentDogProfile.astro";
 import Section from "../components/Section.astro";
-import { publicAsset } from "../lib/assets";
+import { firstHeroImage, firstPublicImage, publicAsset } from "../lib/assets";
 
 const dogs = await getCollection("dogs");
 const ranger = dogs.find((dog) => dog.data.name === "Ranger");
 const mila = dogs.find((dog) => dog.data.name === "Mila");
+const parentImage =
+  publicAsset(ranger?.data.heroImage) ??
+  publicAsset(mila?.data.heroImage) ??
+  firstHeroImage("/assets/processed/parents") ??
+  firstPublicImage("/assets/processed/parents");
 ---
 
 <BaseLayout
   title="Meet the Parents | Alliance K9"
   description="Meet Ranger and Mila, the foundation of the current Alliance K9 litter."
+  image={parentImage}
 >
   <Section
     eyebrow="Parents"

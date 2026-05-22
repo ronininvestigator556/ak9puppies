@@ -48,3 +48,17 @@ export function listPuppyImages(slug: string) {
 export function firstPublicImage(directory: string) {
   return listPublicImages(directory)[0];
 }
+
+export function firstHeroImage(directory: string) {
+  return listPublicImages(directory).find((image) =>
+    image.toLowerCase().includes("hero"),
+  );
+}
+
+export function puppyHeroImage(slug: string, preferredPath?: string) {
+  return (
+    publicAsset(preferredPath) ??
+    firstHeroImage(`/assets/processed/puppies/${slug}`) ??
+    firstPublicImage(`/assets/processed/puppies/${slug}`)
+  );
+}

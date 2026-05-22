@@ -7,8 +7,12 @@ import ProcessTimeline from "../components/ProcessTimeline.astro";
 import Section from "../components/Section.astro";
 import TrainingInquiryForm from "../components/TrainingInquiryForm.astro";
 import TrainingServiceCard from "../components/TrainingServiceCard.astro";
+import { firstHeroImage, firstPublicImage } from "../lib/assets";
 
 const services = await getCollection("training");
+const trainingImage =
+  firstHeroImage("/assets/processed/training") ??
+  firstPublicImage("/assets/processed/training");
 
 const processItems = [
   {
@@ -48,6 +52,7 @@ const faqItems = [
 <BaseLayout
   title="Training | Alliance K9"
   description="Professional K9 training built on communication, structure, and real-world results."
+  image={trainingImage}
 >
   <Section
     eyebrow="Training"

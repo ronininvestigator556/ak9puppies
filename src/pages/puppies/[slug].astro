@@ -7,7 +7,7 @@ import ProfileStats from "../../components/ProfileStats.astro";
 import Section from "../../components/Section.astro";
 import StatusBadge from "../../components/StatusBadge.astro";
 import TraitChip from "../../components/TraitChip.astro";
-import { listPuppyImages, publicAsset } from "../../lib/assets";
+import { listPuppyImages, puppyHeroImage } from "../../lib/assets";
 import { getSimilarPuppies, sortPuppies } from "../../lib/puppies";
 
 export async function getStaticPaths() {
@@ -22,13 +22,22 @@ export async function getStaticPaths() {
 const { puppy, puppies } = Astro.props;
 const { Content } = await render(puppy);
 const similarPuppies = getSimilarPuppies(puppy, sortPuppies(puppies));
-const heroImage = publicAsset(puppy.data.heroImage);
+const heroImage = puppyHeroImage(puppy.data.slug, puppy.data.heroImage);
 const galleryImages = listPuppyImages(puppy.data.slug).filter((image) => image !== heroImage);
+const statusDescription =
+  puppy.data.status === "Available" ? "an available" : "a reserved";
+const siteOrigin = import.meta.env.PUBLIC_SITE_URL ?? Astro.site?.origin ?? Astro.url.origin;
+const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
+const absoluteHeroImage = heroImage
+  ? new URL(heroImage, siteOrigin).href
+  : undefined;
 ---
 
 <BaseLayout
   title={`${puppy.data.name} | Alliance K9 Puppies`}
-  description={puppy.data.shortDescription}
+  description={`${puppy.data.name} is ${statusDescription} ${puppy.data.sex.toLowerCase()} from the Ranger x Mila litter. ${puppy.data.shortDescription}`}
+  image={heroImage}
+  type="product"
 >
   <Section
     eyebrow="Puppy Profile"
@@ -118,4 +127,24 @@ const galleryImages = listPuppyImages(puppy.data.slug).filter((image) => image !
       <CTAButton href="/parents" variant="secondary">Meet Ranger x Mila</CTAButton>
     </div>
   </Section>
+
+  <script is:inline type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: `${puppy.data.name} - Alliance K9 Puppy`,
+    description: puppy.data.shortDescription,
+    image: absoluteHeroImage,
+    brand: {
+      "@type": "Brand",
+      name: "Alliance K9",
+    },
+    offers: {
+      "@type": "Offer",
+      availability: puppy.data.status === "Available"
+        ? "https://schema.org/InStock"
+        : "https://schema.org/SoldOut",
+      priceCurrency: "USD",
+      url: canonicalUrl,
+    },
+  })} />
 </BaseLayout>
