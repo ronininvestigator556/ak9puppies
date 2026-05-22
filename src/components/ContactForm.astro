@@ -13,8 +13,15 @@ const { formName = "contact", netlify = false } = Astro.props;
   method="post"
   action="/thank-you"
   data-netlify={netlify ? "true" : undefined}
+  netlify-honeypot={netlify ? "bot-field" : undefined}
 >
   <input type="hidden" name="form-name" value={formName} />
+  <p class="hidden">
+    <label>
+      Do not fill this out if you are human:
+      <input name="bot-field" />
+    </label>
+  </p>
   <label class="grid gap-2 text-sm text-stone">
     Name
     <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="name" autocomplete="name" required />
@@ -25,7 +32,8 @@ const { formName = "contact", netlify = false } = Astro.props;
   </label>
   <label class="grid gap-2 text-sm text-stone">
     Inquiry Type
-    <select class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="inquiryType">
+    <select class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="inquiryType" required>
+      <option value="">Select one</option>
       <option>Puppy inquiry</option>
       <option>Training inquiry</option>
       <option>General question</option>

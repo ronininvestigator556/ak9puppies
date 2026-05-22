@@ -5,6 +5,7 @@ import CTAButton from "../components/CTAButton.astro";
 import FAQAccordion from "../components/FAQAccordion.astro";
 import ProcessTimeline from "../components/ProcessTimeline.astro";
 import Section from "../components/Section.astro";
+import TrainingInquiryForm from "../components/TrainingInquiryForm.astro";
 import TrainingServiceCard from "../components/TrainingServiceCard.astro";
 
 const services = await getCollection("training");
@@ -12,7 +13,7 @@ const services = await getCollection("training");
 const processItems = [
   {
     title: "Evaluate the dog and goals",
-    description: "Training starts with the dog in front of us, the owner’s goals, and the practical environment the dog lives in.",
+    description: "Training starts with the dog in front of us, the owner's goals, and the practical environment the dog lives in.",
   },
   {
     title: "Build communication",
@@ -99,7 +100,18 @@ const faqItems = [
       <FAQAccordion items={faqItems} />
     </div>
     <div class="mt-8">
-      <CTAButton href="/contact">Inquire About Training</CTAButton>
+      <CTAButton href="#training-inquiry">Inquire About Training</CTAButton>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Training Inquiry"
+    title="Tell Us About Your Dog"
+    description="Share your goals, current challenges, and preferred service so Alliance K9 can recommend an appropriate next step."
+    class="pt-0"
+  >
+    <div id="training-inquiry" class="mt-10 max-w-4xl scroll-mt-28">
+      <TrainingInquiryForm netlify />
     </div>
   </Section>
 </BaseLayout>

@@ -4,7 +4,7 @@ interface Props {
   netlify?: boolean;
 }
 
-const { formName = "puppy-application", netlify = false } = Astro.props;
+const { formName = "training-inquiry", netlify = false } = Astro.props;
 ---
 
 <form
@@ -24,7 +24,7 @@ const { formName = "puppy-application", netlify = false } = Astro.props;
   </p>
 
   <fieldset class="grid gap-4">
-    <legend class="font-heading text-2xl text-ivory">Contact Details</legend>
+    <legend class="font-heading text-2xl text-ivory">Your Details</legend>
     <div class="grid gap-4 sm:grid-cols-2">
       <label class="grid gap-2 text-sm text-stone">
         Name
@@ -39,54 +39,45 @@ const { formName = "puppy-application", netlify = false } = Astro.props;
         <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="phone" autocomplete="tel" required />
       </label>
       <label class="grid gap-2 text-sm text-stone">
-        Location
-        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="location" autocomplete="address-level2" required />
+        Preferred service
+        <select class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="preferredService" required>
+          <option value="">Select one</option>
+          <option>Foundation Obedience</option>
+          <option>Puppy Foundations</option>
+          <option>Working Dog Development</option>
+          <option>Unsure / need guidance</option>
+        </select>
       </label>
     </div>
   </fieldset>
 
   <fieldset class="grid gap-4">
-    <legend class="font-heading text-2xl text-ivory">Placement Fit</legend>
+    <legend class="font-heading text-2xl text-ivory">Dog and Goals</legend>
     <div class="grid gap-4 sm:grid-cols-2">
       <label class="grid gap-2 text-sm text-stone">
-        Preferred puppy
-        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="preferredPuppy" />
+        Dog name
+        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="dogName" />
       </label>
       <label class="grid gap-2 text-sm text-stone">
-        Preferred sex
-        <select class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="preferredSex">
-          <option>No preference</option>
-          <option>Male</option>
-          <option>Female</option>
-        </select>
+        Dog age
+        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="dogAge" />
       </label>
       <label class="grid gap-2 text-sm text-stone">
-        Intended role
-        <select class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="intendedRole" required>
-          <option value="">Select one</option>
-          <option>Active family companion</option>
-          <option>Working prospect</option>
-          <option>Sport prospect</option>
-          <option>Protection prospect</option>
-          <option>Unsure / need guidance</option>
-        </select>
+        Breed
+        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="breed" />
       </label>
       <label class="grid gap-2 text-sm text-stone">
         Timeline
-        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="timeline" placeholder="When are you hoping to bring a puppy home?" />
+        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="timeline" />
       </label>
     </div>
     <label class="grid gap-2 text-sm text-stone">
-      Working breed experience
-      <textarea class="min-h-28 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="workingBreedExperience"></textarea>
+      Training goals
+      <textarea class="min-h-32 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="trainingGoals" required></textarea>
     </label>
     <label class="grid gap-2 text-sm text-stone">
-      Children or other pets
-      <textarea class="min-h-28 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="childrenOtherPets"></textarea>
-    </label>
-    <label class="grid gap-2 text-sm text-stone">
-      Home environment and goals
-      <textarea class="min-h-32 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="homeEnvironment" required></textarea>
+      Behavior concerns
+      <textarea class="min-h-28 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="behaviorConcerns"></textarea>
     </label>
     <label class="grid gap-2 text-sm text-stone">
       Additional notes
@@ -95,6 +86,6 @@ const { formName = "puppy-application", netlify = false } = Astro.props;
   </fieldset>
 
   <button class="inline-flex min-h-11 w-fit items-center justify-center rounded-md bg-gold px-5 py-2.5 text-sm font-semibold text-midnight transition hover:bg-ivory" type="submit">
-    Submit Application
+    Submit Training Inquiry
   </button>
 </form>
