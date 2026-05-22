@@ -1,12 +1,75 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PagePlaceholder from "../components/PagePlaceholder.astro";
+import ApplicationForm from "../components/ApplicationForm.astro";
+import CTAButton from "../components/CTAButton.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+import ProcessTimeline from "../components/ProcessTimeline.astro";
+import Section from "../components/Section.astro";
+
+const processItems = [
+  {
+    title: "Tell us about your goals",
+    description: "Share your home environment, experience, preferred traits, and intended role for the puppy.",
+  },
+  {
+    title: "We review fit",
+    description: "Alliance K9 compares your goals with current temperament and drive observations across the litter.",
+  },
+  {
+    title: "Placement conversation",
+    description: "If there is a potential match, we talk through timing, expectations, and next steps.",
+  },
+  {
+    title: "Reserve offline",
+    description: "Deposits and payments are handled directly through approved offline methods, not website checkout.",
+  },
+];
+
+const faqItems = [
+  {
+    question: "Can I choose a puppy by looks alone?",
+    answer: "Preference matters, but placement is guided by temperament, drive, lifestyle, and long-term fit.",
+  },
+  {
+    question: "Are payments handled on the website?",
+    answer: "No. The MVP does not process payments online. Payment details are handled directly after fit is discussed.",
+  },
+  {
+    question: "What if I am not sure which puppy fits?",
+    answer: "Use the application to describe your goals and experience, and Alliance K9 can help point you toward suitable prospects.",
+  },
+];
 ---
 
-<BaseLayout title="Apply | Alliance K9 Puppies">
-  <PagePlaceholder
+<BaseLayout
+  title="Apply | Alliance K9 Puppies"
+  description="Start the Alliance K9 puppy application and placement conversation."
+>
+  <Section
     eyebrow="Application"
     title="Purposeful Placement Starts Here"
-    description="A placeholder for placement philosophy, process, application form, deposit notes, and FAQ."
-  />
+    description="The right dog matters. Each placement is approached thoughtfully, with attention to temperament, drive, lifestyle, and long-term success."
+  >
+    <div class="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+      <div class="grid gap-8">
+        <ProcessTimeline items={processItems} />
+        <div class="luxury-card p-6">
+          <h2 class="font-heading text-2xl text-ivory">Deposit and Payment Notes</h2>
+          <p class="mt-4 text-sm leading-6 text-stone">
+            The website does not process deposits or payments. Approved payment methods can be discussed directly once fit and availability are confirmed.
+          </p>
+        </div>
+      </div>
+      <ApplicationForm netlify />
+    </div>
+  </Section>
+
+  <Section eyebrow="Questions" title="Application FAQ" class="pt-0">
+    <div class="mt-8">
+      <FAQAccordion items={faqItems} />
+    </div>
+    <div class="mt-8">
+      <CTAButton href="/contact" variant="secondary">Ask a Question</CTAButton>
+    </div>
+  </Section>
 </BaseLayout>

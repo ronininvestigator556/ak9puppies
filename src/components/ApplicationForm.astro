@@ -11,6 +11,7 @@ const { formName = "puppy-application", netlify = false } = Astro.props;
   class="luxury-card grid gap-6 p-6"
   name={formName}
   method="post"
+  action="/thank-you"
   data-netlify={netlify ? "true" : undefined}
 >
   <input type="hidden" name="form-name" value={formName} />

@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTAButton from "../../components/CTAButton.astro";
+import ImageWithOverlay from "../../components/ImageWithOverlay.astro";
 import ProfileStats from "../../components/ProfileStats.astro";
 import Section from "../../components/Section.astro";
 import StatusBadge from "../../components/StatusBadge.astro";
@@ -39,6 +40,7 @@ const similarPuppies = getSimilarPuppies(puppy, sortPuppies(puppies));
     <div class="mt-10 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
       <ProfileStats
         stats={[
+          { label: "Status", value: puppy.data.statusLabel ?? puppy.data.status },
           { label: "Sex", value: puppy.data.sex },
           { label: "Collar", value: puppy.data.collar },
           { label: "Birthdate", value: "March 21, 2026" },
@@ -47,6 +49,11 @@ const similarPuppies = getSimilarPuppies(puppy, sortPuppies(puppies));
       />
 
       <div class="luxury-card p-6">
+        <ImageWithOverlay
+          alt={`${puppy.data.name}, ${puppy.data.collar}-collar ${puppy.data.sex.toLowerCase()} puppy.`}
+          aspect="aspect-[4/3]"
+          class="mb-6"
+        />
         <h2 class="font-heading text-2xl text-ivory">Placement Notes</h2>
         <div class="prose prose-invert mt-5 max-w-none text-stone">
           <Content />

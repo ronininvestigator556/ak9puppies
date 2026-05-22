@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTAButton from "../components/CTAButton.astro";
+import Section from "../components/Section.astro";
+---
+
+<BaseLayout
+  title="Thank You | Alliance K9"
+  description="Thank you for contacting Alliance K9."
+>
+  <Section
+    eyebrow="Message Received"
+    title="Thank You"
+    description="Your message has been submitted. Alliance K9 will review it and follow up directly."
+  >
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="/puppies">View Puppies</CTAButton>
+      <CTAButton href="/contact" variant="secondary">Back to Contact</CTAButton>
+    </div>
+  </Section>
+</BaseLayout>

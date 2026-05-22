@@ -7,18 +7,23 @@ import Section from "../../components/Section.astro";
 import { sortPuppies } from "../../lib/puppies";
 
 const puppies = sortPuppies(await getCollection("puppies"));
+const availableCount = puppies.filter((puppy) => puppy.data.status === "Available").length;
+const reservedCount = puppies.filter((puppy) => puppy.data.status === "Reserved").length;
 ---
 
-<BaseLayout title="Available Puppies | Alliance K9">
+<BaseLayout
+  title="Available Puppies | Alliance K9"
+  description="View the current Ranger x Mila litter, including available and reserved puppies."
+>
   <Section
     eyebrow="Current Litter"
     title="Ranger x Mila Puppies"
-    description="Each puppy is represented as structured content so status, traits, and profile links can stay consistent across the MVP."
+    description="Each puppy is being individually observed and evaluated to help match temperament, drive, and personality to the right home."
   >
     <div class="mt-8 grid gap-4 rounded-lg border border-gold/20 bg-graphite/60 p-5 text-sm text-stone sm:grid-cols-3">
       <p><span class="font-semibold text-ivory">Born:</span> March 21, 2026</p>
-      <p><span class="font-semibold text-ivory">Litter:</span> 12 puppies</p>
-      <p><span class="font-semibold text-ivory">Split:</span> 6 males / 6 females</p>
+      <p><span class="font-semibold text-ivory">Available:</span> {availableCount} puppies</p>
+      <p><span class="font-semibold text-ivory">Reserved:</span> {reservedCount} puppies</p>
     </div>
 
     <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">

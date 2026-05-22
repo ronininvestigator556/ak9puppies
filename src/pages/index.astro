@@ -1,15 +1,93 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import PagePlaceholder from "../components/PagePlaceholder.astro";
+import CTAButton from "../components/CTAButton.astro";
+import HeroSection from "../components/HeroSection.astro";
+import PuppyCard from "../components/PuppyCard.astro";
+import Section from "../components/Section.astro";
+import TrainingServiceCard from "../components/TrainingServiceCard.astro";
+import { sortPuppies } from "../lib/puppies";
+
+const puppies = sortPuppies(await getCollection("puppies"));
+const availablePuppies = puppies.filter((puppy) => puppy.data.status === "Available");
+const puppyPreview = availablePuppies.slice(0, 3);
+const trainingServices = (await getCollection("training")).slice(0, 2);
 ---
 
 <BaseLayout
   title="Alliance K9 Puppies / Working Dogs"
   description="Purpose-bred puppies raised with intention and professional K9 training from Alliance K9."
 >
-  <PagePlaceholder
-    eyebrow="Homepage"
+  <HeroSection
+    eyebrow="Ranger x Mila"
     title="Ranger x Mila"
-    description="Working dogs, loyal companions, and exceptional beginnings for purpose-matched homes."
+    description="Working dogs, loyal companions, and exceptional beginnings. Purpose-bred puppies raised with intention, evaluated for temperament, drive, confidence, and long-term fit."
+    imageAlt="Mila with one of her puppies."
+    primaryAction={{ href: "/puppies", label: "View Puppies" }}
+    secondaryAction={{ href: "/apply", label: "Apply / Inquire" }}
   />
+
+  <Section>
+    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        [
+          "Professional K9 training background",
+          "Early temperament and drive evaluation",
+          "Health records and ongoing support",
+          "Working and active family placement",
+        ].map((item) => (
+          <div class="luxury-card p-5 text-sm font-semibold leading-6 text-ivory">
+            {item}
+          </div>
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Current Litter"
+    title="Available Ranger x Mila Puppies"
+    description="Each puppy is being individually observed to help match temperament, drive, and personality to the right home."
+    class="pt-0"
+  >
+    <div class="mt-10 grid gap-5 md:grid-cols-3">
+      {puppyPreview.map((puppy) => <PuppyCard puppy={puppy} />)}
+    </div>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="/puppies">View All Puppies</CTAButton>
+      <CTAButton href="/parents" variant="secondary">Meet Ranger x Mila</CTAButton>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Training"
+    title="Training With Purpose"
+    description="Professional training built on communication, structure, and real-world results."
+    class="pt-0"
+  >
+    <div class="mt-10 grid gap-5 md:grid-cols-2">
+      {
+        trainingServices.map((service) => (
+          <TrainingServiceCard
+            title={service.data.title}
+            summary={service.data.summary}
+            bullets={service.data.bullets}
+          />
+        ))
+      }
+    </div>
+  </Section>
+
+  <Section class="pt-0">
+    <div class="luxury-card grid gap-6 p-8 md:grid-cols-[1fr_auto] md:items-center">
+      <div>
+        <p class="eyebrow">Next Step</p>
+        <h2 class="mt-3 font-heading text-3xl text-ivory">Purposeful placement starts with a conversation.</h2>
+        <p class="mt-4 max-w-2xl text-sm leading-6 text-stone">
+          Tell us about your goals, home, and experience so we can help determine whether a Ranger x Mila puppy is the right fit.
+        </p>
+      </div>
+      <CTAButton href="/apply">Apply / Inquire</CTAButton>
+    </div>
+  </Section>
 </BaseLayout>
