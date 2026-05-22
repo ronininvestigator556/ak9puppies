@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PagePlaceholder from "../../components/PagePlaceholder.astro";
+
+export function getStaticPaths() {
+  return [
+    "aang",
+    "azula",
+    "bumi",
+    "hakoda",
+    "iroh",
+    "katara",
+    "kyoshi",
+    "mai",
+    "sokka",
+    "toph",
+    "ty-lee",
+    "zuko",
+  ].map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const puppyName = slug
+  ? slug
+      .split("-")
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(" ")
+  : "Puppy";
+---
+
+<BaseLayout title={`${puppyName} | Alliance K9 Puppies`}>
+  <PagePlaceholder
+    eyebrow="Puppy Profile"
+    title={puppyName}
+    description="A placeholder for puppy stats, temperament notes, gallery, similar puppies, and inquiry CTA."
+  />
+</BaseLayout>
