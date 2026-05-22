@@ -3,7 +3,8 @@ name: Iroh
 slug: iroh
 sex: Male
 collar: Grey
-status: Evaluation Hold
+status: Reserved
+statusLabel: Reserved
 birthDate: "2026-03-21"
 weightNotes: Weight notes pending final update.
 traits:
@@ -14,7 +15,7 @@ bestFit:
   - Family Companion
   - Active Family
 shortDescription: A grey-collar male being observed for stability, connection, and overall temperament.
-fullDescription: Iroh is part of the Ranger x Mila litter and is still being evaluated as his temperament develops. Early notes should be updated with confirmed observations before this profile is used for placement decisions.
+fullDescription: Iroh has been reserved. His profile remains visible as part of the Ranger x Mila litter record and to help visitors understand the type of temperament and fit being evaluated across this litter.
 heroImage: /assets/processed/puppies/iroh/iroh_hero.webp
 gallery: []
 developmentChecklist:

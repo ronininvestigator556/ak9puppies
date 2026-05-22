@@ -1,0 +1,26 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FAQItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="grid gap-3">
+  {
+    items.map((item) => (
+      <details class="luxury-card group p-5">
+        <summary class="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-ivory">
+          <span>{item.question}</span>
+          <span class="text-gold transition group-open:rotate-45" aria-hidden="true">+</span>
+        </summary>
+        <p class="mt-4 text-sm leading-6 text-stone">{item.answer}</p>
+      </details>
+    ))
+  }
+</div>

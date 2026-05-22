@@ -3,7 +3,7 @@ name: Hakoda
 slug: hakoda
 sex: Male
 collar: Dark Blue
-status: Evaluation Hold
+status: Available
 birthDate: "2026-03-21"
 weightNotes: Weight notes pending final update.
 traits:

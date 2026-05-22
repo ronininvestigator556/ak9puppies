@@ -3,7 +3,7 @@ name: Kyoshi
 slug: kyoshi
 sex: Female
 collar: Lime Green
-status: Evaluation Hold
+status: Available
 birthDate: "2026-03-21"
 weightNotes: Weight notes pending final update.
 traits:

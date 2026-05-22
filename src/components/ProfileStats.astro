@@ -1,0 +1,27 @@
+---
+interface ProfileStat {
+  label: string;
+  value?: string;
+}
+
+interface Props {
+  title?: string;
+  stats: ProfileStat[];
+}
+
+const { title = "Profile Stats", stats } = Astro.props;
+---
+
+<aside class="luxury-card p-6">
+  <h2 class="font-heading text-2xl text-ivory">{title}</h2>
+  <dl class="mt-5 grid gap-4 text-sm">
+    {
+      stats.map((stat) => (
+        <div>
+          <dt class="text-stone">{stat.label}</dt>
+          <dd class="mt-1 font-semibold text-ivory">{stat.value || "Pending update"}</dd>
+        </div>
+      ))
+    }
+  </dl>
+</aside>

@@ -1,0 +1,65 @@
+---
+interface Props {
+  formName?: string;
+  netlify?: boolean;
+}
+
+const { formName = "puppy-application", netlify = false } = Astro.props;
+---
+
+<form
+  class="luxury-card grid gap-6 p-6"
+  name={formName}
+  method="post"
+  data-netlify={netlify ? "true" : undefined}
+>
+  <input type="hidden" name="form-name" value={formName} />
+
+  <fieldset class="grid gap-4">
+    <legend class="font-heading text-2xl text-ivory">Contact Details</legend>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <label class="grid gap-2 text-sm text-stone">
+        Name
+        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="name" autocomplete="name" required />
+      </label>
+      <label class="grid gap-2 text-sm text-stone">
+        Email
+        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="email" type="email" autocomplete="email" required />
+      </label>
+      <label class="grid gap-2 text-sm text-stone">
+        Phone
+        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="phone" autocomplete="tel" />
+      </label>
+      <label class="grid gap-2 text-sm text-stone">
+        Location
+        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="location" autocomplete="address-level2" />
+      </label>
+    </div>
+  </fieldset>
+
+  <fieldset class="grid gap-4">
+    <legend class="font-heading text-2xl text-ivory">Placement Fit</legend>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <label class="grid gap-2 text-sm text-stone">
+        Preferred puppy
+        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="preferredPuppy" />
+      </label>
+      <label class="grid gap-2 text-sm text-stone">
+        Intended role
+        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="intendedRole" />
+      </label>
+    </div>
+    <label class="grid gap-2 text-sm text-stone">
+      Working breed experience
+      <textarea class="min-h-28 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="workingBreedExperience"></textarea>
+    </label>
+    <label class="grid gap-2 text-sm text-stone">
+      Home environment and goals
+      <textarea class="min-h-32 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="homeEnvironment" required></textarea>
+    </label>
+  </fieldset>
+
+  <button class="inline-flex min-h-11 w-fit items-center justify-center rounded-md bg-gold px-5 py-2.5 text-sm font-semibold text-midnight transition hover:bg-ivory" type="submit">
+    Submit Application
+  </button>
+</form>

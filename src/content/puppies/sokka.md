@@ -3,7 +3,7 @@ name: Sokka
 slug: sokka
 sex: Male
 collar: Light Blue
-status: Evaluation Hold
+status: Available
 birthDate: "2026-03-21"
 weightNotes: Weight notes pending final update.
 traits:

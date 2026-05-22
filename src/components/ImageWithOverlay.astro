@@ -1,0 +1,32 @@
+---
+interface Props {
+  src?: string;
+  alt: string;
+  aspect?: string;
+  focalPoint?: string;
+  overlay?: boolean;
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  aspect = "aspect-[4/5]",
+  focalPoint = "center",
+  overlay = false,
+  class: className = "",
+} = Astro.props;
+---
+
+<figure class:list={["image-treatment relative", aspect, className]}>
+  {
+    src ? (
+      <img src={src} alt={alt} loading="lazy" style={`object-position: ${focalPoint};`} />
+    ) : (
+      <div class="flex h-full min-h-64 items-center justify-center bg-midnight/70 px-6 text-center text-sm text-stone">
+        Image pending
+      </div>
+    )
+  }
+  {overlay && <div class="absolute inset-0 bg-gradient-to-t from-midnight/85 via-midnight/25 to-transparent"></div>}
+</figure>

@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTAButton from "../../components/CTAButton.astro";
+import ProfileStats from "../../components/ProfileStats.astro";
 import Section from "../../components/Section.astro";
 import StatusBadge from "../../components/StatusBadge.astro";
 import TraitChip from "../../components/TraitChip.astro";
@@ -36,27 +37,14 @@ const similarPuppies = getSimilarPuppies(puppy, sortPuppies(puppies));
     </div>
 
     <div class="mt-10 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-      <aside class="luxury-card p-6">
-        <h2 class="font-heading text-2xl text-ivory">Profile Stats</h2>
-        <dl class="mt-5 grid gap-4 text-sm">
-          <div>
-            <dt class="text-stone">Sex</dt>
-            <dd class="mt-1 font-semibold text-ivory">{puppy.data.sex}</dd>
-          </div>
-          <div>
-            <dt class="text-stone">Collar</dt>
-            <dd class="mt-1 font-semibold text-ivory">{puppy.data.collar}</dd>
-          </div>
-          <div>
-            <dt class="text-stone">Birthdate</dt>
-            <dd class="mt-1 font-semibold text-ivory">March 21, 2026</dd>
-          </div>
-          <div>
-            <dt class="text-stone">Weight Notes</dt>
-            <dd class="mt-1 font-semibold text-ivory">{puppy.data.weightNotes}</dd>
-          </div>
-        </dl>
-      </aside>
+      <ProfileStats
+        stats={[
+          { label: "Sex", value: puppy.data.sex },
+          { label: "Collar", value: puppy.data.collar },
+          { label: "Birthdate", value: "March 21, 2026" },
+          { label: "Weight Notes", value: puppy.data.weightNotes },
+        ]}
+      />
 
       <div class="luxury-card p-6">
         <h2 class="font-heading text-2xl text-ivory">Placement Notes</h2>

@@ -1,0 +1,40 @@
+---
+interface Props {
+  formName?: string;
+  netlify?: boolean;
+}
+
+const { formName = "contact", netlify = false } = Astro.props;
+---
+
+<form
+  class="luxury-card grid gap-5 p-6"
+  name={formName}
+  method="post"
+  data-netlify={netlify ? "true" : undefined}
+>
+  <input type="hidden" name="form-name" value={formName} />
+  <label class="grid gap-2 text-sm text-stone">
+    Name
+    <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="name" autocomplete="name" required />
+  </label>
+  <label class="grid gap-2 text-sm text-stone">
+    Email
+    <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="email" type="email" autocomplete="email" required />
+  </label>
+  <label class="grid gap-2 text-sm text-stone">
+    Inquiry Type
+    <select class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="inquiryType">
+      <option>Puppy inquiry</option>
+      <option>Training inquiry</option>
+      <option>General question</option>
+    </select>
+  </label>
+  <label class="grid gap-2 text-sm text-stone">
+    Message
+    <textarea class="min-h-36 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="message" required></textarea>
+  </label>
+  <button class="inline-flex min-h-11 w-fit items-center justify-center rounded-md bg-gold px-5 py-2.5 text-sm font-semibold text-midnight transition hover:bg-ivory" type="submit">
+    Send Message
+  </button>
+</form>

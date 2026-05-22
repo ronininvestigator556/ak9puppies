@@ -3,7 +3,7 @@ name: Mai
 slug: mai
 sex: Female
 collar: Yellow
-status: Evaluation Hold
+status: Available
 birthDate: "2026-03-21"
 weightNotes: Weight notes pending final update.
 traits:

@@ -1,0 +1,62 @@
+---
+import CTAButton from "./CTAButton.astro";
+import ImageWithOverlay from "./ImageWithOverlay.astro";
+
+interface HeroAction {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  focalPoint?: string;
+  primaryAction?: HeroAction;
+  secondaryAction?: HeroAction;
+}
+
+const {
+  eyebrow,
+  title,
+  description,
+  image,
+  imageAlt = "",
+  focalPoint = "center",
+  primaryAction,
+  secondaryAction,
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden border-b border-gold/20 bg-midnight">
+  <div class="section-shell grid min-h-[560px] items-center gap-10 py-16 lg:grid-cols-[1fr_0.85fr]">
+    <div class="relative z-10 max-w-3xl">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1 class="mt-4 font-heading text-5xl leading-tight text-ivory sm:text-6xl">{title}</h1>
+      {description && <p class="body-copy mt-6 max-w-2xl">{description}</p>}
+      {
+        (primaryAction || secondaryAction) && (
+          <div class="mt-8 flex flex-wrap gap-3">
+            {primaryAction && <CTAButton href={primaryAction.href}>{primaryAction.label}</CTAButton>}
+            {secondaryAction && (
+              <CTAButton href={secondaryAction.href} variant="secondary">
+                {secondaryAction.label}
+              </CTAButton>
+            )}
+          </div>
+        )
+      }
+    </div>
+
+    <ImageWithOverlay
+      src={image}
+      alt={imageAlt}
+      aspect="aspect-[4/5] lg:aspect-[5/6]"
+      focalPoint={focalPoint}
+      overlay
+      class="min-h-[420px]"
+    />
+  </div>
+</section>

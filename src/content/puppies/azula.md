@@ -3,7 +3,7 @@ name: Azula
 slug: azula
 sex: Female
 collar: Purple
-status: Evaluation Hold
+status: Available
 birthDate: "2026-03-21"
 weightNotes: Weight notes pending final update.
 traits:

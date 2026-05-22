@@ -1,0 +1,24 @@
+---
+interface GalleryItem {
+  src: string;
+  alt: string;
+  category?: string;
+}
+
+interface Props {
+  items: GalleryItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="columns-1 gap-5 sm:columns-2 lg:columns-3">
+  {
+    items.map((item) => (
+      <figure class="image-treatment mb-5 break-inside-avoid">
+        <img src={item.src} alt={item.alt} loading="lazy" />
+        {item.category && <figcaption class="px-4 py-3 text-xs uppercase tracking-[0.16em] text-stone">{item.category}</figcaption>}
+      </figure>
+    ))
+  }
+</div>

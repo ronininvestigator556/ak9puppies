@@ -3,7 +3,7 @@ name: Aang
 slug: aang
 sex: Male
 collar: Red
-status: Evaluation Hold
+status: Available
 birthDate: "2026-03-21"
 weightNotes: Weight notes pending final update.
 traits:

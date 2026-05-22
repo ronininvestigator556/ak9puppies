@@ -3,7 +3,7 @@ name: Katara
 slug: katara
 sex: Female
 collar: White
-status: Evaluation Hold
+status: Available
 birthDate: "2026-03-21"
 weightNotes: Weight notes pending final update.
 traits:

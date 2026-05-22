@@ -1,0 +1,27 @@
+---
+import CTAButton from "./CTAButton.astro";
+
+interface Props {
+  title: string;
+  summary: string;
+  bullets?: string[];
+  href?: string;
+}
+
+const { title, summary, bullets = [], href = "/contact" } = Astro.props;
+---
+
+<article class="luxury-card luxury-card-hover flex h-full flex-col p-6">
+  <h3 class="font-heading text-2xl text-ivory">{title}</h3>
+  <p class="mt-3 flex-1 text-sm leading-6 text-stone">{summary}</p>
+  {
+    bullets.length > 0 && (
+      <ul class="mt-5 grid gap-2 text-sm text-stone">
+        {bullets.map((bullet) => <li>{bullet}</li>)}
+      </ul>
+    )
+  }
+  <div class="mt-6">
+    <CTAButton href={href} variant="secondary">Inquire</CTAButton>
+  </div>
+</article>

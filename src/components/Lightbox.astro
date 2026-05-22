@@ -1,0 +1,70 @@
+---
+interface LightboxItem {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  items: LightboxItem[];
+  id?: string;
+}
+
+const { items, id = "gallery-lightbox" } = Astro.props;
+---
+
+<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-lightbox-root={id}>
+  {
+    items.map((item) => (
+      <button
+        class="image-treatment aspect-[4/5] text-left"
+        type="button"
+        data-lightbox-trigger
+      >
+        <img src={item.src} alt={item.alt} loading="lazy" />
+      </button>
+    ))
+  }
+</div>
+
+<dialog class="max-w-5xl rounded-lg border border-gold/30 bg-midnight p-0 backdrop:bg-black/80" data-lightbox-dialog={id}>
+  <div class="grid gap-4 p-4">
+    <button class="justify-self-end rounded-md border border-gold/50 px-3 py-2 text-sm text-ivory" type="button" data-lightbox-close>
+      Close
+    </button>
+    <img class="max-h-[78vh] w-full rounded-md object-contain" src="" alt="" data-lightbox-image />
+  </div>
+</dialog>
+
+<script>
+  document.querySelectorAll("[data-lightbox-root]").forEach((root) => {
+    const id = root.getAttribute("data-lightbox-root");
+    const dialog = document.querySelector(`[data-lightbox-dialog="${id}"]`);
+    const image = dialog?.querySelector("[data-lightbox-image]");
+    const closeButton = dialog?.querySelector("[data-lightbox-close]");
+
+    root.addEventListener("click", (event) => {
+      const target = event.target;
+
+      if (!(target instanceof Element)) {
+        return;
+      }
+
+      const trigger = target.closest("[data-lightbox-trigger]");
+      const sourceImage = trigger?.querySelector("img");
+
+      if (!(dialog instanceof HTMLDialogElement) || !(image instanceof HTMLImageElement) || !sourceImage) {
+        return;
+      }
+
+      image.src = sourceImage.src;
+      image.alt = sourceImage.alt;
+      dialog.showModal();
+    });
+
+    closeButton?.addEventListener("click", () => {
+      if (dialog instanceof HTMLDialogElement) {
+        dialog.close();
+      }
+    });
+  });
+</script>
