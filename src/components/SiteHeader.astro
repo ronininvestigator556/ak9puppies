@@ -11,11 +11,12 @@ const navItems = [
 ---
 
 <header class="sticky top-0 z-50 border-b border-gold/20 bg-midnight/90 backdrop-blur">
-  <div class="mx-auto flex max-w-6xl flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-5">
     <a href="/" class="font-heading text-xl tracking-wide text-ivory">
       Alliance K9
     </a>
-    <nav aria-label="Primary navigation">
+
+    <nav class="hidden sm:block" aria-label="Primary navigation">
       <ul class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-stone">
         {
           navItems.map((item) => (
@@ -28,5 +29,27 @@ const navItems = [
         }
       </ul>
     </nav>
+
+    <details class="group relative sm:hidden">
+      <summary class="flex min-h-11 cursor-pointer list-none items-center rounded-md border border-gold/40 px-4 py-2 text-sm font-semibold text-ivory transition hover:border-gold hover:bg-gold/10">
+        Menu
+      </summary>
+      <nav
+        class="absolute right-0 mt-3 w-56 rounded-lg border border-gold/20 bg-graphite p-3 shadow-soft"
+        aria-label="Mobile navigation"
+      >
+        <ul class="grid gap-1 text-sm text-stone">
+          {
+            navItems.map((item) => (
+              <li>
+                <a class="block rounded-md px-3 py-2 transition hover:bg-gold/10 hover:text-gold" href={item.href}>
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+    </details>
   </div>
 </header>

@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTAButton from "../components/CTAButton.astro";
-import ImageWithOverlay from "../components/ImageWithOverlay.astro";
+import Lightbox from "../components/Lightbox.astro";
 import Section from "../components/Section.astro";
 import { firstHeroImage, listPublicImages, publicAsset } from "../lib/assets";
 
@@ -14,10 +14,20 @@ const galleryImage =
   manualGalleryImages[0];
 const configuredGalleryItems = galleryItems
   .map((item) => ({
-    ...item,
     src: publicAsset(item.data.src),
+    alt: item.data.alt,
   }))
-  .filter((item) => item.src);
+  .filter((item): item is { src: string; alt: string } => Boolean(item.src));
+const lightboxItems = [
+  ...manualGalleryImages.map((image) => ({
+    src: image,
+    alt: "Alliance K9 gallery photo.",
+  })),
+  ...configuredGalleryItems.map((item) => ({
+    src: item.src,
+    alt: item.alt,
+  })),
+];
 ---
 
 <BaseLayout
@@ -34,30 +44,12 @@ const configuredGalleryItems = galleryItems
       {categories.map((category) => <span class="rounded-full border border-gold/20 px-3 py-1 text-xs uppercase tracking-[0.16em] text-stone">{category}</span>)}
     </div>
 
-    <div class="mt-10 columns-1 gap-5 sm:columns-2 lg:columns-3">
+    <div class="mt-10">
+      {lightboxItems.length > 0 && <Lightbox items={lightboxItems} />}
       {
-        manualGalleryImages.map((image) => (
-          <div class="mb-5 break-inside-avoid">
-            <ImageWithOverlay src={image} alt="Alliance K9 gallery photo." aspect="aspect-[4/5]" />
-          </div>
-        ))
-      }
-      {
-        configuredGalleryItems.map((item) => (
-          <div class="mb-5 break-inside-avoid">
-            <ImageWithOverlay
-              src={item.src}
-              alt={item.data.alt}
-              aspect={item.data.category === "group" ? "aspect-[4/3]" : "aspect-[4/5]"}
-            />
-            <p class="mt-3 text-xs uppercase tracking-[0.16em] text-gold">{item.data.category}</p>
-          </div>
-        ))
-      }
-      {
-        configuredGalleryItems.length === 0 && manualGalleryImages.length === 0 && (
+        lightboxItems.length === 0 && (
           <div class="luxury-card p-6 text-sm leading-6 text-stone">
-            Processed gallery images can be added in Phase 8 without changing this page structure.
+            Gallery images are ready to be added without changing this page structure.
           </div>
         )
       }
