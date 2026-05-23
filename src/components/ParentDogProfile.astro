@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import ImageWithOverlay from "./ImageWithOverlay.astro";
 import TraitChip from "./TraitChip.astro";
+import { publicAsset } from "../lib/assets";
 
 interface Props {
   dog: CollectionEntry<"dogs">;
@@ -10,26 +11,43 @@ interface Props {
 }
 
 const { dog, traits = [], imageReady = false } = Astro.props;
+const galleryImages = dog.data.gallery.filter((image) => publicAsset(image));
 ---
 
-<article class="luxury-card grid gap-6 p-5 lg:grid-cols-[0.85fr_1fr]">
-  <ImageWithOverlay
-    src={imageReady ? dog.data.heroImage : undefined}
-    alt={`${dog.data.name}, ${dog.data.role} for Alliance K9`}
-  />
-  <div class="flex flex-col justify-center">
-    <p class="text-sm uppercase tracking-[0.18em] text-gold">{dog.data.role}</p>
-    <h3 class="mt-2 font-heading text-3xl text-ivory">{dog.data.name}</h3>
-    <p class="mt-1 text-sm text-stone">{dog.data.breed}</p>
-    {dog.data.registryNotes && <p class="mt-3 text-sm text-stone">{dog.data.registryNotes}</p>}
-    <p class="mt-5 text-sm leading-6 text-stone">{dog.data.temperamentSummary}</p>
-    <p class="mt-4 text-sm leading-6 text-stone">{dog.data.workingNotes}</p>
-    {
-      traits.length > 0 && (
-        <div class="mt-5 flex flex-wrap gap-2">
-          {traits.map((trait) => <TraitChip label={trait} />)}
-        </div>
-      )
-    }
+<article class="luxury-card p-5">
+  <div class="grid gap-6 lg:grid-cols-[0.85fr_1fr]">
+    <ImageWithOverlay
+      src={imageReady ? dog.data.heroImage : undefined}
+      alt={`${dog.data.name}, ${dog.data.role} for Alliance K9`}
+    />
+    <div class="flex flex-col justify-center">
+      <p class="text-sm uppercase tracking-[0.18em] text-gold">{dog.data.role}</p>
+      <h3 class="mt-2 font-heading text-3xl text-ivory">{dog.data.name}</h3>
+      <p class="mt-1 text-sm text-stone">{dog.data.breed}</p>
+      {dog.data.registryNotes && <p class="mt-3 text-sm text-stone">{dog.data.registryNotes}</p>}
+      <p class="mt-5 text-sm leading-6 text-stone">{dog.data.temperamentSummary}</p>
+      <p class="mt-4 text-sm leading-6 text-stone">{dog.data.workingNotes}</p>
+      {
+        traits.length > 0 && (
+          <div class="mt-5 flex flex-wrap gap-2">
+            {traits.map((trait) => <TraitChip label={trait} />)}
+          </div>
+        )
+      }
+    </div>
   </div>
+
+  {
+    galleryImages.length > 0 && (
+      <div class="mt-5 grid gap-4 sm:grid-cols-3">
+        {galleryImages.map((image) => (
+          <ImageWithOverlay
+            src={image}
+            alt={`${dog.data.name} parent gallery photo.`}
+            aspect="aspect-[4/3]"
+          />
+        ))}
+      </div>
+    )
+  }
 </article>
