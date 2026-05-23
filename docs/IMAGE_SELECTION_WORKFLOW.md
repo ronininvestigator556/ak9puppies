@@ -16,11 +16,10 @@ Recommended paths:
 
 ```text
 public/assets/processed/homepage/mila-puppy-hero.webp
-public/assets/processed/parents/ranger_hero.webp
-public/assets/processed/parents/mila_hero.webp
-public/assets/processed/puppies/zuko/zuko_hero.webp
-public/assets/processed/puppies/zuko/zuko_gallery_001.webp
-public/assets/processed/gallery/group_litter_001.webp
+public/assets/processed/parents/parents-001.webp
+public/assets/processed/puppies/zuko/zuko-6w-hero-004.webp
+public/assets/processed/puppies/zuko/zuko-6w-001.webp
+public/assets/processed/gallery/gallery-001.webp
 ```
 
 The site checks whether a processed image exists before rendering it. If a slot is empty, it shows an intentional pending media frame instead of a broken image.
@@ -44,7 +43,7 @@ public/assets/processed/puppies/ty-lee/
 public/assets/processed/puppies/zuko/
 ```
 
-Use each puppy's existing `*_hero.webp` filename for the main profile image. Add gallery files alongside it.
+Use `hero` anywhere in the filename for the main profile image. Add gallery files alongside it.
 
 ## Formats
 
@@ -64,11 +63,11 @@ Accepted:
 Use descriptive lowercase names for processed website files:
 
 ```text
-zuko_hero.webp
-zuko_gallery_001.webp
-zuko_gallery_002.webp
-azula_hero.webp
-group_litter_001.webp
+zuko-6w-hero-004.webp
+zuko-6w-001.webp
+zuko-6w-002.webp
+azula-7w-hero-006.webp
+gallery-001.webp
 ```
 
 ## Practical Loop

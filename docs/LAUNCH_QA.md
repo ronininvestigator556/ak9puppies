@@ -20,6 +20,7 @@
   - Training inquiry
 - Mobile navigation markup is present on every generated page.
 - Gallery lightbox triggers are present on the generated gallery page.
+- Git-index asset audit confirms the deploy-ready set includes 12 puppy hero images and 9 gallery images.
 - Puppy profile statuses match the current known availability:
   - Iroh: Reserved
   - Toph: Reserved
@@ -30,12 +31,12 @@
 
 - Netlify form notifications still need to be configured in the Netlify dashboard after deployment.
 - Set `PUBLIC_SITE_URL` in the deploy environment once the final production URL is known so canonical and social URLs use the live domain.
-- The current local image library in `public/assets/processed/` is not committed. A Git-based deployment will not include those images until a curated deploy-ready image set is committed or an alternate asset delivery approach is chosen.
+- A curated deploy-ready image set is committed for launch. The larger local working photo library remains untracked so new and alternate photos can keep moving quickly without bloating the repo.
 - `npm audit --omit=dev` reports 5 moderate advisories from the `@astrojs/check` YAML language tooling dependency chain. The suggested automated fix requires a breaking change, so it was not applied during launch QA.
 
 ## Remaining Manual QA
 
-- Verify final image selections visually on mobile and desktop after the deploy-ready image set is chosen.
+- Verify final image selections visually on mobile and desktop after deployment.
 - Submit one test entry for each Netlify form on the deployed site and confirm the submissions appear in Netlify Forms.
 - Configure Netlify email notifications for the desired recipient.
 - Confirm the final domain and DNS before public launch.
