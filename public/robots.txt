@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://alliancek9dogs.com/sitemap.xml

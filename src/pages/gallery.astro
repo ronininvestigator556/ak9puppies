@@ -7,10 +7,20 @@ import Section from "../components/Section.astro";
 import { firstHeroImage, listPublicImages, publicAsset } from "../lib/assets";
 
 const galleryItems = await getCollection("gallery");
-const categories = ["puppies", "parents", "training", "group"];
+const categories = [
+  ["All", "Explore photos by category to see the puppies, parents, litter development, and training work behind Alliance K9."],
+  ["Puppies", "Individual puppy portraits, profile images, personality moments, and early development photos from the current Ranger x Mila litter."],
+  ["Group / Litter", "Group photos showing the litter together, social interaction, play, rest, and shared developmental moments."],
+  ["Parents", "Images of Ranger and Mila, the sire and dam of the current litter, including portraits, structure photos, and selected working or lifestyle images."],
+  ["Training", "Training and working-dog images that show the experience, structure, and handling behind Alliance K9."],
+  ["Outdoor Exploration", "Photos showing puppies and dogs experiencing age-appropriate outdoor exposure and environmental confidence work."],
+  ["Handler Interaction", "Photos showing puppies and dogs engaging with people through handling, affection, training, and everyday interaction."],
+  ["Development Timeline", "Photos showing puppies from birth through current evaluation age, including neonatal photos, early handling, outdoor exposure, and personality emergence."],
+];
 const manualGalleryImages = listPublicImages("/assets/processed/gallery");
 const galleryImage =
   firstHeroImage("/assets/processed/gallery") ??
+  publicAsset("/assets/processed/homepage/mila-puppy-hero.webp") ??
   manualGalleryImages[0];
 const configuredGalleryItems = galleryItems
   .map((item) => ({
@@ -21,7 +31,7 @@ const configuredGalleryItems = galleryItems
 const lightboxItems = [
   ...manualGalleryImages.map((image) => ({
     src: image,
-    alt: "Alliance K9 gallery photo.",
+    alt: "Alliance K9 puppies, parent dogs, or training moment from the Ranger x Mila program.",
   })),
   ...configuredGalleryItems.map((item) => ({
     src: item.src,
@@ -31,19 +41,55 @@ const lightboxItems = [
 ---
 
 <BaseLayout
-  title="Gallery | Alliance K9"
-  description="Alliance K9 puppy, parent, training, and litter media gallery."
+  title="Gallery | Alliance K9 Dogs"
+  description="View the Alliance K9 gallery featuring Ranger x Mila puppies, parent dogs, training moments, outdoor exploration, and working-dog development."
   image={galleryImage}
+  imageAlt="Alliance K9 gallery image featuring puppies, parent dogs, or training moments."
 >
   <Section
-    eyebrow="Gallery"
-    title="Alliance K9 Media"
-    description="A portrait-friendly gallery structure is ready for puppy, parent, training, and group images once processed web assets are added."
+    eyebrow="Alliance K9 Media"
+    title="The Story in Photos"
+    description="A visual look at the Ranger x Mila litter, parent dogs, training moments, and the everyday handling that shapes each Alliance K9 puppy."
   >
-    <div class="mt-8 flex flex-wrap gap-2">
-      {categories.map((category) => <span class="rounded-full border border-gold/20 px-3 py-1 text-xs uppercase tracking-[0.16em] text-stone">{category}</span>)}
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="/puppies/">View Available Puppies</CTAButton>
+      <CTAButton href="/apply/" variant="secondary">Start an Application</CTAButton>
     </div>
+  </Section>
 
+  <Section
+    eyebrow="Documented Development"
+    title="Raised, Handled, and Documented"
+    description="The Alliance K9 gallery is more than a collection of puppy pictures. It shows the development, handling, socialization, and daily life behind the dogs we raise and train."
+    class="pt-0"
+  >
+    <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
+      From newborn milestones and early handling to outdoor exploration, parent portraits, and training moments, these images help tell the story of the Ranger x Mila litter and the Alliance K9 program.
+    </p>
+  </Section>
+
+  <Section
+    eyebrow="Browse"
+    title="Browse the Gallery"
+    description="Explore photos by category to see the puppies, parents, litter development, and training work behind Alliance K9."
+    class="pt-0"
+  >
+    <div class="mt-8 grid gap-4 md:grid-cols-2">
+      {categories.slice(1).map(([title, body]) => (
+        <div class="luxury-card p-5">
+          <h2 class="font-heading text-xl text-ivory">{title}</h2>
+          <p class="mt-3 text-sm leading-6 text-stone">{body}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Featured Moments"
+    title="Featured Moments"
+    description="A few selected images that capture the heart of the Alliance K9 program - thoughtful breeding, real handling, working potential, and strong human connection."
+    class="pt-0"
+  >
     <div class="mt-10">
       {lightboxItems.length > 0 && <Lightbox items={lightboxItems} />}
       {
@@ -54,9 +100,22 @@ const lightboxItems = [
         )
       }
     </div>
+  </Section>
 
-    <div class="mt-10">
-      <CTAButton href="/contact" variant="secondary">Ask About Availability</CTAButton>
+  <Section class="pt-0">
+    <div class="luxury-card grid gap-6 p-8 md:grid-cols-[1fr_auto] md:items-center">
+      <div>
+        <p class="eyebrow">Next Step</p>
+        <h2 class="mt-3 font-heading text-3xl text-ivory">See a Puppy That Stands Out?</h2>
+        <p class="mt-4 max-w-2xl text-sm leading-6 text-stone">
+          If one of the puppies catches your attention, visit the available puppy profiles to learn more about temperament, drive, affection, confidence, and current placement status.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <CTAButton href="/puppies/">View Available Puppies</CTAButton>
+        <CTAButton href="/apply/" variant="secondary">Start an Application</CTAButton>
+        <CTAButton href="/training/" variant="secondary">Explore Training</CTAButton>
+      </div>
     </div>
   </Section>
 </BaseLayout>

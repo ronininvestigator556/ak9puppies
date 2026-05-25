@@ -5,18 +5,22 @@ import Section from "../components/Section.astro";
 ---
 
 <BaseLayout
-  title="Thank You | Alliance K9"
+  title="Thank You | Alliance K9 Dogs"
   description="Thank you for contacting Alliance K9."
   noIndex
 >
   <Section
     eyebrow="Message Received"
     title="Thank You"
-    description="Your message has been submitted. Alliance K9 will review it and follow up directly."
+    description="Thank you for reaching out. Your message has been received. Alliance K9 will review your inquiry and follow up with the next best step based on your goals, questions, and current availability."
   >
+    <div class="mt-6 max-w-3xl space-y-4 text-sm leading-6 text-stone">
+      <p>For puppy applications, we review each application with the goal of matching the right puppy to the right home and will follow up to discuss availability, fit, and next steps.</p>
+      <p>For training inquiries, Alliance K9 will review your message and follow up to discuss your dog, your goals, and possible next steps.</p>
+    </div>
     <div class="mt-8 flex flex-wrap gap-3">
-      <CTAButton href="/puppies">View Puppies</CTAButton>
-      <CTAButton href="/contact" variant="secondary">Back to Contact</CTAButton>
+      <CTAButton href="/puppies/">View Puppies</CTAButton>
+      <CTAButton href="/contact/" variant="secondary">Back to Contact</CTAButton>
     </div>
   </Section>
 </BaseLayout>

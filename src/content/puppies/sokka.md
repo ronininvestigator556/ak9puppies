@@ -5,17 +5,18 @@ sex: Male
 collar: Light Blue
 status: Available
 birthDate: "2026-03-21"
-weightNotes: Weight notes pending final update.
+currentAge: 9 weeks
+weightNotes: Current weight not publicly listed.
 traits:
   - Social
   - Playful
   - Curious
 bestFit:
   - Active Family
-  - Family Companion
-shortDescription: A light-blue-collar male being observed for social confidence, playfulness, and engagement.
-fullDescription: Sokka is part of the Ranger x Mila litter and is still being evaluated as his temperament develops. Early notes should be updated with confirmed observations before this profile is used for placement decisions.
-heroImage: /assets/processed/puppies/sokka/sokka_hero.webp
+  - Balanced Companion
+shortDescription: A light-blue-collar male showing social confidence, playfulness, curiosity, and engagement.
+fullDescription: Sokka is a social, playful male with current notes highlighting curiosity and engagement. He appears to enjoy interaction and may be well suited for an active family or balanced companion home that wants a trainable puppy with a connected temperament. Sokka's best fit will likely include regular structure, play, and continued training rather than a low-involvement household. His early profile suggests approachable confidence and a willingness to participate with people. He should continue to be observed for drive, recovery, and ability to settle as he matures. Sokka remains available for a home that values both companionship and thoughtful development.
+heroImage: /assets/processed/puppies/sokka/sokka-6w-hero-015.webp
 gallery: []
 developmentChecklist:
   - Early handling

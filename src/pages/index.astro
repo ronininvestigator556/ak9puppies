@@ -5,43 +5,42 @@ import CTAButton from "../components/CTAButton.astro";
 import HeroSection from "../components/HeroSection.astro";
 import PuppyCard from "../components/PuppyCard.astro";
 import Section from "../components/Section.astro";
-import TrainingServiceCard from "../components/TrainingServiceCard.astro";
 import { publicAsset } from "../lib/assets";
 import { sortPuppies } from "../lib/puppies";
 
 const puppies = sortPuppies(await getCollection("puppies"));
-const availablePuppies = puppies.filter((puppy) => puppy.data.status === "Available");
-const puppyPreview = availablePuppies.slice(0, 3);
-const trainingServices = (await getCollection("training")).slice(0, 2);
+const puppyPreview = puppies.filter((puppy) => puppy.data.status !== "Sold").slice(0, 3);
 const heroImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp");
 ---
 
 <BaseLayout
-  title="Alliance K9 Puppies / Working Dogs"
-  description="Purpose-bred puppies raised with intention and professional K9 training from Alliance K9."
+  title="Alliance K9 Puppies & Working Dogs"
+  description="Purpose-bred Dutch Shepherd and Belgian Malinois puppies from Alliance K9, raised with professional training insight, early evaluation, and intentional placement."
   image={heroImage}
+  imageAlt="Mila with one of the Ranger x Mila puppies."
 >
   <HeroSection
-    eyebrow="Ranger x Mila"
-    title="Ranger x Mila"
-    description="Working dogs, loyal companions, and exceptional beginnings. Purpose-bred puppies raised with intention, evaluated for temperament, drive, confidence, and long-term fit."
+    eyebrow="Alliance K9 Puppies"
+    title="Working-Bred. Family-Raised. Purpose-Matched."
+    description="Purpose-bred Dutch Shepherd and Belgian Malinois puppies raised with professional training insight, early socialization, and careful placement for working homes, active families, and devoted companions."
     image={heroImage}
-    imageAlt="Mila with one of her puppies."
-    primaryAction={{ href: "/puppies", label: "View Puppies" }}
-    secondaryAction={{ href: "/apply", label: "Apply / Inquire" }}
+    imageAlt="Mila with one of the Ranger x Mila puppies."
+    primaryAction={{ href: "/puppies/", label: "View Available Puppies" }}
+    secondaryAction={{ href: "/apply/", label: "Start an Application" }}
   />
 
   <Section>
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {
         [
-          "Professional K9 training background",
-          "Early temperament and drive evaluation",
-          "Health records and ongoing support",
-          "Working and active family placement",
-        ].map((item) => (
-          <div class="luxury-card p-5 text-sm font-semibold leading-6 text-ivory">
-            {item}
+          ["Professional K9 Background", "Training experience guides every placement."],
+          ["Early Puppy Evaluation", "Each puppy is observed for temperament, drive, confidence, and engagement."],
+          ["Working Bloodlines", "Ranger x Mila combines serious working genetics with stable family integration."],
+          ["Placement-Focused", "The right match matters more than rushing a sale."],
+        ].map(([title, body]) => (
+          <div class="luxury-card p-5">
+            <h2 class="font-heading text-xl text-ivory">{title}</h2>
+            <p class="mt-3 text-sm leading-6 text-stone">{body}</p>
           </div>
         ))
       }
@@ -49,49 +48,113 @@ const heroImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp")
   </Section>
 
   <Section
+    eyebrow="Purpose-Bred"
+    title="Purpose-Bred Dogs, Raised With Intention"
+    description="At Alliance K9, puppies are raised with the same mindset that guides our training: clarity, structure, relationship, and long-term success. This litter is being carefully observed from birth through placement to help identify each puppy's natural drives, temperament, confidence, and best-fit home."
+    class="pt-0"
+  >
+    <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
+      Whether you are looking for a family protection prospect, an active companion, or a serious working dog, our goal is to help place the right puppy with the right person.
+    </p>
+  </Section>
+
+  <Section
     eyebrow="Current Litter"
-    title="Available Ranger x Mila Puppies"
-    description="Each puppy is being individually observed to help match temperament, drive, and personality to the right home."
+    title="Ranger x Mila Litter"
+    description="Born March 21, 2026 - 12 puppies, 6 males and 6 females."
+    class="pt-0"
+  >
+    <div class="luxury-card mt-8 p-6">
+      <p class="text-sm leading-6 text-stone">
+        This litter brings together Ranger's KNPV Dutch Shepherd lineage and Mila's strong Belgian Malinois working background. The puppies are showing a range of personalities, from affectionate family-oriented companions to high-drive working prospects.
+      </p>
+      <p class="mt-4 text-sm leading-6 text-stone">
+        Each puppy profile includes individual notes on temperament, drive, affection, confidence, and recommended fit.
+      </p>
+      <div class="mt-6">
+        <CTAButton href="/puppies/">Meet the Puppies</CTAButton>
+      </div>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Puppy Profiles"
+    title="Meet the Current Puppies"
+    description="Every puppy is evaluated as an individual. Browse current profiles to learn more about each pup's personality, strengths, and placement status."
     class="pt-0"
   >
     <div class="mt-10 grid gap-5 md:grid-cols-3">
       {puppyPreview.map((puppy) => <PuppyCard puppy={puppy} />)}
     </div>
-    <div class="mt-8 flex flex-wrap gap-3">
-      <CTAButton href="/puppies">View All Puppies</CTAButton>
-      <CTAButton href="/parents" variant="secondary">Meet Ranger x Mila</CTAButton>
+    <div class="mt-8">
+      <CTAButton href="/puppies/">View Available Puppies</CTAButton>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Parents"
+    title="Built on Proven Foundations"
+    description="Ranger and Mila were selected for more than appearance alone. Their pairing reflects the traits Alliance K9 values most: confidence, drive, intelligence, nerve, affection, and the ability to live closely with people."
+    class="pt-0"
+  >
+    <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
+      Ranger brings strong Dutch Shepherd working heritage and a composed, capable presence. Mila contributes intensity, athleticism, obedience, and a deeply affectionate maternal temperament. Together, they have produced a litter with real range - from serious working candidates to loyal active companions.
+    </p>
+    <div class="mt-6">
+      <CTAButton href="/parents/" variant="secondary">Meet Ranger & Mila</CTAButton>
     </div>
   </Section>
 
   <Section
     eyebrow="Training"
-    title="Training With Purpose"
-    description="Professional training built on communication, structure, and real-world results."
+    title="Training Support Beyond Placement"
+    description="Alliance K9 is built on professional training, not just breeding. Puppy buyers and training clients benefit from practical guidance rooted in structure, communication, and real-world dog handling."
     class="pt-0"
   >
-    <div class="mt-10 grid gap-5 md:grid-cols-2">
-      {
-        trainingServices.map((service) => (
-          <TrainingServiceCard
-            title={service.data.title}
-            summary={service.data.summary}
-            bullets={service.data.bullets}
-          />
-        ))
-      }
+    <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
+      From puppy foundations and obedience to protection and working-dog development, training support is available for owners who want to build a reliable relationship with their dog from the start.
+    </p>
+    <div class="mt-6">
+      <CTAButton href="/training/" variant="secondary">Explore Training</CTAButton>
     </div>
+  </Section>
+
+  <Section
+    eyebrow="Placement"
+    title="The Right Dog Matters"
+    description="These puppies are not placed on looks alone. Each one is observed for temperament, confidence, affection, drive, and overall suitability so we can help guide buyers toward a puppy that fits their lifestyle and goals."
+    class="pt-0"
+  >
+    <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
+      Some puppies are better suited for experienced working homes. Others may be ideal for active families seeking a loyal, trainable companion. The goal is not simply to sell a puppy - it is to create a successful long-term match.
+    </p>
+    <div class="mt-6">
+      <CTAButton href="/apply/">Start the Placement Conversation</CTAButton>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Gallery"
+    title="Raised From Day One"
+    description="From newborn milestones to outdoor exploration, this litter has been documented throughout development. View the gallery for puppy portraits, group photos, parent images, and training moments from Alliance K9."
+    class="pt-0"
+  >
+    <CTAButton href="/gallery/" variant="secondary">View Gallery</CTAButton>
   </Section>
 
   <Section class="pt-0">
     <div class="luxury-card grid gap-6 p-8 md:grid-cols-[1fr_auto] md:items-center">
       <div>
         <p class="eyebrow">Next Step</p>
-        <h2 class="mt-3 font-heading text-3xl text-ivory">Purposeful placement starts with a conversation.</h2>
+        <h2 class="mt-3 font-heading text-3xl text-ivory">Find Your Future Partner</h2>
         <p class="mt-4 max-w-2xl text-sm leading-6 text-stone">
-          Tell us about your goals, home, and experience so we can help determine whether a Ranger x Mila puppy is the right fit.
+          Whether you are seeking a working prospect, family protection candidate, or active companion, Alliance K9 is committed to honest evaluation, thoughtful placement, and long-term support.
         </p>
       </div>
-      <CTAButton href="/apply">Apply / Inquire</CTAButton>
+      <div class="flex flex-wrap gap-3">
+        <CTAButton href="/apply/">Apply for a Puppy</CTAButton>
+        <CTAButton href="/contact/" variant="secondary">Contact Alliance K9</CTAButton>
+      </div>
     </div>
   </Section>
 </BaseLayout>

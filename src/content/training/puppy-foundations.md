@@ -1,10 +1,10 @@
 ---
 title: Puppy Foundations
 slug: puppy-foundations
-summary: Early training support for puppies learning confidence, structure, social neutrality, and handler engagement.
+summary: Start young with structure, confidence, and clear communication. Puppy foundation work may include crate training, leash skills, engagement, confidence building, early obedience, household manners, and owner coaching.
 bullets:
-  - Confidence building
-  - Crate and routine support
-  - Engagement games
-  - Age-appropriate exposure
+  - Young puppies
+  - New puppy owners
+  - Working-breed puppies
+  - Families wanting to start correctly from day one
 ---

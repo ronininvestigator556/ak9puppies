@@ -5,7 +5,8 @@ sex: Female
 collar: Yellow
 status: Available
 birthDate: "2026-03-21"
-weightNotes: Weight notes pending final update.
+currentAge: 9 weeks
+weightNotes: Current weight not publicly listed.
 traits:
   - Observant
   - Thoughtful
@@ -13,9 +14,10 @@ traits:
 bestFit:
   - Training-Minded Home
   - Active Family
-shortDescription: A yellow-collar female being observed for thoughtfulness, engagement, and social confidence.
-fullDescription: Mai is part of the Ranger x Mila litter and is still being evaluated as her temperament develops. Early notes should be updated with confirmed observations before this profile is used for placement decisions.
-heroImage: /assets/processed/puppies/mai/mai_hero.webp
+  - Balanced Companion
+shortDescription: A yellow-collar female showing thoughtfulness, engagement, and social confidence.
+fullDescription: Mai is an observant, thoughtful female whose current notes point toward engagement and social confidence. She may be a strong fit for a home that appreciates a puppy who watches, thinks, and builds confidence through clear handling. Mai appears well suited for an active family or training-minded owner who wants to develop a reliable relationship rather than rush the process. Her best match will likely provide structure, regular interaction, and age-appropriate exposure. She should continue to be observed for drive level, affection, and resilience as she matures. Mai remains available while Alliance K9 continues guiding fit based on the full litter picture.
+heroImage: /assets/processed/puppies/mai/mai-6w-hero-009.webp
 gallery: []
 developmentChecklist:
   - Early handling

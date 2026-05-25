@@ -16,48 +16,88 @@ const trainingImage =
 
 const processItems = [
   {
-    title: "Evaluate the dog and goals",
-    description: "Training starts with the dog in front of us, the owner's goals, and the practical environment the dog lives in.",
+    title: "Consultation",
+    description: "We start by discussing your dog, your concerns, your goals, and what you want life with your dog to look like.",
   },
   {
-    title: "Build communication",
-    description: "Clear marker work, structure, and consistent expectations create a foundation the dog can understand.",
+    title: "Evaluation",
+    description: "Your dog is evaluated for temperament, behavior, drives, confidence, engagement, and handling needs.",
   },
   {
-    title: "Develop reliability",
-    description: "Skills are strengthened through repetition, proofing, and real-world context instead of quick fixes.",
+    title: "Training Plan",
+    description: "A realistic plan is built around the dog in front of us, the owner's goals, and the level of structure needed.",
   },
   {
-    title: "Support the handler",
-    description: "Owners need a plan they can maintain, so training includes practical transfer and follow-through.",
+    title: "Training Work",
+    description: "Training focuses on clear communication, repetition, consistency, and practical application in real-world situations.",
+  },
+  {
+    title: "Owner Transfer",
+    description: "Owners are coached on how to maintain the work, communicate clearly, and continue building progress after training.",
+  },
+  {
+    title: "Long-Term Support",
+    description: "Training does not end when a session does. Alliance K9 focuses on helping owners understand how to keep moving forward.",
   },
 ];
 
 const faqItems = [
   {
-    question: "Do you only train Alliance K9 puppies?",
-    answer: "Training inquiries can be discussed for puppies, family dogs, and working prospects depending on goals and fit.",
+    question: "What age should training start?",
+    answer: "Training can begin as soon as a puppy comes home. Early work should be age-appropriate and focused on confidence, engagement, structure, crate routines, leash introduction, and basic communication.",
   },
   {
-    question: "What training method do you use?",
-    answer: "Training is built around communication, structure, engagement, and fair expectations matched to the individual dog.",
+    question: "Do you work with behavior issues?",
+    answer: "Yes. Behavior modification may be available depending on the dog, the issue, and safety considerations. Reactivity, over-arousal, confidence issues, leash problems, and household structure concerns can often be addressed with the right plan.",
   },
   {
-    question: "Can training fix every behavior issue?",
-    answer: "No responsible trainer should promise that. The first step is understanding the dog, the history, and what success realistically looks like.",
+    question: "Do you train protection dogs?",
+    answer: "Protection and working-dog development begins with evaluation. Not every dog is suited for protection work, and responsible training requires the right temperament, drives, control, handler commitment, and long-term management.",
+  },
+  {
+    question: "Do owners need to participate?",
+    answer: "Yes. Owner involvement is essential. Training progress depends heavily on consistency, handling, expectations, and follow-through after sessions or programs are complete.",
+  },
+  {
+    question: "Do you offer board and train?",
+    answer: "Board and train or intensive options may be available depending on schedule, dog suitability, and training goals. Contact Alliance K9 to discuss current availability.",
   },
 ];
 ---
 
 <BaseLayout
-  title="Training | Alliance K9"
-  description="Professional K9 training built on communication, structure, and real-world results."
+  title="Dog Training | Alliance K9 Dogs"
+  description="Professional dog training from Alliance K9 for puppies, obedience, behavior modification, protection development, and working dogs in Alabama."
   image={trainingImage}
+  imageAlt="Alliance K9 dog training image."
 >
   <Section
-    eyebrow="Training"
+    eyebrow="Alliance K9 Training"
     title="Training With Purpose"
-    description="Professional training built on communication, structure, and real-world results for puppies, active family companions, and working prospects."
+    description="Professional dog training built on clear communication, structure, relationship, and practical results for puppies, family companions, behavior cases, and working dogs."
+  >
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="#training-inquiry">Start a Training Inquiry</CTAButton>
+      <CTAButton href="/apply/" variant="secondary">View Puppy Program</CTAButton>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Philosophy"
+    title="Clear Communication. Real Structure. Better Dogs."
+    description="Alliance K9 training is built around helping dogs and handlers understand each other more clearly. Whether the goal is puppy foundations, reliable obedience, behavior improvement, or working-dog development, the foundation is the same: communication, consistency, structure, and a relationship that can hold up in real life."
+    class="pt-0"
+  >
+    <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
+      Training is not about tricks or shortcuts. It is about creating a dog that understands expectations, responds to guidance, and can function with more confidence and reliability in the home, in public, and around distractions.
+    </p>
+  </Section>
+
+  <Section
+    eyebrow="Programs"
+    title="Training Programs"
+    description="Every dog is different. Training recommendations are based on the dog's temperament, age, behavior, drives, owner goals, and the level of structure needed for long-term success."
+    class="pt-0"
   >
     <div class="mt-10 grid gap-5 md:grid-cols-3">
       {
@@ -72,51 +112,81 @@ const faqItems = [
     </div>
   </Section>
 
-  <Section
-    eyebrow="Philosophy"
-    title="Structure Without Theater"
-    description="The goal is clear communication, stable behavior, and useful skills. Training should feel professional and grounded, not flashy or fear-based."
-    class="pt-0"
-  >
+  <Section eyebrow="Process" title="How Training Works" class="pt-0">
     <div class="mt-8">
       <ProcessTimeline items={processItems} />
     </div>
   </Section>
 
-  <Section eyebrow="Results" title="What Success Looks Like" class="pt-0">
-    <div class="mt-8 grid gap-5 md:grid-cols-3">
-      <div class="luxury-card p-6">
-        <h2 class="font-heading text-2xl text-ivory">Clearer Handling</h2>
-        <p class="mt-3 text-sm leading-6 text-stone">Owners understand what to ask for, when to help, and how to follow through.</p>
-      </div>
-      <div class="luxury-card p-6">
-        <h2 class="font-heading text-2xl text-ivory">Better Engagement</h2>
-        <p class="mt-3 text-sm leading-6 text-stone">Dogs learn to work with the handler instead of simply reacting to the environment.</p>
-      </div>
-      <div class="luxury-card p-6">
-        <h2 class="font-heading text-2xl text-ivory">Real-World Utility</h2>
-        <p class="mt-3 text-sm leading-6 text-stone">Training is measured by whether it helps daily life, not whether it looks impressive for a moment.</p>
-      </div>
-    </div>
+  <Section
+    eyebrow="Approach"
+    title="Training the Dog in Front of Us"
+    description="No two dogs are exactly the same. A young puppy, a high-drive Malinois, a reactive family dog, and a personal protection prospect all require different handling, expectations, and progression. Alliance K9 approaches training with a practical eye toward temperament, behavior, and the owner's real-life needs."
+    class="pt-0"
+  >
+    <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
+      The goal is not to force every dog into the same mold. The goal is to build the clearest path forward for that dog and that handler.
+    </p>
   </Section>
 
-  <Section eyebrow="Questions" title="Training FAQ" class="pt-0">
-    <div class="mt-8">
-      <FAQAccordion items={faqItems} />
-    </div>
-    <div class="mt-8">
-      <CTAButton href="#training-inquiry">Inquire About Training</CTAButton>
+  <Section
+    eyebrow="Focus Areas"
+    title="Real Dogs. Real Progress."
+    description="Training progress comes from consistency, structure, and owner follow-through. Alliance K9 works to create practical improvements that matter in daily life - calmer handling, clearer communication, better obedience, improved confidence, and stronger relationships between dogs and their people."
+    class="pt-0"
+  >
+    <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {["Better leash manners", "Improved recall", "More reliable obedience", "Reduced reactivity", "Improved confidence", "Clearer handler communication", "Stronger puppy foundations", "Working-dog development"].map((item) => (
+        <div class="luxury-card p-4 text-sm text-stone">{item}</div>
+      ))}
     </div>
   </Section>
 
   <Section
+    eyebrow="Puppy Buyers"
+    title="Support for Alliance K9 Puppy Buyers"
+    description="Puppy buyers are encouraged to continue training after placement. These puppies come from working lines and benefit from structure, engagement, consistency, and clear expectations from the beginning."
+    class="pt-0"
+  >
+    <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
+      Alliance K9 can provide guidance for puppy foundations, obedience, socialization, confidence building, crate routines, leash work, and early working-dog development where appropriate.
+    </p>
+    <div class="mt-6">
+      <CTAButton href="#training-inquiry" variant="secondary">Ask About Puppy Training</CTAButton>
+    </div>
+  </Section>
+
+  <Section eyebrow="Questions" title="Training Questions" class="pt-0">
+    <div class="mt-8">
+      <FAQAccordion items={faqItems} />
+    </div>
+  </Section>
+
+  <Section
+    id="training-inquiry"
     eyebrow="Training Inquiry"
     title="Tell Us About Your Dog"
     description="Share your goals, current challenges, and preferred service so Alliance K9 can recommend an appropriate next step."
-    class="pt-0"
+    class="scroll-mt-28 pt-0"
   >
-    <div id="training-inquiry" class="mt-10 max-w-4xl scroll-mt-28">
+    <div class="mt-10 max-w-4xl">
       <TrainingInquiryForm netlify />
+    </div>
+  </Section>
+
+  <Section class="pt-0">
+    <div class="luxury-card grid gap-6 p-8 md:grid-cols-[1fr_auto] md:items-center">
+      <div>
+        <p class="eyebrow">Next Step</p>
+        <h2 class="mt-3 font-heading text-3xl text-ivory">Ready to Build a Better Relationship With Your Dog?</h2>
+        <p class="mt-4 max-w-2xl text-sm leading-6 text-stone">
+          Whether you are starting with a new puppy, improving obedience, addressing behavior concerns, or developing a serious working prospect, Alliance K9 can help create a practical path forward.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <CTAButton href="#training-inquiry">Start a Training Inquiry</CTAButton>
+        <CTAButton href="/contact/" variant="secondary">Contact Alliance K9</CTAButton>
+      </div>
     </div>
   </Section>
 </BaseLayout>

@@ -6,7 +6,7 @@ const puppyStatus = z.enum([
   "Available",
   "Reserved",
   "Sold",
-  "Pending",
+  "Pending Conversation",
   "Evaluation Hold",
 ]);
 
@@ -53,9 +53,11 @@ const trainingServiceSchema = z.object({
 const galleryItemSchema = z.object({
   src: z.string(),
   alt: z.string(),
-  category: z.enum(["puppies", "parents", "training", "group"]),
+  category: z.enum(["puppies", "group-litter", "parents", "training", "outdoor", "handler-interaction", "development", "group"]),
   puppySlug: z.string().optional(),
   featured: z.boolean().optional(),
+  caption: z.string().optional(),
+  orientation: z.enum(["portrait", "landscape", "square"]).optional(),
 });
 
 export const collections = {

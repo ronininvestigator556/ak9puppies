@@ -1,10 +1,10 @@
 ---
-title: Foundation Obedience
+title: Obedience Training
 slug: foundation-obedience
-summary: Practical obedience foundations for clearer communication, structure, and everyday reliability.
+summary: Obedience training focuses on practical, reliable skills that make daily life easier, including leash manners, recall, place work, impulse control, neutrality, public manners, and handler communication.
 bullets:
-  - Marker communication
-  - Leash skills
-  - Place work
-  - Household manners
+  - Family dogs
+  - Active companions
+  - Working breeds
+  - Owners wanting better reliability and control
 ---

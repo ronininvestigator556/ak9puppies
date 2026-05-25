@@ -2,8 +2,14 @@
 name: Mila
 role: Dam
 breed: Belgian Malinois
-temperamentSummary: Mila brings maternal steadiness, athleticism, and social connection to the Ranger x Mila litter story.
-workingNotes: Detailed temperament notes, maternal observations, and verified training context should be added during the parent page build.
+registryNotes: "Background: Strong working / police-line influence."
+temperamentSummary: >-
+  Mila is the dam of the current litter and contributes intensity, athleticism, intelligence, and a deeply affectionate
+  temperament. She is a high-drive Belgian Malinois with strong working influence and a clear desire to engage with
+  her people.
+workingNotes: >-
+  Beyond drive, Mila brings an important quality to this pairing: connection. She is attentive, expressive, and closely
+  bonded with her people, and she has shown a strong maternal side with the puppies.
 heroImage: /assets/processed/parents/parents-mila-052.webp
 gallery:
   - /assets/processed/parents/parents-mila-053.webp

@@ -32,6 +32,11 @@ const heroImage = puppyHeroImage(data.slug, data.heroImage);
     <StatusBadge status={data.status} />
   </div>
   <p class="mt-4 flex-1 text-sm leading-6 text-stone">{data.shortDescription}</p>
+  {
+    data.status === "Sold" && (
+      <p class="mt-3 text-sm leading-6 text-gold">Looking for a similar prospect? View available puppies.</p>
+    )
+  }
   <div class="mt-5 flex flex-wrap gap-2">
     {data.traits.slice(0, 3).map((trait) => <TraitChip label={trait} />)}
   </div>

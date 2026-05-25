@@ -4,39 +4,144 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTAButton from "../../components/CTAButton.astro";
 import PuppyCard from "../../components/PuppyCard.astro";
 import Section from "../../components/Section.astro";
-import { puppyHeroImage } from "../../lib/assets";
+import { publicAsset } from "../../lib/assets";
 import { sortPuppies } from "../../lib/puppies";
 
 const puppies = sortPuppies(await getCollection("puppies"));
-const availableCount = puppies.filter((puppy) => puppy.data.status === "Available").length;
-const reservedCount = puppies.filter((puppy) => puppy.data.status === "Reserved").length;
-const firstAvailableHero = puppyHeroImage(
-  puppies.find((puppy) => puppy.data.status === "Available")?.data.slug ?? "zuko",
-);
+const pageImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp");
 ---
 
 <BaseLayout
-  title="Available Puppies | Alliance K9"
-  description="View the current Ranger x Mila litter, including available and reserved puppies."
-  image={firstAvailableHero}
+  title="Available Puppies | Alliance K9 Dogs"
+  description="View the current Ranger x Mila litter from Alliance K9, featuring purpose-bred Dutch Shepherd and Belgian Malinois puppies evaluated for temperament, drive, confidence, and placement fit."
+  image={pageImage}
+  imageAlt="Ranger x Mila puppy from Alliance K9."
 >
   <Section
     eyebrow="Current Litter"
     title="Ranger x Mila Puppies"
-    description="Each puppy is being individually observed and evaluated to help match temperament, drive, and personality to the right home."
+    description="Purpose-bred Dutch Shepherd and Belgian Malinois puppies raised with early socialization, professional training insight, and careful placement for working homes, active families, and devoted companions."
   >
-    <div class="mt-8 grid gap-4 rounded-lg border border-gold/20 bg-graphite/60 p-5 text-sm text-stone sm:grid-cols-3">
-      <p><span class="font-semibold text-ivory">Born:</span> March 21, 2026</p>
-      <p><span class="font-semibold text-ivory">Available:</span> {availableCount} puppies</p>
-      <p><span class="font-semibold text-ivory">Reserved:</span> {reservedCount} puppies</p>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="#puppy-profiles">View Puppy Profiles</CTAButton>
+      <CTAButton href="/apply/" variant="secondary">Start an Application</CTAButton>
     </div>
+  </Section>
 
+  <Section
+    eyebrow="Litter Snapshot"
+    title="Born March 21, 2026"
+    description="The Ranger x Mila litter includes 12 puppies - 6 males and 6 females - each being individually observed for temperament, confidence, affection, prey drive, engagement, and overall placement suitability."
+    class="pt-0"
+  >
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+      {["12 Puppies", "6 Males", "6 Females", "Ranger x Mila", "Applications Open", "Born 03.21.2026"].map((item) => (
+        <div class="luxury-card p-5 text-sm font-semibold text-ivory">{item}</div>
+      ))}
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Placement"
+    title="Each Puppy Is Evaluated as an Individual"
+    description="No two puppies in this litter are exactly alike. Some are showing stronger working potential, while others may be better suited for active companion homes or family protection roles. Alliance K9 evaluates each puppy's natural drives, nerves, social engagement, affection, and ability to settle so buyers can make a more informed decision."
+    class="pt-0"
+  >
+    <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
+      The goal is not simply to place puppies quickly. The goal is to help each puppy land in the right home with the right expectations, support, and long-term fit.
+    </p>
+  </Section>
+
+  <Section
+    id="puppy-profiles"
+    eyebrow="Puppy Profiles"
+    title="Meet the Puppies"
+    description="Browse each puppy's profile for photos, temperament notes, drive observations, recommended fit, and current placement status."
+    class="scroll-mt-28 pt-0"
+  >
     <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
       {puppies.map((puppy) => <PuppyCard puppy={puppy} />)}
     </div>
+    <p class="mt-8 max-w-3xl text-sm leading-6 text-stone">
+      As puppies are matched and reserved, their status will be updated here. Serious buyers are encouraged to begin the conversation early so there is time to discuss goals, experience, and fit.
+    </p>
+  </Section>
 
-    <div class="mt-10">
-      <CTAButton href="/apply">Apply / Inquire</CTAButton>
+  <Section
+    eyebrow="Recommended Fit"
+    title="Working Prospects, Family Protection, and Active Companions"
+    description="This litter includes a range of temperaments and drive levels. Some puppies may be better suited for experienced working homes, sport, or personal protection development. Others may be excellent candidates for active families seeking a loyal, trainable companion with strong genetics and professional guidance behind them."
+    class="pt-0"
+  >
+    <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
+      If you are unsure which puppy may be the best fit, the application process is designed to help guide that conversation.
+    </p>
+    <div class="mt-6">
+      <CTAButton href="/apply/">Start the Placement Conversation</CTAButton>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="What Comes With Each Puppy"
+    title="Raised With Intention"
+    description="Each puppy is raised with close observation, regular handling, and age-appropriate exposure. Buyers receive available health records, developmental notes, and guidance to help support the transition into the new home."
+    class="pt-0"
+  >
+    <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        [
+          "Early handling and socialization",
+          "Individual temperament observations",
+          "Drive and engagement notes",
+          "Deworming schedule",
+          "Veterinary records",
+          "Buyer guidance and support",
+          "Training insight from Alliance K9",
+          "Pickup and transport options",
+        ].map((item) => <div class="luxury-card p-4 text-sm text-stone">{item}</div>)
+      }
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Process"
+    title="How Placement Works"
+    description="Deposits help secure placement order and confirm serious interest. Final matches are guided by puppy temperament, buyer goals, and long-term suitability."
+    class="pt-0"
+  >
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
+      {
+        [
+          "Review the puppies",
+          "Submit an application",
+          "Discuss your goals and experience",
+          "Place a deposit to reserve pick order or selected puppy",
+          "Prepare for pickup or transport",
+          "Continue with support after placement",
+        ].map((item, index) => (
+          <div class="luxury-card p-5">
+            <p class="text-xs uppercase tracking-[0.16em] text-gold">Step {index + 1}</p>
+            <h2 class="mt-3 font-heading text-xl text-ivory">{item}</h2>
+          </div>
+        ))
+      }
+    </div>
+    <p class="mt-6 text-sm leading-6 text-stone">A $500 deposit is required to reserve a puppy or hold placement position.</p>
+  </Section>
+
+  <Section class="pt-0">
+    <div class="luxury-card grid gap-6 p-8 md:grid-cols-[1fr_auto] md:items-center">
+      <div>
+        <p class="eyebrow">Next Step</p>
+        <h2 class="mt-3 font-heading text-3xl text-ivory">Ready to Meet Your Future Partner?</h2>
+        <p class="mt-4 max-w-2xl text-sm leading-6 text-stone">
+          If one of the puppies catches your eye, the next step is to start the application process. Tell us about your goals, experience, and home environment so we can help guide you toward the right match.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <CTAButton href="/apply/">Start an Application</CTAButton>
+        <CTAButton href="/contact/" variant="secondary">Contact Alliance K9</CTAButton>
+      </div>
     </div>
   </Section>
 </BaseLayout>

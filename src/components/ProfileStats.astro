@@ -19,7 +19,7 @@ const { title = "Profile Stats", stats } = Astro.props;
       stats.map((stat) => (
         <div>
           <dt class="text-stone">{stat.label}</dt>
-          <dd class="mt-1 font-semibold text-ivory">{stat.value || "Pending update"}</dd>
+          <dd class="mt-1 font-semibold text-ivory">{stat.value || "Not publicly listed"}</dd>
         </div>
       ))
     }

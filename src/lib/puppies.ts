@@ -4,7 +4,7 @@ export type PuppyEntry = CollectionEntry<"puppies">;
 
 const statusRank: Record<PuppyEntry["data"]["status"], number> = {
   Available: 1,
-  Pending: 2,
+  "Pending Conversation": 2,
   "Evaluation Hold": 3,
   Reserved: 4,
   Sold: 5,

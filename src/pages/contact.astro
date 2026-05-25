@@ -6,46 +6,131 @@ import Section from "../components/Section.astro";
 ---
 
 <BaseLayout
-  title="Contact | Alliance K9"
-  description="Contact Alliance K9 about puppies, training, or future availability."
+  title="Contact | Alliance K9 Dogs"
+  description="Contact Alliance K9 for puppy placement, training inquiries, working-dog development, and questions about the current Ranger x Mila litter in Alabama."
   image="/assets/processed/homepage/mila-puppy-hero.webp"
+  imageAlt="Mila with one of the Ranger x Mila puppies."
 >
   <Section
+    eyebrow="Contact Alliance K9"
+    title="Start the Conversation"
+    description="Have questions about the Ranger x Mila litter, puppy placement, training support, or working-dog development? Send a message and include as much detail as possible so we can point you in the right direction."
+  >
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="#contact-form">Send a Message</CTAButton>
+      <CTAButton href="/puppies/" variant="secondary">View Available Puppies</CTAButton>
+    </div>
+  </Section>
+
+  <Section
     eyebrow="Contact"
-    title="Contact Alliance K9"
-    description="Have questions about a puppy, training, or future availability? Send a message and we will help point you in the right direction."
+    title="How Can We Help?"
+    description="Alliance K9 works with puppy buyers, training clients, and owners seeking practical guidance for high-drive dogs. Whether you are ready to apply, interested in training, or still figuring out which puppy may be the right fit, the best next step is to reach out with clear information about your goals."
+    class="pt-0"
+  >
+    <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
+      For puppy placement questions, include which puppy or type of puppy you are interested in, your intended role, and your experience with working breeds. For training inquiries, include your dog's age, breed, current behavior concerns, and what you want to accomplish.
+    </p>
+  </Section>
+
+  <Section
+    eyebrow="Inquiry Type"
+    title="Choose the Right Inquiry Type"
+    description="Selecting the right inquiry type helps us understand what you need and respond more efficiently."
+    class="pt-0"
+  >
+    <div class="mt-8 grid gap-5 md:grid-cols-3">
+      <div class="luxury-card p-6">
+        <h2 class="font-heading text-2xl text-ivory">Puppy Placement</h2>
+        <p class="mt-3 text-sm leading-6 text-stone">Questions about the current Ranger x Mila litter, availability, temperament, application process, deposits, pickup, or transport.</p>
+      </div>
+      <div class="luxury-card p-6">
+        <h2 class="font-heading text-2xl text-ivory">Training</h2>
+        <p class="mt-3 text-sm leading-6 text-stone">Questions about puppy foundations, obedience, behavior modification, protection development, working-dog evaluation, or ongoing support.</p>
+      </div>
+      <div class="luxury-card p-6">
+        <h2 class="font-heading text-2xl text-ivory">General</h2>
+        <p class="mt-3 text-sm leading-6 text-stone">General questions about Alliance K9, future litters, media, referrals, or anything that does not fit the other categories.</p>
+      </div>
+    </div>
+  </Section>
+
+  <Section
+    id="contact-form"
+    eyebrow="Contact Form"
+    title="Send a Message"
+    description="Complete the form below and include enough detail for us to understand your situation. Short messages are welcome, but thoughtful context helps us give a better answer."
+    class="scroll-mt-28 pt-0"
   >
     <div class="mt-10 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
       <div class="grid gap-5">
         <div class="luxury-card p-6">
-          <h2 class="font-heading text-2xl text-ivory">Puppy Inquiries</h2>
+          <h2 class="font-heading text-2xl text-ivory">Contact Details</h2>
           <p class="mt-3 text-sm leading-6 text-stone">
-            For current Ranger x Mila puppy interest, the application gives the clearest picture of fit.
+            Use the contact form for the most complete response. If direct contact information is listed here, please include your name, inquiry type, and the best way to reach you.
           </p>
-          <div class="mt-5">
-            <CTAButton href="/apply" variant="secondary">Start Application</CTAButton>
-          </div>
+          <p class="mt-4 text-sm leading-6 text-stone">Based in the Birmingham, Alabama area.</p>
+          <p class="text-sm leading-6 text-stone">Serving Chelsea, Birmingham, and surrounding Alabama communities.</p>
         </div>
 
         <div class="luxury-card p-6">
-          <h2 class="font-heading text-2xl text-ivory">Training Inquiries</h2>
+          <h2 class="font-heading text-2xl text-ivory">What to Include</h2>
           <p class="mt-3 text-sm leading-6 text-stone">
-            Share your dog, goals, and current challenges so Alliance K9 can recommend an appropriate next step.
+            The best inquiries include context. For puppy questions, tell us what kind of dog you are looking for and what your goals are. For training questions, describe the dog in front of us and what you want to improve.
           </p>
-          <div class="mt-5">
-            <CTAButton href="/training" variant="secondary">View Training</CTAButton>
-          </div>
-        </div>
-
-        <div class="luxury-card p-6">
-          <h2 class="font-heading text-2xl text-ivory">Response Expectation</h2>
-          <p class="mt-3 text-sm leading-6 text-stone">
-            Messages are reviewed directly. Include your goals, location, and timeline to make the first response more useful.
-          </p>
+          <ul class="mt-4 grid gap-2 text-sm text-stone">
+            <li>Your name and location</li>
+            <li>Which puppy or service you are interested in</li>
+            <li>Your experience with dogs or working breeds</li>
+            <li>Your goals for the dog</li>
+            <li>Current behavior or training concerns</li>
+            <li>Household environment</li>
+            <li>Timeline</li>
+            <li>Best contact method</li>
+          </ul>
         </div>
       </div>
 
-      <ContactForm netlify />
+      <ContactForm formName="contact-inquiry" netlify />
+    </div>
+  </Section>
+
+  <Section class="pt-0">
+    <div class="grid gap-5 md:grid-cols-2">
+      <div class="luxury-card p-6">
+        <h2 class="font-heading text-2xl text-ivory">Interested in a Puppy?</h2>
+        <p class="mt-3 text-sm leading-6 text-stone">
+          If you are serious about the current Ranger x Mila litter, the puppy application is the best next step. The application gives Alliance K9 the context needed to discuss fit, availability, and placement.
+        </p>
+        <div class="mt-5">
+          <CTAButton href="/apply/" variant="secondary">Start Puppy Application</CTAButton>
+        </div>
+      </div>
+      <div class="luxury-card p-6">
+        <h2 class="font-heading text-2xl text-ivory">Interested in Training?</h2>
+        <p class="mt-3 text-sm leading-6 text-stone">
+          For training support, include your dog's age, breed, behavior concerns, and training goals. Alliance K9 can help determine whether puppy foundations, obedience, behavior work, or working-dog development may be appropriate.
+        </p>
+        <div class="mt-5">
+          <CTAButton href="/training/" variant="secondary">Explore Training</CTAButton>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <Section class="pt-0">
+    <div class="luxury-card grid gap-6 p-8 md:grid-cols-[1fr_auto] md:items-center">
+      <div>
+        <p class="eyebrow">Next Step</p>
+        <h2 class="mt-3 font-heading text-3xl text-ivory">Let's Find the Right Next Step</h2>
+        <p class="mt-4 max-w-2xl text-sm leading-6 text-stone">
+          Whether you are looking for a puppy, training support, or guidance on a working-breed dog, Alliance K9 is here to help you move forward with clarity.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <CTAButton href="#contact-form">Send a Message</CTAButton>
+        <CTAButton href="/puppies/" variant="secondary">View Available Puppies</CTAButton>
+      </div>
     </div>
   </Section>
 </BaseLayout>

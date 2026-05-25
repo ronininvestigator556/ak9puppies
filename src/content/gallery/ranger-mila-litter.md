@@ -1,6 +1,6 @@
 ---
-src: /assets/processed/gallery/ranger-mila-litter.webp
-alt: Ranger x Mila litter photo placeholder for future processed gallery image.
-category: group
+src: /assets/processed/gallery/gallery-002.webp
+alt: Ranger x Mila litter photo showing Alliance K9 puppy development.
+category: group-litter
 featured: true
 ---

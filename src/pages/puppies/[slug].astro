@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import CTAButton from "../../components/CTAButton.astro";
 import ImageWithOverlay from "../../components/ImageWithOverlay.astro";
+import Lightbox from "../../components/Lightbox.astro";
 import ProfileStats from "../../components/ProfileStats.astro";
 import Section from "../../components/Section.astro";
 import StatusBadge from "../../components/StatusBadge.astro";
@@ -24,9 +25,30 @@ const { Content } = await render(puppy);
 const similarPuppies = getSimilarPuppies(puppy, sortPuppies(puppies));
 const heroImage = puppyHeroImage(puppy.data.slug, puppy.data.heroImage);
 const galleryImages = listPuppyImages(puppy.data.slug).filter((image) => image !== heroImage);
-const statusDescription =
-  puppy.data.status === "Available" ? "an available" : "a reserved";
-const siteOrigin = import.meta.env.PUBLIC_SITE_URL ?? Astro.site?.origin ?? Astro.url.origin;
+const statusLabel = puppy.data.status === "Sold" ? "SOLD — Found His Home" : puppy.data.status;
+const statusEyebrow = puppy.data.status === "Available"
+  ? "Available Puppy"
+  : puppy.data.status === "Reserved"
+    ? "Reserved Puppy"
+    : puppy.data.status === "Sold"
+      ? "SOLD — Found His Home"
+      : puppy.data.status;
+const traitLine = puppy.data.traits.slice(0, 3).join(" - ");
+const profileDescription = `${puppy.data.name} is one of the Ranger x Mila puppies being raised and evaluated through Alliance K9. Each puppy is observed for temperament, confidence, drive, affection, social engagement, and placement suitability to help guide the right long-term match.`;
+const available = puppy.data.status === "Available";
+const sold = puppy.data.status === "Sold";
+const primaryCta = available
+  ? { href: `/apply/?puppy=${puppy.data.slug}`, label: `Apply for ${puppy.data.name}` }
+  : sold
+    ? { href: "/puppies/", label: "View Available Puppies" }
+    : { href: "/contact/", label: `Ask About ${puppy.data.name}` };
+const secondaryCta = available
+  ? { href: "/contact/", label: `Ask About ${puppy.data.name}` }
+  : { href: "/contact/", label: "Contact Alliance K9" };
+const metaDescription = sold
+  ? `Meet ${puppy.data.name}, a ${puppy.data.sex.toLowerCase()} puppy from the Ranger x Mila litter at Alliance K9. ${puppy.data.name} has found his home, but similar puppies may still be available.`
+  : `Meet ${puppy.data.name}, a ${puppy.data.sex.toLowerCase()} puppy from the Ranger x Mila litter at Alliance K9, evaluated for temperament, drive, confidence, affection, and placement fit.`;
+const siteOrigin = import.meta.env.PUBLIC_SITE_URL ?? Astro.site?.origin ?? "https://alliancek9dogs.com";
 const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
 const absoluteHeroImage = heroImage
   ? new URL(heroImage, siteOrigin).href
@@ -34,16 +56,18 @@ const absoluteHeroImage = heroImage
 ---
 
 <BaseLayout
-  title={`${puppy.data.name} | Alliance K9 Puppies`}
-  description={`${puppy.data.name} is ${statusDescription} ${puppy.data.sex.toLowerCase()} from the Ranger x Mila litter. ${puppy.data.shortDescription}`}
+  title={`${puppy.data.name} | ${puppy.data.sex} ${statusLabel} Puppy | Alliance K9 Dogs`}
+  description={metaDescription}
   image={heroImage}
+  imageAlt={`${puppy.data.name}, ${puppy.data.collar}-collar ${puppy.data.sex.toLowerCase()} puppy from Alliance K9.`}
   type="product"
 >
   <Section
-    eyebrow="Puppy Profile"
-    title={puppy.data.name}
-    description={puppy.data.shortDescription}
+    eyebrow={statusEyebrow}
+    title={`Meet ${puppy.data.name}`}
+    description={traitLine}
   >
+    <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">{profileDescription}</p>
     <div class="mt-8 flex flex-wrap items-center gap-3">
       <StatusBadge status={puppy.data.status} />
       {puppy.data.traits.map((trait) => <TraitChip label={trait} />)}
@@ -52,11 +76,15 @@ const absoluteHeroImage = heroImage
     <div class="mt-10 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
       <ProfileStats
         stats={[
-          { label: "Status", value: puppy.data.statusLabel ?? puppy.data.status },
+          { label: "Name", value: puppy.data.name },
           { label: "Sex", value: puppy.data.sex },
-          { label: "Collar", value: puppy.data.collar },
-          { label: "Birthdate", value: "March 21, 2026" },
-          { label: "Weight Notes", value: puppy.data.weightNotes },
+          { label: "Collar Color", value: puppy.data.collar },
+          { label: "Birth Date", value: "March 21, 2026" },
+          { label: "Current Age", value: puppy.data.currentAge },
+          { label: "Current / Recent Weight", value: puppy.data.weightNotes },
+          { label: "Status", value: statusLabel },
+          { label: "Primary Traits", value: puppy.data.traits.join(", ") },
+          { label: "Best Fit", value: puppy.data.bestFit.join(", ") },
         ]}
       />
 
@@ -64,24 +92,30 @@ const absoluteHeroImage = heroImage
         <ImageWithOverlay
           src={heroImage}
           alt={`${puppy.data.name}, ${puppy.data.collar}-collar ${puppy.data.sex.toLowerCase()} puppy.`}
-          aspect="aspect-[4/3]"
+          aspect="aspect-[4/5]"
           class="mb-6"
         />
-        <h2 class="font-heading text-2xl text-ivory">Placement Notes</h2>
+        <h2 class="font-heading text-2xl text-ivory">About {puppy.data.name}</h2>
         <div class="prose prose-invert mt-5 max-w-none text-stone">
           <Content />
         </div>
         <p class="mt-5 text-sm leading-6 text-stone">{puppy.data.fullDescription}</p>
 
         <div class="mt-6">
-          <h3 class="font-heading text-xl text-ivory">Best Fit</h3>
+          <h3 class="font-heading text-xl text-ivory">Best Fit for {puppy.data.name}</h3>
+          <p class="mt-3 text-sm leading-6 text-stone">
+            Based on current observations, {puppy.data.name} appears best suited for {puppy.data.bestFit.join(", ").toLowerCase()}. Final placement should consider handler experience, home environment, expectations, and willingness to continue training and structure.
+          </p>
           <div class="mt-3 flex flex-wrap gap-2">
             {puppy.data.bestFit.map((fit) => <TraitChip label={fit} />)}
           </div>
         </div>
 
         <div class="mt-6">
-          <h3 class="font-heading text-xl text-ivory">Development Checklist</h3>
+          <h3 class="font-heading text-xl text-ivory">Early Development</h3>
+          <p class="mt-3 text-sm leading-6 text-stone">
+            Each puppy is raised with close observation, age-appropriate handling, and exposure designed to support confidence, engagement, and a smooth transition into the right home.
+          </p>
           <ul class="mt-3 grid gap-2 text-sm text-stone sm:grid-cols-2">
             {puppy.data.developmentChecklist.map((item) => <li>{item}</li>)}
           </ul>
@@ -89,13 +123,26 @@ const absoluteHeroImage = heroImage
       </div>
     </div>
 
+    <div class="mt-10 luxury-card p-6">
+      <h2 class="font-heading text-2xl text-ivory">From Ranger x Mila</h2>
+      <p class="mt-3 max-w-3xl text-sm leading-6 text-stone">
+        {puppy.data.name} is part of the Ranger x Mila litter, combining Ranger's KNPV Dutch Shepherd lineage with Mila's strong Belgian Malinois working background.
+      </p>
+      <div class="mt-5">
+        <CTAButton href="/parents/" variant="secondary">Meet the Parents</CTAButton>
+      </div>
+    </div>
+
     {
       similarPuppies.length > 0 && (
         <div class="mt-10">
-          <h2 class="font-heading text-2xl text-ivory">Similar Puppies</h2>
+          <h2 class="font-heading text-2xl text-ivory">Looking for a Similar Puppy?</h2>
+          <p class="mt-3 max-w-3xl text-sm leading-6 text-stone">
+            If {puppy.data.name} is reserved or sold, these puppies may share similar traits or placement potential.
+          </p>
           <div class="mt-4 flex flex-wrap gap-3">
             {similarPuppies.map((similar) => (
-              <CTAButton href={`/puppies/${similar.data.slug}`} variant="secondary">
+              <CTAButton href={`/puppies/${similar.data.slug}/`} variant="secondary">
                 {similar.data.name}
               </CTAButton>
             ))}
@@ -107,24 +154,37 @@ const absoluteHeroImage = heroImage
     {
       galleryImages.length > 0 && (
         <div class="mt-10">
-          <h2 class="font-heading text-2xl text-ivory">Puppy Gallery</h2>
-          <div class="mt-5 columns-1 gap-5 sm:columns-2 lg:columns-3">
-            {galleryImages.map((image) => (
-              <ImageWithOverlay
-                src={image}
-                alt={`${puppy.data.name} gallery photo.`}
-                aspect="aspect-[4/5]"
-                class="mb-5 break-inside-avoid"
-              />
-            ))}
+          <h2 class="font-heading text-2xl text-ivory">{puppy.data.name}'s Gallery</h2>
+          <p class="mt-3 max-w-3xl text-sm leading-6 text-stone">
+            A closer look at {puppy.data.name} from early development through current puppy evaluations.
+          </p>
+          <div class="mt-5">
+            <Lightbox
+              id={`${puppy.data.slug}-gallery`}
+              items={galleryImages.map((image) => ({
+                src: image,
+                alt: `${puppy.data.name} from the Ranger x Mila litter during puppy evaluation and development.`,
+              }))}
+            />
           </div>
         </div>
       )
     }
 
-    <div class="mt-10 flex flex-wrap gap-3">
-      <CTAButton href="/apply">Apply / Inquire</CTAButton>
-      <CTAButton href="/parents" variant="secondary">Meet Ranger x Mila</CTAButton>
+    <div class="mt-10 luxury-card grid gap-6 p-8 md:grid-cols-[1fr_auto] md:items-center">
+      <div>
+        <p class="eyebrow">Next Step</p>
+        <h2 class="mt-3 font-heading text-3xl text-ivory">{sold ? `${puppy.data.name} Has Found His Home` : `Interested in ${puppy.data.name}?`}</h2>
+        <p class="mt-4 max-w-2xl text-sm leading-6 text-stone">
+          {sold
+            ? `${puppy.data.name} is no longer available, but several puppies from the same litter may offer similar traits, drive, or placement potential. View the available puppies or reach out for help identifying the right match.`
+            : `The next step is to start the application process so we can discuss your goals, experience, and whether ${puppy.data.name} may be the right fit for your home.`}
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <CTAButton href={primaryCta.href}>{primaryCta.label}</CTAButton>
+        <CTAButton href={secondaryCta.href} variant="secondary">{secondaryCta.label}</CTAButton>
+      </div>
     </div>
   </Section>
 

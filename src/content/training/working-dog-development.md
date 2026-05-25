@@ -1,10 +1,10 @@
 ---
 title: Working Dog Development
 slug: working-dog-development
-summary: Purposeful development for dogs with working potential, drive, and more advanced training goals.
+summary: Working and protection development begins with honest evaluation. For appropriate dogs, training may focus on drive development, obedience under stimulation, handler control, confidence, engagement, and responsible progression.
 bullets:
-  - Drive channeling
-  - Handler focus
-  - Environmental confidence
-  - Goal-based training plan
+  - Suitable working-breed dogs
+  - Sport prospects
+  - Personal protection candidates
+  - Experienced handlers seeking structured development
 ---
