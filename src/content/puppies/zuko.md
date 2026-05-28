@@ -6,17 +6,28 @@ collar: Black
 status: Available
 birthDate: "2026-03-21"
 currentAge: 9 weeks
-weightNotes: Current weight not publicly listed.
+weightNotes: 21 lbs 1 oz as of May 27, 2026
 traits:
-  - High Drive
-  - Handler-Focused
-  - Protection Prospect
+  - Moderate Drive
+  - Attentive
+  - Affectionate
+  - Trainable
+  - Watchful Wildcard
 bestFit:
-  - Working Home
-  - Sport Prospect
-  - Experienced Home
-shortDescription: A black-collar male showing intensity, drive, and handler-focused engagement.
-fullDescription: Zuko is a high-drive male whose current profile points toward intensity, handler focus, and strong working potential. He may be best suited for an experienced home that understands how to channel drive through training, structure, and clear expectations. Zuko is not being positioned as a casual pet for every household; his placement should consider handler experience, goals, and willingness to continue development. He may be a strong candidate for sport, protection development, or a working-oriented home if his traits continue in that direction. His future owner should be prepared to build engagement and control with consistency. Zuko remains available for the right fit.
+  - Active family
+  - Engaged companion
+  - Family protection prospect
+  - Handler prepared for developing drive
+shortDescription: A visually impressive, affectionate male currently presenting as moderate drive, highly attentive, and trainable, with room for stronger working traits to emerge as he matures.
+fullDescription: >-
+  Zuko remains one of the most visually impressive males in the litter, but his working drive is currently presenting
+  more moderately than expected. He shows interest in bitework, though not with the same intensity as some of his
+  littermates at this stage. What stands out most right now is his attentiveness, affection, and willingness to interact
+  and train with his handler. Zuko enjoys engagement and appears to value connection, making him a promising fit for
+  someone who wants a trainable, bonded dog. That said, he may still have more drive waiting to emerge as he matures,
+  much like Mila did when she came into her own. For that reason, he should be placed with an owner who appreciates his
+  calmer presentation now but is prepared for the possibility of a stronger, more intense working dog developing later.
+  Zuko is best viewed as a moderate-drive prospect with room to grow.
 heroImage: /assets/processed/puppies/zuko/zuko-6w-hero-004.webp
 gallery: []
 developmentChecklist:

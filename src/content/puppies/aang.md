@@ -6,17 +6,29 @@ collar: Red
 status: Available
 birthDate: "2026-03-21"
 currentAge: 9 weeks
-weightNotes: Smaller, compact male; current weight not publicly listed.
+weightNotes: 18 lbs 1 oz as of May 27, 2026
 traits:
-  - Compact
-  - High Drive
-  - Determined
+  - Very High Drive
+  - Bitework Candidate
+  - Police / Military Prospect
+  - PSA Candidate
+  - Surprisingly Kid-Social
 bestFit:
-  - High-Drive Compact Prospect
-  - Working Home
-  - Sport Prospect
-shortDescription: A compact red-collar male showing serious intensity, strong drive, and determined engagement.
-fullDescription: Aang may be one of the smaller pups, but he brings serious intensity and drive to the table. He shows strong prey, hunt, and bite drive, attacking toys and challenges with full commitment and purpose. Nothing holds him back when he engages - he is bold, determined, and highly motivated. Aang presents as socially neutral with new people, preferring to build a tight bond with his own handler or family. Once that connection is established, he is expected to be deeply loyal and engaged. His size makes him a great option for those wanting a high-drive working dog in a more compact package. Aang is well-suited for protection work, sport, or other demanding roles where drive and determination are key.
+  - Experienced working home
+  - Police/military candidate
+  - PSA or sport home
+  - Protection development with structure
+shortDescription: A compact, very high-drive male with serious bitework interest, strong working potential, and a surprisingly appropriate social response with children.
+fullDescription: >-
+  Aang has developed into one of the highest-drive puppies in the litter and shows a strong, focused love for bitework.
+  He will work himself to exhaustion on the bite suit and is often more interested in finding something to bite than
+  seeking affection. His prey, bite, and work drive make him a serious candidate for police, military, PSA, or other
+  demanding working roles. Socially, Aang is more neutral with most people and tends to prioritize work and engagement
+  over casual petting. However, he showed a surprising and very positive response to children, immediately engaging and
+  playing appropriately with the first child he met without redirecting into biting. That balance makes him especially
+  interesting: intense, driven, and work-oriented, yet capable of softness and appropriate social behavior in the right
+  context. Aang should be placed with an experienced owner or working home prepared to channel his drive with structure
+  and purpose.
 heroImage: /assets/processed/puppies/aang/aang-hero-1.webp
 gallery: []
 developmentChecklist:

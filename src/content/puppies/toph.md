@@ -7,16 +7,27 @@ status: Reserved
 statusLabel: Reserved
 birthDate: "2026-03-21"
 currentAge: 9 weeks
-weightNotes: Current weight not publicly listed.
+weightNotes: 17 lbs 7 oz as of May 27, 2026
 traits:
-  - Bold
-  - Confident
-  - Playful
+  - Sweet
+  - Affectionate
+  - Gentle
+  - Moderate Bite Interest
+  - Companion Fit
 bestFit:
-  - Active Family
-  - Sport Prospect
-shortDescription: A pink-collar female showing boldness, confidence, and playful drive.
-fullDescription: Toph is a bold, confident female with current notes pointing toward play drive and an active temperament. She has been reserved, and her profile remains visible as part of the Ranger x Mila litter record. Toph's early profile may be useful for visitors comparing confidence, playfulness, and fit across the litter. She appears best suited for an active home or sport-oriented owner that appreciates a puppy with presence and engagement. Her continued development should include structure, clarity, and age-appropriate outlets. Buyers interested in similar traits may want to review Kyoshi, Azula, or Ty Lee.
+  - Affectionate companion
+  - Active family
+  - Owner wanting sweetness with some drive
+shortDescription: One of the sweetest pups in the litter, Toph is affectionate, gentle, and best suited for a home that values connection and companionship.
+fullDescription: >-
+  Toph remains one of the sweetest puppies in the litter, rivaled only by Sokka in softness and affection. She loves
+  attention, enjoys being close with people, and has a naturally loving temperament. Her interest in bitework has
+  increased recently, but not to the same degree as many of her higher-drive siblings. She still appears better suited
+  for a home that values connection, affection, and companionship over serious working intensity. Toph has already been
+  matched with a person who fits her well, which is exactly the kind of thoughtful placement Alliance K9 wants for
+  these puppies. She should thrive with someone who appreciates her sweet nature and continues to give her structure,
+  love, and engagement. Toph is a beautiful example of why each puppy is evaluated individually rather than placed by
+  appearance alone.
 heroImage: /assets/processed/puppies/toph/toph-7w-hero-004.webp
 gallery: []
 developmentChecklist:

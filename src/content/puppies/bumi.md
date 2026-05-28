@@ -6,17 +6,27 @@ collar: Dark Green
 status: Available
 birthDate: "2026-03-21"
 currentAge: 9 weeks
-weightNotes: Current weight not publicly listed.
+weightNotes: 18 lbs 3 oz as of May 27, 2026
 traits:
-  - Playful
-  - Bold
-  - Food Motivated
+  - Very High Drive
+  - Deep Grip
+  - Bitework Focused
+  - Police / Military Prospect
+  - PSA Candidate
 bestFit:
-  - Active Family
-  - Training-Minded Home
-  - Working Home
-shortDescription: A dark-green-collar male showing play drive, confidence, and handler engagement.
-fullDescription: Bumi is a playful, bold male with current notes pointing toward confidence, food motivation, and active engagement. He appears to enjoy interaction and may be well suited for a home that wants to build structure through training, play, and clear expectations. His early profile suggests a puppy who benefits from direction and involvement rather than a passive household rhythm. Bumi may be a good candidate for an active family, training-minded owner, or working-oriented home depending on continued development. His best match will be someone ready to channel confidence and play drive into productive work. He remains available while Alliance K9 continues observing fit and placement suitability.
+  - Experienced working home
+  - Police/military candidate
+  - PSA or sport
+  - Serious family protection with committed training
+shortDescription: A very high-drive male showing deep grips, strong commitment, and serious bitework enthusiasm, best suited for a committed working or sport home.
+fullDescription: >-
+  Bumi has come alive recently and is now showing himself as one of the most serious working prospects in the litter.
+  He has become extremely enthusiastic about bitework, showing deep grips, strong commitment, and impressive confidence
+  on the bite suit. He is often the first puppy to latch on and one of the last to let go. So far, nothing in the
+  bitework has appeared to shake him, and he brings a level of determination that stands out even among his high-drive
+  siblings. Bumi may be a strong candidate for police, military, PSA, or other serious working roles. He could also be
+  considered for family protection, but only with a committed owner who takes training and structure seriously. This is
+  not a casual placement puppy; Bumi needs a home prepared to develop and manage real drive.
 heroImage: /assets/processed/puppies/bumi/bumi-6w-hero-010.webp
 gallery: []
 developmentChecklist:

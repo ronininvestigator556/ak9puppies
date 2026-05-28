@@ -6,16 +6,27 @@ collar: Light Blue
 status: Available
 birthDate: "2026-03-21"
 currentAge: 9 weeks
-weightNotes: Current weight not publicly listed.
+weightNotes: 21 lbs 8 oz as of May 27, 2026
 traits:
-  - Social
-  - Playful
-  - Curious
+  - Large Male
+  - Sweet
+  - Affectionate
+  - Engaged in Training
+  - Active Companion
 bestFit:
-  - Active Family
-  - Balanced Companion
-shortDescription: A light-blue-collar male showing social confidence, playfulness, curiosity, and engagement.
-fullDescription: Sokka is a social, playful male with current notes highlighting curiosity and engagement. He appears to enjoy interaction and may be well suited for an active family or balanced companion home that wants a trainable puppy with a connected temperament. Sokka's best fit will likely include regular structure, play, and continued training rather than a low-involvement household. His early profile suggests approachable confidence and a willingness to participate with people. He should continue to be observed for drive, recovery, and ability to settle as he matures. Sokka remains available for a home that values both companionship and thoughtful development.
+  - Active family companion
+  - Hiking/adventure home
+  - Obedience-focused family
+  - Lower-bite-interest home
+shortDescription: A large, affectionate male with strong training engagement, a sweet social nature, and lower current interest in bitework.
+fullDescription: >-
+  Sokka has developed into a large, affectionate teddy bear of a puppy. He loves to run, play, explore, and engage in
+  training, but he currently shows little interest in bitework. He may grab a toy, but he does not appear especially
+  motivated to bite the suit or engage in protection-style work at this stage. Instead, Sokka's strengths are his
+  sweetness, social nature, engagement, and desire to be close with people. He is the kind of pup who would rather lay
+  in your lap or go on a hike than pursue intense protection-style work. His size and presence are impressive, but his temperament is
+  trending toward affectionate companion rather than hard working dog. Sokka should be an excellent match for an active
+  family that wants a big, loving, trainable dog with a softer edge.
 heroImage: /assets/processed/puppies/sokka/sokka-6w-hero-015.webp
 gallery: []
 developmentChecklist:
