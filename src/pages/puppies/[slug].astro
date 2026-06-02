@@ -25,13 +25,15 @@ const { Content } = await render(puppy);
 const similarPuppies = getSimilarPuppies(puppy, sortPuppies(puppies));
 const heroImage = puppyHeroImage(puppy.data.slug, puppy.data.heroImage);
 const galleryImages = listPuppyImages(puppy.data.slug).filter((image) => image !== heroImage);
-const statusLabel = puppy.data.status === "Sold" ? "SOLD — Found His Home" : puppy.data.status;
+const homePronoun = puppy.data.sex === "Female" ? "her" : "his";
+const homePronounTitle = puppy.data.sex === "Female" ? "Her" : "His";
+const statusLabel = puppy.data.status === "Sold" ? `SOLD - Found ${homePronounTitle} Home` : puppy.data.status;
 const statusEyebrow = puppy.data.status === "Available"
   ? "Available Puppy"
   : puppy.data.status === "Reserved"
     ? "Reserved Puppy"
     : puppy.data.status === "Sold"
-      ? "SOLD — Found His Home"
+      ? `SOLD - Found ${homePronounTitle} Home`
       : puppy.data.status;
 const traitLine = puppy.data.traits.slice(0, 3).join(" - ");
 const profileDescription = `${puppy.data.name} is one of the Ranger x Mila puppies being raised and evaluated through Alliance K9. Each puppy is observed for temperament, confidence, drive, affection, social engagement, and placement suitability to help guide the right long-term match.`;
@@ -46,7 +48,7 @@ const secondaryCta = available
   ? { href: "/contact/", label: `Ask About ${puppy.data.name}` }
   : { href: "/contact/", label: "Contact Alliance K9" };
 const metaDescription = sold
-  ? `Meet ${puppy.data.name}, a ${puppy.data.sex.toLowerCase()} puppy from the Ranger x Mila litter at Alliance K9. ${puppy.data.name} has found his home, but similar puppies may still be available.`
+  ? `Meet ${puppy.data.name}, a ${puppy.data.sex.toLowerCase()} puppy from the Ranger x Mila litter at Alliance K9. ${puppy.data.name} has found ${homePronoun} home, but similar puppies may still be available.`
   : `Meet ${puppy.data.name}, a ${puppy.data.sex.toLowerCase()} puppy from the Ranger x Mila litter at Alliance K9, evaluated for temperament, drive, confidence, affection, and placement fit.`;
 const siteOrigin = import.meta.env.PUBLIC_SITE_URL ?? Astro.site?.origin ?? "https://alliancek9dogs.com";
 const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
@@ -69,7 +71,7 @@ const absoluteHeroImage = heroImage
   >
     <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">{profileDescription}</p>
     <div class="mt-8 flex flex-wrap items-center gap-3">
-      <StatusBadge status={puppy.data.status} />
+      <StatusBadge status={puppy.data.status} label={statusLabel} />
       {puppy.data.traits.map((trait) => <TraitChip label={trait} />)}
     </div>
 
@@ -174,7 +176,7 @@ const absoluteHeroImage = heroImage
     <div class="mt-10 luxury-card grid gap-6 p-8 md:grid-cols-[1fr_auto] md:items-center">
       <div>
         <p class="eyebrow">Next Step</p>
-        <h2 class="mt-3 font-heading text-3xl text-ivory">{sold ? `${puppy.data.name} Has Found His Home` : `Interested in ${puppy.data.name}?`}</h2>
+        <h2 class="mt-3 font-heading text-3xl text-ivory">{sold ? `${puppy.data.name} Has Found ${homePronounTitle} Home` : `Interested in ${puppy.data.name}?`}</h2>
         <p class="mt-4 max-w-2xl text-sm leading-6 text-stone">
           {sold
             ? `${puppy.data.name} is no longer available, but several puppies from the same litter may offer similar traits, drive, or placement potential. View the available puppies or reach out for help identifying the right match.`

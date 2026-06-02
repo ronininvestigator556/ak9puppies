@@ -1,9 +1,10 @@
 ---
 interface Props {
   status: "Available" | "Pending Conversation" | "Reserved" | "Sold" | "Evaluation Hold";
+  label?: string;
 }
 
-const { status } = Astro.props;
+const { status, label: customLabel } = Astro.props;
 
 const tone = {
   Available: "border-gold/55 bg-gold/15 text-ivory",
@@ -13,7 +14,7 @@ const tone = {
   "Evaluation Hold": "border-ivory/30 bg-ivory/10 text-ivory",
 };
 
-const label = status === "Sold" ? "SOLD &mdash; Found His Home" : status;
+const label = customLabel ?? (status === "Sold" ? "SOLD - Found His Home" : status);
 ---
 
 <span
@@ -22,5 +23,5 @@ const label = status === "Sold" ? "SOLD &mdash; Found His Home" : status;
     tone[status],
   ]}
 >
-  <Fragment set:html={label} />
+  {label}
 </span>
