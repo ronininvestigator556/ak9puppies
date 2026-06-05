@@ -27,7 +27,7 @@ fullDescription: >-
   in your lap or go on a hike than pursue intense protection-style work. His size and presence are impressive, but his temperament is
   trending toward affectionate companion rather than hard working dog. Sokka should be an excellent match for an active
   family that wants a big, loving, trainable dog with a softer edge.
-heroImage: /assets/processed/puppies/sokka/sokka-6w-hero-015.webp
+heroImage: /assets/processed/puppies/sokka/sokka-10w-hero-3.webp
 gallery: []
 developmentChecklist:
   - Early handling

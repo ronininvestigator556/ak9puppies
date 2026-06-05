@@ -10,9 +10,9 @@ temperamentSummary: >-
 workingNotes: >-
   Beyond drive, Mila brings an important quality to this pairing: connection. She is attentive, expressive, and closely
   bonded with her people, and she has shown a strong maternal side with the puppies.
-heroImage: /assets/processed/parents/parents-mila-052.webp
+heroImage: /assets/processed/parents/parents-mila-058.webp
 gallery:
-  - /assets/processed/parents/parents-mila-053.webp
-  - /assets/processed/parents/parents-mila-076.webp
-  - /assets/processed/parents/parents-mila-080.webp
+  - /assets/processed/parents/parents-mila-089.webp
+  - /assets/processed/parents/parents-mila-pup-044.webp
+  - /assets/processed/parents/parents-mila-068.webp
 ---

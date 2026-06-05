@@ -2,13 +2,33 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTAButton from "../components/CTAButton.astro";
+import Lightbox from "../components/Lightbox.astro";
 import ParentDogProfile from "../components/ParentDogProfile.astro";
 import Section from "../components/Section.astro";
-import { firstHeroImage, firstPublicImage, publicAsset } from "../lib/assets";
+import { firstHeroImage, firstPublicImage, listPublicImages, publicAsset } from "../lib/assets";
 
 const dogs = await getCollection("dogs");
 const ranger = dogs.find((dog) => dog.data.name === "Ranger");
 const mila = dogs.find((dog) => dog.data.name === "Mila");
+const parentImages = listPublicImages("/assets/processed/parents");
+const milaTopImages = [
+  "/assets/processed/parents/parents-mila-058.webp",
+  "/assets/processed/parents/parents-mila-089.webp",
+  "/assets/processed/parents/parents-mila-pup-044.webp",
+  "/assets/processed/parents/parents-mila-068.webp",
+].filter((image) => publicAsset(image));
+const orderWithFeaturedFirst = (images: string[], featured: string[]) => [
+  ...featured,
+  ...images.filter((image) => !featured.includes(image)),
+];
+const milaImages = orderWithFeaturedFirst(
+  parentImages.filter((image) => image.includes("/parents-mila")),
+  milaTopImages,
+);
+const rangerImages = parentImages.filter((image) => image.includes("/parents-ranger"));
+const sharedParentImages = parentImages.filter(
+  (image) => !milaImages.includes(image) && !rangerImages.includes(image),
+);
 const parentImage =
   publicAsset(mila?.data.heroImage) ??
   publicAsset(ranger?.data.heroImage) ??
@@ -99,6 +119,88 @@ const parentImage =
     <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
       Alliance K9 approaches this litter with both a trainer's eye and a breeder's responsibility. The puppies are observed not only for drive and confidence, but also for how they engage with people, recover from stimulation, interact with littermates, and settle after activity.
     </p>
+  </Section>
+
+  <Section
+    eyebrow="Parent Photo Library"
+    title="Full Parent Galleries"
+    description="Every available parent photo is included here for buyers, handlers, and agencies who want a more complete look at Ranger, Mila, and the pairing behind the litter."
+    class="pt-0"
+  >
+    {
+      milaImages.length > 0 && (
+        <div class="mt-8">
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 class="font-heading text-2xl text-ivory">Mila Gallery</h2>
+              <p class="mt-2 max-w-2xl text-sm leading-6 text-stone">
+                Belgian Malinois dam, maternal temperament, athleticism, and working-line presence.
+              </p>
+            </div>
+            <p class="text-xs uppercase tracking-[0.16em] text-stone">{milaImages.length} photos</p>
+          </div>
+          <div class="mt-5">
+            <Lightbox
+              id="mila-parent-gallery"
+              items={milaImages.map((image) => ({
+                src: image,
+                alt: "Mila, Belgian Malinois dam for the Ranger x Mila litter.",
+              }))}
+            />
+          </div>
+        </div>
+      )
+    }
+
+    {
+      rangerImages.length > 0 && (
+        <div class="mt-12">
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 class="font-heading text-2xl text-ivory">Ranger Gallery</h2>
+              <p class="mt-2 max-w-2xl text-sm leading-6 text-stone">
+                Dutch Shepherd sire with KNPV lineage, structure, confidence, and working heritage.
+              </p>
+            </div>
+            <p class="text-xs uppercase tracking-[0.16em] text-stone">{rangerImages.length} photos</p>
+          </div>
+          <div class="mt-5">
+            <Lightbox
+              id="ranger-parent-gallery"
+              items={rangerImages.map((image) => ({
+                src: image,
+                alt: "Ranger, Dutch Shepherd sire for the Ranger x Mila litter.",
+              }))}
+            />
+          </div>
+        </div>
+      )
+    }
+
+    {
+      sharedParentImages.length > 0 && (
+        <div class="mt-12">
+          <div class="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 class="font-heading text-2xl text-ivory">Ranger x Mila Together</h2>
+              <p class="mt-2 max-w-2xl text-sm leading-6 text-stone">
+                Additional images showing the pair, parent context, and the current litter foundation.
+              </p>
+            </div>
+            <p class="text-xs uppercase tracking-[0.16em] text-stone">{sharedParentImages.length} photos</p>
+          </div>
+          <div class="mt-5">
+            <Lightbox
+              id="shared-parent-gallery"
+              items={sharedParentImages.map((image) => ({
+                src: image,
+                alt: "Ranger and Mila parent imagery from Alliance K9.",
+              }))}
+            />
+          </div>
+        </div>
+      )
+    }
   </Section>
 
   <Section class="pt-0">

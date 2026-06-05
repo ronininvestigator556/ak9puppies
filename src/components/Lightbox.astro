@@ -7,16 +7,23 @@ interface LightboxItem {
 interface Props {
   items: LightboxItem[];
   id?: string;
+  rootClass?: string;
+  itemClass?: string;
 }
 
-const { items, id = "gallery-lightbox" } = Astro.props;
+const {
+  items,
+  id = "gallery-lightbox",
+  rootClass = "columns-1 gap-5 sm:columns-2 lg:columns-3",
+  itemClass = "mb-5",
+} = Astro.props;
 ---
 
-<div class="columns-1 gap-5 sm:columns-2 lg:columns-3" data-lightbox-root={id}>
+<div class={rootClass} data-lightbox-root={id}>
   {
     items.map((item) => (
       <button
-        class="image-treatment mb-5 block w-full break-inside-avoid text-left"
+        class:list={["image-treatment block w-full break-inside-avoid text-left", itemClass]}
         type="button"
         data-lightbox-trigger
         aria-label={`Open ${item.alt}`}
