@@ -10,24 +10,24 @@ weightNotes: 17 lbs 7 oz as of May 27, 2026
 traits:
   - Confident
   - Affectionate
-  - Family Protection Prospect
-  - Sport Potential
-  - Active Family Fit
+  - Environmentally Bold
+  - Strong Reward Drive
+  - People-Bonded
 bestFit:
-  - Family protection
-  - Active family
-  - Sport/performance home
-  - Bonded handler relationship
-shortDescription: A confident, affectionate female with strong family protection potential, active companion appeal, and enough drive for sport or performance work.
+  - SAR-oriented placement
+  - Detection-style working home
+  - Active working home
+  - Structured family protection home
+shortDescription: A confident, affectionate female with solid nerves, strong reward drive, environmental boldness, and serious working-home potential.
 fullDescription: >-
-  Azula's assessment remains largely unchanged: she continues to show confidence, solid nerves, affection, and strong
-  engagement with her people. She is one of the pups most naturally suited to a family protection role, especially for
-  an active household that wants a loyal and involved dog. Azula enjoys attention and connection while still bringing
-  enough drive and confidence to be taken seriously as a working or sport prospect. She should do well with a family
-  that wants a dog who can bond deeply, train consistently, and remain active in daily life. Her balanced mix of
-  affection, confidence, and working potential makes her one of the more versatile females in the litter. Azula is best
-  suited for a home that wants both companionship and capability. With continued structure and training, she appears to
-  be a strong candidate as a family protector, active companion, or sport dog.
+  Azula continues to show confidence, solid nerves, affection, and strong engagement with her people. She is an
+  environmentally bold puppy with high prey and toy motivation, a strong reward system, and a deep bond once she
+  connects with her person. Those traits may translate well into SAR or detection-style development with the right
+  handler, especially in a home that values confidence, persistence, relationship, and clear training structure. Azula
+  enjoys attention and connection while still bringing enough intensity and working character to be taken seriously as
+  an active working prospect. She may also be a strong family protection candidate in a structured, experienced home
+  because of her confidence, bond, and discerning working nature. She is best suited for a home that wants both
+  relationship and capability, with realistic expectations and consistent training.
 heroImage: /assets/processed/puppies/azula/azula-7w-hero-006.webp
 gallery: []
 developmentChecklist:

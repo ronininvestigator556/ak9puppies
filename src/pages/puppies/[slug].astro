@@ -36,7 +36,7 @@ const statusEyebrow = puppy.data.status === "Available"
       ? `SOLD - Found ${homePronounTitle} Home`
       : puppy.data.status;
 const traitLine = puppy.data.traits.slice(0, 3).join(" - ");
-const profileDescription = `${puppy.data.name} is one of the Ranger x Mila puppies being raised and evaluated through Alliance K9. Each puppy is observed for temperament, confidence, drive, affection, social engagement, and placement suitability to help guide the right long-term match.`;
+const profileDescription = `${puppy.data.name} is one of the Ranger x Mila puppies being raised and evaluated through Alliance K9. Each puppy is observed for temperament, confidence, drive, sociability, handler engagement, environmental stability, recovery, and placement suitability to help guide the right long-term match.`;
 const available = puppy.data.status === "Available";
 const sold = puppy.data.status === "Sold";
 const primaryCta = available
@@ -49,7 +49,7 @@ const secondaryCta = available
   : { href: "/contact/", label: "Contact Alliance K9" };
 const metaDescription = sold
   ? `Meet ${puppy.data.name}, a ${puppy.data.sex.toLowerCase()} puppy from the Ranger x Mila litter at Alliance K9. ${puppy.data.name} has found ${homePronoun} home, but similar puppies may still be available.`
-  : `Meet ${puppy.data.name}, a ${puppy.data.sex.toLowerCase()} puppy from the Ranger x Mila litter at Alliance K9, evaluated for temperament, drive, confidence, affection, and placement fit.`;
+  : `Meet ${puppy.data.name}, a ${puppy.data.sex.toLowerCase()} puppy from the Ranger x Mila litter at Alliance K9, evaluated for temperament, drive, confidence, handler engagement, and placement fit.`;
 const siteOrigin = import.meta.env.PUBLIC_SITE_URL ?? Astro.site?.origin ?? "https://alliancek9dogs.com";
 const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
 const absoluteHeroImage = heroImage
@@ -106,7 +106,7 @@ const absoluteHeroImage = heroImage
         <div class="mt-6">
           <h3 class="font-heading text-xl text-ivory">Best Fit for {puppy.data.name}</h3>
           <p class="mt-3 text-sm leading-6 text-stone">
-            Based on current observations, {puppy.data.name} appears best suited for {puppy.data.bestFit.join(", ").toLowerCase()}. Final placement should consider handler experience, home environment, expectations, and willingness to continue training and structure.
+            Based on current observations, {puppy.data.name} appears best suited for {puppy.data.bestFit.join(", ").toLowerCase()}. Final placement should consider handler experience, home environment, goals, expectations, and willingness to continue training and structure.
           </p>
           <div class="mt-3 flex flex-wrap gap-2">
             {puppy.data.bestFit.map((fit) => <TraitChip label={fit} />)}
@@ -128,7 +128,7 @@ const absoluteHeroImage = heroImage
     <div class="mt-10 luxury-card p-6">
       <h2 class="font-heading text-2xl text-ivory">From Ranger x Mila</h2>
       <p class="mt-3 max-w-3xl text-sm leading-6 text-stone">
-        {puppy.data.name} is part of the Ranger x Mila litter, combining Ranger's KNPV Dutch Shepherd lineage with Mila's strong Belgian Malinois working background.
+        {puppy.data.name} is part of the Ranger x Mila litter, combining Ranger's KNPV Dutch Shepherd lineage with Mila's strong Belgian Malinois working background. Placement priority for this litter is SAR, detection-style work, experienced active homes, and carefully screened family protection homes.
       </p>
       <div class="mt-5">
         <CTAButton href="/parents/" variant="secondary">Meet the Parents</CTAButton>
@@ -180,7 +180,7 @@ const absoluteHeroImage = heroImage
         <p class="mt-4 max-w-2xl text-sm leading-6 text-stone">
           {sold
             ? `${puppy.data.name} is no longer available, but several puppies from the same litter may offer similar traits, drive, or placement potential. View the available puppies or reach out for help identifying the right match.`
-            : `The next step is to start the application process so we can discuss your goals, experience, and whether ${puppy.data.name} may be the right fit for your home.`}
+            : `The next step is to start the application process so we can discuss your goals, experience, and whether ${puppy.data.name} may be the right fit for SAR, detection-style work, active companionship, or a structured family protection home.`}
         </p>
       </div>
       <div class="flex flex-wrap gap-3">

@@ -8,9 +8,10 @@ temperamentSummary: >-
   He represents the qualities Alliance K9 values in a serious working dog: confidence, athleticism, intelligence,
   drive, and a composed presence around people.
 workingNotes: >-
-  His KNPV lineage offers a strong foundation for puppies with potential in protection, sport, working roles,
-  and active homes that understand the needs of high-drive dogs. Ranger's influence can be seen in the litter's
-  structure, intensity, confidence, and early working promise.
+  His KNPV lineage is noted as part of the litter's factual working-dog background. Ranger contributes strong genetics,
+  athleticism, intensity, and a stable, powerful working character. His influence can be seen in the litter's structure,
+  confidence, drive, and early promise for SAR, detection-style work, active working homes, and carefully screened
+  family protection placements.
 heroImage: /assets/processed/parents/parents-ranger-006.webp
 gallery:
   - /assets/processed/parents/parents-ranger-007.webp
