@@ -9,24 +9,25 @@ currentAge: 9 weeks
 weightNotes: 18 lbs 3 oz as of May 27, 2026
 traits:
   - Very High Drive
-  - Deep Grip
-  - Bitework Focused
-  - Police / Military Prospect
-  - PSA Candidate
+  - Persistent
+  - Resilient
+  - Strong Reward Drive
+  - Serious Working Prospect
 bestFit:
   - Experienced working home
-  - Police/military candidate
-  - PSA or sport
+  - SAR or detection-style work
+  - High-drive handler
   - Serious family protection with committed training
-shortDescription: A very high-drive male showing deep grips, strong commitment, and serious bitework enthusiasm, best suited for a committed working or sport home.
+shortDescription: A very high-drive male with deep commitment to the task, serious persistence, and enough intensity to require an experienced working placement.
 fullDescription: >-
   Bumi has come alive recently and is now showing himself as one of the most serious working prospects in the litter.
-  He has become extremely enthusiastic about bitework, showing deep grips, strong commitment, and impressive confidence
-  on the bite suit. He is often the first puppy to latch on and one of the last to let go. So far, nothing in the
-  bitework has appeared to shake him, and he brings a level of determination that stands out even among his high-drive
-  siblings. Bumi may be a strong candidate for police, military, PSA, or other serious working roles. He could also be
-  considered for family protection, but only with a committed owner who takes training and structure seriously. This is
-  not a casual placement puppy; Bumi needs a home prepared to develop and manage real drive.
+  He is often the first to engage and one of the last to quit, bringing deep commitment, intensity, and impressive
+  confidence to the task in front of him. So far, he has shown persistence, resilience, and determination that stand out
+  even among his high-drive siblings. Bumi may be a very serious SAR or detection-style working prospect for an
+  experienced handler who understands how to channel a lot of dog into structured work. He is not a casual placement
+  puppy. Bumi needs a home prepared to develop and manage real drive, provide clear outlets, and stay realistic about
+  the amount of dog they are taking on. He may suit a serious family protection home only if the handler is highly
+  experienced, committed, and structured.
 heroImage: /assets/processed/puppies/bumi/bumi-6w-hero-010.webp
 gallery: []
 developmentChecklist:

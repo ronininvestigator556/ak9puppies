@@ -8,26 +8,27 @@ birthDate: "2026-03-21"
 currentAge: 9 weeks
 weightNotes: 21 lbs 1 oz as of May 27, 2026
 traits:
-  - Moderate Drive
-  - Attentive
+  - Independent Investigator
+  - Environmentally Curious
   - Affectionate
   - Trainable
-  - Watchful Wildcard
+  - Discerning
 bestFit:
-  - Active family
-  - Engaged companion
-  - Family protection prospect
-  - Handler prepared for developing drive
-shortDescription: A visually impressive, affectionate male currently presenting as moderate drive, highly attentive, and trainable, with room for stronger working traits to emerge as he matures.
+  - Experienced active handler
+  - Search-style development
+  - Detection-style working prospect
+  - Structured family protection home
+shortDescription: A large, confident male with independent curiosity, a deep bond once connected, and thoughtful working or family protection potential.
 fullDescription: >-
-  Zuko remains one of the most visually impressive males in the litter, but his working drive is currently presenting
-  more moderately than expected. He shows interest in bitework, though not with the same intensity as some of his
-  littermates at this stage. What stands out most right now is his attentiveness, affection, and willingness to interact
-  and train with his handler. Zuko enjoys engagement and appears to value connection, making him a promising fit for
-  someone who wants a trainable, bonded dog. That said, he may still have more drive waiting to emerge as he matures,
-  much like Mila did when she came into her own. For that reason, he should be placed with an owner who appreciates his
-  calmer presentation now but is prepared for the possibility of a stronger, more intense working dog developing later.
-  Zuko is best viewed as a moderate-drive prospect with room to grow.
+  Zuko is a large, confident male who tends to investigate first and bond deeply once connection is built. He is not
+  overly pack-dependent; he explores, problem-solves, carries and keeps objects, and will re-engage with things that
+  interest him. His drive is currently presenting in the mid range, with interest in toys and work rather than constant
+  intensity. Socially, he can be neutral at first, then becomes very affectionate and attentive with his person. He
+  rarely barks, is respected by his littermates, and can respond decisively when challenged without generally
+  instigating. Zuko may be a strong candidate for an experienced handler who values independence, environmental
+  curiosity, and a puppy who thinks for himself. He may fit SAR-style development, detection-style work, active working
+  companion placement, or a structured family protection home where his confidence, bond, and discernment can be
+  developed responsibly. He should be matched thoughtfully because more drive may continue to emerge as he matures.
 heroImage: /assets/processed/puppies/zuko/zuko-6w-hero-004.webp
 gallery: []
 developmentChecklist:
