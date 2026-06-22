@@ -3,7 +3,8 @@ name: Kyoshi
 slug: kyoshi
 sex: Female
 collar: Lime Green
-status: Available
+status: Sold
+statusLabel: SOLD — Found Her Home
 birthDate: "2026-03-21"
 currentAge: 9 weeks
 weightNotes: 20 lbs as of May 27, 2026

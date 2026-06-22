@@ -3,7 +3,8 @@ name: Sokka
 slug: sokka
 sex: Male
 collar: Light Blue
-status: Available
+status: Sold
+statusLabel: SOLD — Found His Home
 birthDate: "2026-03-21"
 currentAge: 9 weeks
 weightNotes: 21 lbs 8 oz as of May 27, 2026
