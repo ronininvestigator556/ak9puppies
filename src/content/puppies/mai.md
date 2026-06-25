@@ -3,7 +3,7 @@ name: Mai
 slug: mai
 sex: Female
 collar: Yellow
-status: Reserved
+status: Sold
 birthDate: "2026-03-21"
 currentAge: 9 weeks
 weightNotes: 15 lbs 7 oz as of May 27, 2026
