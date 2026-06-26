@@ -27,7 +27,7 @@ fullDescription: >-
   pups. Hakoda may fit SAR or detection-style development, an active working companion placement, or a structured family
   protection home that wants both capability and connection. He will still need structure and training, but he offers a
   promising mix of confidence, affection, working potential, and livability for the right handler.
-heroImage: /assets/processed/puppies/hakoda/hakoda-6w-hero-021.webp
+heroImage: /assets/processed/puppies/hakoda/hakoda-hero-01.webp
 gallery: []
 developmentChecklist:
   - Early handling
