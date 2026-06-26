@@ -4,10 +4,11 @@ interface Props {
   eyebrow?: string;
   title?: string;
   description?: string;
+  headingLevel?: "h1" | "h2" | "h3";
   class?: string;
 }
 
-const { id, eyebrow, title, description, class: className = "" } = Astro.props;
+const { id, eyebrow, title, description, headingLevel = "h2", class: className = "" } = Astro.props;
 ---
 
 <section id={id} class:list={["section-shell py-16 sm:py-20", className]}>
@@ -15,7 +16,9 @@ const { id, eyebrow, title, description, class: className = "" } = Astro.props;
     (eyebrow || title || description) && (
       <div class="max-w-3xl">
         {eyebrow && <p class="eyebrow">{eyebrow}</p>}
-        {title && <h1 class="heading-display mt-4">{title}</h1>}
+        {title && headingLevel === "h1" && <h1 class="heading-display mt-4">{title}</h1>}
+        {title && headingLevel === "h2" && <h2 class="heading-display mt-4">{title}</h2>}
+        {title && headingLevel === "h3" && <h3 class="heading-display mt-4">{title}</h3>}
         {description && <p class="body-copy mt-5">{description}</p>}
       </div>
     )

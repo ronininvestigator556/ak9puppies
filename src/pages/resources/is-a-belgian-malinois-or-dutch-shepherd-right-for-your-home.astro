@@ -1,0 +1,79 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTAButton from "../../components/CTAButton.astro";
+import Section from "../../components/Section.astro";
+
+const articleUrl = "https://alliancek9dogs.com/resources/is-a-belgian-malinois-or-dutch-shepherd-right-for-your-home/";
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Is a Belgian Malinois or Dutch Shepherd Right for Your Home?",
+  description:
+    "A responsible buyer guide from Alliance K9 for people considering a working-line Belgian Malinois, Dutch Shepherd, or Dutch Shepherd / Belgian Malinois puppy.",
+  author: {
+    "@type": "Organization",
+    name: "Alliance K9",
+    url: "https://alliancek9dogs.com/",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Alliance K9",
+    url: "https://alliancek9dogs.com/",
+  },
+  mainEntityOfPage: articleUrl,
+};
+---
+
+<BaseLayout
+  title="Is a Belgian Malinois or Dutch Shepherd Right for Your Home? | Alliance K9"
+  description="A responsible buyer guide from Alliance K9 near Birmingham, Alabama for people considering a working-line Belgian Malinois, Dutch Shepherd, or Dutch Shepherd / Belgian Malinois puppy."
+  type="article"
+  schema={articleSchema}
+>
+  <Section
+    eyebrow="Buyer Education"
+    title="Is a Belgian Malinois or Dutch Shepherd Right for Your Home?"
+    headingLevel="h1"
+    description="Working-line dogs can be extraordinary partners, but they are not casual choices. The right match depends on temperament, drive, training plans, household structure, and honest expectations."
+  >
+    <div class="prose prose-invert mt-8 max-w-3xl text-stone">
+      <p>
+        Belgian Malinois and Dutch Shepherds are known for athleticism, intensity, intelligence, handler engagement, and working potential. Those traits can make them excellent candidates for search and rescue, detection-style work, active companion homes, and structured family protection development when the dog, handler, and environment are appropriate.
+      </p>
+      <p>
+        Those same traits can be difficult in a home that is not prepared for daily structure, clear communication, training, exercise, and mental engagement. A working-line puppy should not be chosen only because of appearance, color, size, or a single impressive photo.
+      </p>
+
+      <h2>What Buyers Should Consider</h2>
+      <p>
+        A good match starts with the life the puppy will actually live. Consider your schedule, household activity, previous dog experience, willingness to work with a trainer, plans for outlets, and how much structure you can provide every day.
+      </p>
+      <ul>
+        <li>High drive needs direction, not just exercise.</li>
+        <li>Confidence and environmental stability matter as much as intensity.</li>
+        <li>Food, toy, and hunt drive can be valuable when developed responsibly.</li>
+        <li>Family protection goals require careful evaluation, control, and owner commitment.</li>
+        <li>Temperament should guide placement more than looks or early favorites.</li>
+      </ul>
+
+      <h2>Why Individual Evaluation Matters</h2>
+      <p>
+        Puppies in the same litter can be very different. One may be a better SAR or detection-style prospect, another may be more suitable for an experienced active home, and another may show the balance needed for a structured family companion path.
+      </p>
+      <p>
+        Alliance K9 evaluates puppies for temperament, confidence, sociability, recovery, handler engagement, food drive, toy drive, hunt drive, and ability to settle. The goal is not to sell the most intense puppy to every buyer. The goal is a long-term fit.
+      </p>
+
+      <h2>When to Start the Conversation</h2>
+      <p>
+        If you are considering a working-line Dutch Shepherd, Belgian Malinois, or Dutch Shepherd / Belgian Malinois puppy near Birmingham, Chelsea, or elsewhere in Alabama, start with a placement conversation. Share your goals honestly and be open to guidance based on the puppy in front of us.
+      </p>
+    </div>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="/apply/">Start the Placement Conversation</CTAButton>
+      <CTAButton href="/puppies/" variant="secondary">View Current Puppies</CTAButton>
+      <CTAButton href="/resources/" variant="secondary">Back to Resources</CTAButton>
+    </div>
+  </Section>
+</BaseLayout>

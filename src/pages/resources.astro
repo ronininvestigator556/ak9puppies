@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTAButton from "../components/CTAButton.astro";
+import Section from "../components/Section.astro";
+---
+
+<BaseLayout
+  title="Working Dog Resources | Alliance K9"
+  description="Educational resources from Alliance K9 for working-line puppy buyers, active homes, SAR prospects, detection-style prospects, and responsible working-breed ownership."
+>
+  <Section
+    eyebrow="Resources"
+    title="Working Dog Resources"
+    headingLevel="h1"
+    description="Practical guidance for people considering a Dutch Shepherd, Belgian Malinois, or working-line puppy from Alliance K9."
+  >
+    <div class="mt-8 grid gap-5 md:grid-cols-2">
+      <article class="luxury-card p-6">
+        <p class="eyebrow">Starter Guide</p>
+        <h2 class="mt-3 font-heading text-2xl text-ivory">Is a Belgian Malinois or Dutch Shepherd Right for Your Home?</h2>
+        <p class="mt-4 text-sm leading-6 text-stone">
+          Working-line Malinois and Dutch Shepherd puppies can be exceptional partners in the right home, but they need structure, outlets, engagement, and owners who are honest about time, handling, and training.
+        </p>
+        <p class="mt-4 text-sm leading-6 text-stone">
+          Before choosing a puppy based on looks, buyers should consider drive, recovery, confidence, sociability, household activity level, training plans, and whether the dog is being considered for SAR, detection-style work, active companionship, or a carefully structured family protection path.
+        </p>
+        <div class="mt-5">
+          <CTAButton href="/resources/is-a-belgian-malinois-or-dutch-shepherd-right-for-your-home/" variant="secondary">Read the Guide</CTAButton>
+        </div>
+      </article>
+      <div class="luxury-card p-6">
+        <h2 class="font-heading text-2xl text-ivory">Future Topics</h2>
+        <ul class="mt-4 grid gap-3 text-sm leading-6 text-stone">
+          <li>What makes a good search and rescue puppy prospect</li>
+          <li>Understanding drive, nerve, and environmental confidence</li>
+          <li>Why placement should be based on temperament, not looks</li>
+          <li>Preparing your home for a working-line puppy</li>
+          <li>Family protection dog versus pet dog expectations</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="/puppies/">View Current Puppies</CTAButton>
+      <CTAButton href="/apply/" variant="secondary">Start the Placement Conversation</CTAButton>
+    </div>
+  </Section>
+</BaseLayout>

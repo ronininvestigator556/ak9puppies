@@ -10,6 +10,7 @@ interface Props {
   imageAlt?: string;
   type?: "website" | "article" | "product";
   noIndex?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
@@ -19,14 +20,61 @@ const {
   imageAlt,
   type = "website",
   noIndex = false,
+  schema,
 } = Astro.props;
 
-const siteOrigin = import.meta.env.PUBLIC_SITE_URL ?? Astro.site?.origin ?? "https://alliancek9dogs.com";
+const siteOrigin = "https://alliancek9dogs.com";
 const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
 const absoluteImageUrl = image
   ? new URL(image, siteOrigin).href
   : undefined;
 const socialImageAlt = imageAlt ?? title;
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Alliance K9",
+  url: `${siteOrigin}/`,
+  description:
+    "Alliance K9 is a working-dog puppy placement and K9 training program based near Birmingham and Chelsea, Alabama.",
+  areaServed: [
+    "Birmingham, Alabama",
+    "Chelsea, Alabama",
+    "Shelby County, Alabama",
+    "Jefferson County, Alabama",
+    "Alabama",
+    "Southeast United States",
+  ],
+};
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Alliance K9",
+  url: `${siteOrigin}/`,
+  image: absoluteImageUrl,
+  description:
+    "Purpose-bred working-line puppies and K9 training support near Birmingham and Chelsea, Alabama, with careful placement for SAR prospects, detection-style work, active homes, and structured family protection homes.",
+  areaServed: [
+    "Birmingham",
+    "Chelsea",
+    "Shelby County",
+    "Jefferson County",
+    "Tuscaloosa",
+    "Montgomery",
+    "Huntsville",
+    "Alabama",
+    "Southeast United States",
+  ],
+  serviceType: [
+    "Working-line puppy placement",
+    "K9 training",
+    "Puppy foundations",
+    "Obedience",
+    "Behavior modification",
+    "Working-dog evaluation",
+  ],
+};
+const pageSchema = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
+const jsonLd = [organizationSchema, localBusinessSchema, ...pageSchema];
 ---
 
 <!doctype html>
@@ -48,6 +96,8 @@ const socialImageAlt = imageAlt ?? title;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     {absoluteImageUrl && <meta name="twitter:image" content={absoluteImageUrl} />}
+    <meta name="twitter:url" content={canonicalUrl} />
+    {jsonLd.map((item) => <script is:inline type="application/ld+json" set:html={JSON.stringify(item)} />)}
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -62,5 +112,77 @@ const socialImageAlt = imageAlt ?? title;
       <slot />
     </main>
     <SiteFooter />
+    <script is:inline>
+      const clearFieldError = (field) => {
+        if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) {
+          return;
+        }
+
+        const errorId = field.dataset.errorId;
+        if (errorId) {
+          document.getElementById(errorId)?.remove();
+        }
+
+        const describedBy = (field.getAttribute("aria-describedby") || "")
+          .split(/\s+/)
+          .filter((id) => id && id !== errorId)
+          .join(" ");
+
+        if (describedBy) {
+          field.setAttribute("aria-describedby", describedBy);
+        } else {
+          field.removeAttribute("aria-describedby");
+        }
+
+        field.removeAttribute("aria-invalid");
+        delete field.dataset.errorId;
+      };
+
+      const showFieldError = (field) => {
+        if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement) || field.validity.valid) {
+          return;
+        }
+
+        clearFieldError(field);
+
+        const error = document.createElement("p");
+        const errorId = `${field.id || field.name}-error`;
+        error.id = errorId;
+        error.className = "field-error";
+        error.textContent = field.validationMessage || "Please complete this field.";
+        field.dataset.errorId = errorId;
+        field.setAttribute("aria-invalid", "true");
+        field.setAttribute("aria-describedby", [field.getAttribute("aria-describedby"), errorId].filter(Boolean).join(" "));
+        field.insertAdjacentElement("afterend", error);
+      };
+
+      document.querySelectorAll("form").forEach((form) => {
+        form.addEventListener("invalid", (event) => {
+          event.preventDefault();
+          showFieldError(event.target);
+          if (!form.dataset.validationFocused && event.target instanceof HTMLElement) {
+            form.dataset.validationFocused = "true";
+            event.target.focus();
+            event.target.scrollIntoView({ block: "center", behavior: "smooth" });
+            window.setTimeout(() => {
+              delete form.dataset.validationFocused;
+            }, 100);
+          }
+        }, true);
+
+        form.addEventListener("input", (event) => clearFieldError(event.target));
+        form.addEventListener("change", (event) => clearFieldError(event.target));
+
+        form.addEventListener("submit", (event) => {
+          const firstInvalid = form.querySelector(":invalid");
+
+          if (firstInvalid instanceof HTMLElement) {
+            event.preventDefault();
+            form.querySelectorAll(":invalid").forEach(showFieldError);
+            firstInvalid.focus();
+          }
+        });
+      });
+    </script>
   </body>
 </html>

@@ -14,8 +14,8 @@ const heroImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp")
 ---
 
 <BaseLayout
-  title="Alliance K9 Puppies & Working Dogs"
-  description="Purpose-bred Dutch Shepherd and Belgian Malinois puppies from Alliance K9, raised with professional training insight, early evaluation, and intentional placement."
+  title="Alliance K9 | Working Dog Puppies & K9 Training near Birmingham, Alabama"
+  description="Purpose-bred Dutch Shepherd and Belgian Malinois puppies near Birmingham, Alabama. Raised with professional K9 insight, early evaluation, and careful placement for SAR, detection-style work, active homes, and structured family protection homes."
   image={heroImage}
   imageAlt="Mila with one of the Ranger x Mila puppies."
 >
@@ -29,6 +29,12 @@ const heroImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp")
     secondaryAction={{ href: "/apply/", label: "Start an Application" }}
   />
 
+  <Section class="py-8 sm:py-10">
+    <p class="max-w-4xl text-base leading-8 text-stone">
+      Alliance K9 is based near Birmingham and Chelsea, Alabama, serving serious working-dog homes, active families, SAR handlers, and training clients throughout Alabama and the Southeast.
+    </p>
+  </Section>
+
   <Section>
     <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {
@@ -39,10 +45,30 @@ const heroImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp")
           ["Placement-Focused", "The right match matters more than rushing a sale."],
         ].map(([title, body]) => (
           <div class="luxury-card p-5">
-            <h2 class="font-heading text-xl text-ivory">{title}</h2>
+            <h3 class="font-heading text-xl text-ivory">{title}</h3>
             <p class="mt-3 text-sm leading-6 text-stone">{body}</p>
           </div>
         ))
+      }
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Why Alliance K9"
+    title="Local, Hands-On, and Placement-Focused"
+    description="Alliance K9 combines working-line puppy raising with practical K9 training insight, giving buyers a clearer picture of temperament, drive, and long-term fit before placement."
+    class="pt-0"
+  >
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        [
+          "Based near Birmingham, Alabama",
+          "Raised hands-on in a home and training environment",
+          "Individual temperament observations",
+          "Placement screening required",
+          "Training support available after placement",
+          "SAR, detection-style, active companion, and structured family protection prospects",
+        ].map((item) => <div class="luxury-card p-5 text-sm leading-6 text-stone">{item}</div>)
       }
     </div>
   </Section>
@@ -118,6 +144,30 @@ const heroImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp")
       <CTAButton href="/training/" variant="secondary">Explore Training</CTAButton>
     </div>
   </Section>
+
+  <Section
+    eyebrow="Alabama Service Area"
+    title="Working Dog Puppies & K9 Training in Alabama"
+    description="Alliance K9 is based near Birmingham, Alabama and works with approved puppy buyers and training clients across Alabama and the Southeast."
+    class="pt-0"
+  >
+    <div class="luxury-card mt-8 p-6">
+      <h3 class="font-heading text-2xl text-ivory">Based Near Birmingham, Alabama</h3>
+      <p class="mt-3 text-sm leading-6 text-stone">
+        Alliance K9 serves Chelsea, Birmingham, Shelby County, Jefferson County, Tuscaloosa, Montgomery, Huntsville, North Alabama, Central Alabama, and serious working-dog homes throughout the Southeast. Puppy visits, placement conversations, and training support are handled by appointment after initial screening.
+      </p>
+      <p class="mt-4 text-sm leading-6 text-stone">
+        Local buyers near Chelsea, Birmingham, Shelby County, Jefferson County, Tuscaloosa, Montgomery, and Huntsville benefit from real placement conversations, training guidance, and ongoing support from a hands-on working-dog program.
+      </p>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Placement Updates"
+    title="Placement Updates & Success Stories"
+    description="As puppies transition into their new homes and training paths, Alliance K9 will share selected placement updates, training milestones, and owner feedback here."
+    class="pt-0"
+  />
 
   <Section
     eyebrow="Placement"

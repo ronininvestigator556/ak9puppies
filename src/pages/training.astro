@@ -63,18 +63,41 @@ const faqItems = [
     answer: "Board and train or intensive options may be available depending on schedule, dog suitability, and training goals. Contact Alliance K9 to discuss current availability.",
   },
 ];
+const trainingSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "K9 Training near Birmingham, Alabama",
+  provider: {
+    "@type": "LocalBusiness",
+    name: "Alliance K9",
+    url: "https://alliancek9dogs.com/",
+  },
+  areaServed: ["Birmingham", "Chelsea", "Shelby County", "Jefferson County", "Alabama"],
+  serviceType: [
+    "Puppy foundations",
+    "Obedience",
+    "Behavior modification",
+    "Working-dog evaluation",
+    "Structured family protection development",
+    "Working-dog development",
+  ],
+  description:
+    "Responsible K9 training support near Birmingham and Chelsea, Alabama for puppy foundations, obedience, behavior modification, working-dog evaluation, structured family protection development, and owner coaching.",
+};
 ---
 
 <BaseLayout
-  title="Dog Training | Alliance K9 Dogs"
-  description="Professional dog training from Alliance K9 for puppies, obedience, behavior modification, protection development, and working dogs in Alabama."
+  title="K9 Training near Birmingham, Alabama | Alliance K9"
+  description="K9 training near Birmingham and Chelsea, Alabama for puppy foundations, obedience, behavior modification, working-dog evaluation, structured family protection development, and owner coaching."
   image={trainingImage}
   imageAlt="Alliance K9 dog training image."
+  schema={trainingSchema}
 >
   <Section
     eyebrow="Alliance K9 Training"
     title="Training With Purpose"
-    description="Professional dog training built on clear communication, structure, relationship, and practical results for puppies, family companions, behavior cases, and working dogs."
+    headingLevel="h1"
+    description="Professional K9 training near Birmingham and Chelsea, Alabama, built on clear communication, structure, relationship, and practical results for puppies, family companions, behavior cases, and working dogs."
   >
     <div class="mt-8 flex flex-wrap gap-3">
       <CTAButton href="#training-inquiry">Start a Training Inquiry</CTAButton>

@@ -22,21 +22,24 @@ const { formName = "contact-inquiry", netlify = false } = Astro.props;
       <input name="bot-field" />
     </label>
   </p>
-  <label class="grid gap-2 text-sm text-stone">
-    Full Name
-    <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="name" autocomplete="name" required />
+  <p class="text-sm leading-6 text-stone">
+    Alliance K9 reviews each inquiry personally. Detailed answers help us understand your goals, experience level, household environment, and whether one of the current puppies or training services may be an appropriate fit.
+  </p>
+  <label class="grid gap-2 text-sm text-stone" for="contact-name">
+    Full Name <span class="text-gold" aria-hidden="true">*</span>
+    <input id="contact-name" class="field-control" name="name" autocomplete="name" required aria-required="true" />
   </label>
-  <label class="grid gap-2 text-sm text-stone">
-    Email Address
-    <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="email" type="email" autocomplete="email" required />
+  <label class="grid gap-2 text-sm text-stone" for="contact-email">
+    Email Address <span class="text-gold" aria-hidden="true">*</span>
+    <input id="contact-email" class="field-control" name="email" type="email" autocomplete="email" required aria-required="true" />
   </label>
-  <label class="grid gap-2 text-sm text-stone">
-    Phone Number
-    <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="phone" autocomplete="tel" required />
+  <label class="grid gap-2 text-sm text-stone" for="contact-phone">
+    Phone Number <span class="text-gold" aria-hidden="true">*</span>
+    <input id="contact-phone" class="field-control" name="phone" autocomplete="tel" required aria-required="true" />
   </label>
-  <label class="grid gap-2 text-sm text-stone">
-    Inquiry Type
-    <select class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="inquiryType" required>
+  <label class="grid gap-2 text-sm text-stone" for="contact-inquiry-type">
+    Inquiry Type <span class="text-gold" aria-hidden="true">*</span>
+    <select id="contact-inquiry-type" class="field-control" name="inquiryType" required aria-required="true" aria-describedby="contact-inquiry-type-help">
       <option value="">Select one</option>
       <option>Puppy Placement</option>
       <option>Training</option>
@@ -45,33 +48,34 @@ const { formName = "contact-inquiry", netlify = false } = Astro.props;
       <option>Future Litter</option>
       <option>General Question</option>
     </select>
-    <span class="text-xs leading-5 text-stone">Choose the option that best fits your question. If you are unsure, select General Question.</span>
+    <span id="contact-inquiry-type-help" class="field-help">Choose the option that best fits your question. If you are unsure, select General Question.</span>
   </label>
   <div class="grid gap-5 sm:grid-cols-2">
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="contact-preferred-puppy">
       Preferred Puppy
-      <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="preferredPuppy" />
-      <span class="text-xs leading-5 text-stone">If you are asking about a specific puppy, include the puppy's name here.</span>
+      <input id="contact-preferred-puppy" class="field-control" name="preferredPuppy" aria-describedby="contact-preferred-puppy-help" />
+      <span id="contact-preferred-puppy-help" class="field-help">If you are asking about a specific puppy, include the puppy's name here.</span>
     </label>
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="contact-dog-name">
       Dog Name
-      <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="dogName" />
+      <input id="contact-dog-name" class="field-control" name="dogName" />
     </label>
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="contact-dog-breed">
       Dog Breed
-      <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="dogBreed" />
+      <input id="contact-dog-breed" class="field-control" name="dogBreed" />
     </label>
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="contact-dog-age">
       Dog Age
-      <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="dogAge" />
+      <input id="contact-dog-age" class="field-control" name="dogAge" />
     </label>
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="contact-location">
       Location
-      <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="location" />
+      <input id="contact-location" class="field-control" name="location" autocomplete="address-level2" aria-describedby="contact-location-help" />
+      <span id="contact-location-help" class="field-help">City and state are enough. A full street address is not required at this stage.</span>
     </label>
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="contact-method">
       Preferred Contact Method
-      <select class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="preferredContactMethod">
+      <select id="contact-method" class="field-control" name="preferredContactMethod">
         <option>No preference</option>
         <option>Email</option>
         <option>Phone</option>
@@ -79,13 +83,13 @@ const { formName = "contact-inquiry", netlify = false } = Astro.props;
       </select>
     </label>
   </div>
-  <p class="text-xs leading-5 text-stone">
+  <p class="field-help">
     For training inquiries, include your dog's breed, age, behavior concerns, and training goals in the message.
   </p>
-  <label class="grid gap-2 text-sm text-stone">
-    Message
-    <textarea class="min-h-36 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="message" required></textarea>
-    <span class="text-xs leading-5 text-stone">Helpful details include your goals, experience level, household environment, timeline, and any specific questions.</span>
+  <label class="grid gap-2 text-sm text-stone" for="contact-message">
+    Message <span class="text-gold" aria-hidden="true">*</span>
+    <textarea id="contact-message" class="field-control min-h-36" name="message" required aria-required="true" aria-describedby="contact-message-help"></textarea>
+    <span id="contact-message-help" class="field-help">Helpful details include your goals, experience level, household environment, timeline, and any specific questions.</span>
   </label>
   <button class="inline-flex min-h-11 w-fit items-center justify-center rounded-md bg-gold px-5 py-2.5 text-sm font-semibold text-midnight transition hover:bg-ivory" type="submit">
     Send Message

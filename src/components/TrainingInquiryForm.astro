@@ -22,25 +22,28 @@ const { formName = "training-inquiry", netlify = false } = Astro.props;
       <input name="bot-field" />
     </label>
   </p>
+  <p class="text-sm leading-6 text-stone">
+    Alliance K9 reviews each training inquiry personally. Detailed answers help us understand your dog, goals, household environment, and the most appropriate next step.
+  </p>
 
   <fieldset class="grid gap-4">
     <legend class="font-heading text-2xl text-ivory">Your Details</legend>
     <div class="grid gap-4 sm:grid-cols-2">
-      <label class="grid gap-2 text-sm text-stone">
-        Name
-        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="name" autocomplete="name" required />
+      <label class="grid gap-2 text-sm text-stone" for="training-name">
+        Name <span class="text-gold" aria-hidden="true">*</span>
+        <input id="training-name" class="field-control" name="name" autocomplete="name" required aria-required="true" />
       </label>
-      <label class="grid gap-2 text-sm text-stone">
-        Email
-        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="email" type="email" autocomplete="email" required />
+      <label class="grid gap-2 text-sm text-stone" for="training-email">
+        Email <span class="text-gold" aria-hidden="true">*</span>
+        <input id="training-email" class="field-control" name="email" type="email" autocomplete="email" required aria-required="true" />
       </label>
-      <label class="grid gap-2 text-sm text-stone">
-        Phone
-        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="phone" autocomplete="tel" required />
+      <label class="grid gap-2 text-sm text-stone" for="training-phone">
+        Phone <span class="text-gold" aria-hidden="true">*</span>
+        <input id="training-phone" class="field-control" name="phone" autocomplete="tel" required aria-required="true" />
       </label>
-      <label class="grid gap-2 text-sm text-stone">
-        Preferred service
-        <select class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="preferredService" required>
+      <label class="grid gap-2 text-sm text-stone" for="training-service">
+        Preferred service <span class="text-gold" aria-hidden="true">*</span>
+        <select id="training-service" class="field-control" name="preferredService" required aria-required="true">
           <option value="">Select one</option>
           <option>Foundation Obedience</option>
           <option>Puppy Foundations</option>
@@ -54,34 +57,34 @@ const { formName = "training-inquiry", netlify = false } = Astro.props;
   <fieldset class="grid gap-4">
     <legend class="font-heading text-2xl text-ivory">Dog and Goals</legend>
     <div class="grid gap-4 sm:grid-cols-2">
-      <label class="grid gap-2 text-sm text-stone">
+      <label class="grid gap-2 text-sm text-stone" for="training-dog-name">
         Dog name
-        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="dogName" />
+        <input id="training-dog-name" class="field-control" name="dogName" />
       </label>
-      <label class="grid gap-2 text-sm text-stone">
+      <label class="grid gap-2 text-sm text-stone" for="training-dog-age">
         Dog age
-        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="dogAge" />
+        <input id="training-dog-age" class="field-control" name="dogAge" />
       </label>
-      <label class="grid gap-2 text-sm text-stone">
+      <label class="grid gap-2 text-sm text-stone" for="training-breed">
         Breed
-        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="breed" />
+        <input id="training-breed" class="field-control" name="breed" />
       </label>
-      <label class="grid gap-2 text-sm text-stone">
+      <label class="grid gap-2 text-sm text-stone" for="training-timeline">
         Timeline
-        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="timeline" />
+        <input id="training-timeline" class="field-control" name="timeline" />
       </label>
     </div>
-    <label class="grid gap-2 text-sm text-stone">
-      Training goals
-      <textarea class="min-h-32 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="trainingGoals" required></textarea>
+    <label class="grid gap-2 text-sm text-stone" for="training-goals">
+      Training goals <span class="text-gold" aria-hidden="true">*</span>
+      <textarea id="training-goals" class="field-control min-h-32" name="trainingGoals" required aria-required="true"></textarea>
     </label>
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="training-concerns">
       Behavior concerns
-      <textarea class="min-h-28 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="behaviorConcerns"></textarea>
+      <textarea id="training-concerns" class="field-control min-h-28" name="behaviorConcerns"></textarea>
     </label>
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="training-notes">
       Additional notes
-      <textarea class="min-h-28 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="additionalNotes"></textarea>
+      <textarea id="training-notes" class="field-control min-h-28" name="additionalNotes"></textarea>
     </label>
   </fieldset>
 

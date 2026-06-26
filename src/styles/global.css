@@ -9,7 +9,7 @@
     --color-graphite: #1b1b1b;
     --color-gold: #b08d57;
     --color-ivory: #f2f2f2;
-    --color-stone: #a3a3a3;
+    --color-stone: #b8b8b8;
   }
 
   html {
@@ -34,6 +34,17 @@
     color: inherit;
   }
 
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #9d9d9d;
+  }
+
   :focus-visible {
     outline: 2px solid var(--color-gold);
     outline-offset: 4px;
@@ -55,6 +66,22 @@
 
   .body-copy {
     @apply text-base leading-8 text-stone sm:text-lg;
+  }
+
+  .field-control {
+    @apply rounded-md border border-gold/25 bg-midnight px-4 py-3 text-ivory;
+  }
+
+  .field-help {
+    @apply text-xs leading-5 text-stone;
+  }
+
+  .field-error {
+    @apply text-xs font-semibold leading-5 text-[#f2a6a6];
+  }
+
+  .field-control[aria-invalid="true"] {
+    @apply border-[#f2a6a6];
   }
 
   .luxury-card {

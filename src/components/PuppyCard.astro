@@ -28,7 +28,7 @@ const statusLabel = data.status === "Sold" ? `SOLD - Found ${homePronoun} Home` 
   <div class="flex items-start justify-between gap-4">
     <div>
       <p class="text-sm uppercase tracking-[0.18em] text-gold">{data.collar} collar</p>
-      <h2 class="mt-2 font-heading text-2xl text-ivory">{data.name}</h2>
+      <h3 class="mt-2 font-heading text-2xl text-ivory">{data.name}</h3>
       <p class="mt-1 text-sm text-stone">{data.sex}</p>
     </div>
     <StatusBadge status={data.status} label={statusLabel} />

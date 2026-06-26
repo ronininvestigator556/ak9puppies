@@ -55,17 +55,31 @@ const faqItems = [
     answer: "Yes. Alliance K9 offers training support and guidance for puppy foundations, obedience, behavior, and working-dog development.",
   },
 ];
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
 ---
 
 <BaseLayout
-  title="Apply for a Puppy | Alliance K9 Dogs"
-  description="Start the Alliance K9 puppy application for the current Ranger x Mila litter. Apply for purpose-bred Dutch Shepherd and Belgian Malinois puppies placed by temperament, drive, and long-term fit."
+  title="Puppy Application | Alliance K9 Working-Line Puppy Placement"
+  description="Start the Alliance K9 working-line puppy application near Birmingham, Alabama. Puppy placement is based on temperament, drive, buyer goals, and long-term fit."
   image="/assets/processed/homepage/mila-puppy-hero.webp"
   imageAlt="Mila with one of the Ranger x Mila puppies."
+  schema={faqSchema}
 >
   <Section
     eyebrow="Puppy Application"
     title="Start the Placement Conversation"
+    headingLevel="h1"
     description="Every Alliance K9 puppy is placed with long-term fit in mind. This application helps us understand your experience, goals, lifestyle, and what kind of dog you are hoping to bring home."
   >
     <div class="mt-8 flex flex-wrap gap-3">
@@ -102,6 +116,9 @@ const faqItems = [
   >
     <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
       Because puppy placement is based on fit, a deposit should not be viewed as an automatic purchase button. Alliance K9 reserves the right to guide placement based on the puppy's temperament, the buyer's goals, and the long-term suitability of the match.
+    </p>
+    <p class="mt-4 max-w-3xl text-sm leading-6 text-stone">
+      Application details are used for placement review and follow-up. Full legal refundability terms should be confirmed directly with Alliance K9 before submitting a deposit.
     </p>
   </Section>
 

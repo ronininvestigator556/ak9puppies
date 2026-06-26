@@ -22,29 +22,33 @@ const { formName = "puppy-application", netlify = false } = Astro.props;
       <input name="bot-field" />
     </label>
   </p>
+  <p class="text-sm leading-6 text-stone">
+    Alliance K9 reviews each application personally. Detailed answers help us understand your goals, experience level, household environment, and whether one of the current puppies may be an appropriate fit.
+  </p>
 
   <fieldset class="grid gap-4">
     <legend class="font-heading text-2xl text-ivory">Contact Details</legend>
     <div class="grid gap-4 sm:grid-cols-2">
-      <label class="grid gap-2 text-sm text-stone">
-        Full Name
-        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="name" autocomplete="name" required />
+      <label class="grid gap-2 text-sm text-stone" for="application-name">
+        Full Name <span class="text-gold" aria-hidden="true">*</span>
+        <input id="application-name" class="field-control" name="name" autocomplete="name" required aria-required="true" />
       </label>
-      <label class="grid gap-2 text-sm text-stone">
-        Email Address
-        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="email" type="email" autocomplete="email" required />
+      <label class="grid gap-2 text-sm text-stone" for="application-email">
+        Email Address <span class="text-gold" aria-hidden="true">*</span>
+        <input id="application-email" class="field-control" name="email" type="email" autocomplete="email" required aria-required="true" />
       </label>
-      <label class="grid gap-2 text-sm text-stone">
-        Phone Number
-        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="phone" autocomplete="tel" required />
+      <label class="grid gap-2 text-sm text-stone" for="application-phone">
+        Phone Number <span class="text-gold" aria-hidden="true">*</span>
+        <input id="application-phone" class="field-control" name="phone" autocomplete="tel" required aria-required="true" />
       </label>
-      <label class="grid gap-2 text-sm text-stone">
-        City / State
-        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="location" autocomplete="address-level2" required />
+      <label class="grid gap-2 text-sm text-stone" for="application-location">
+        City / State <span class="text-gold" aria-hidden="true">*</span>
+        <input id="application-location" class="field-control" name="location" autocomplete="address-level2" required aria-required="true" aria-describedby="application-location-help" />
+        <span id="application-location-help" class="field-help">City and state are enough. A full street address is not required at this stage.</span>
       </label>
-      <label class="grid gap-2 text-sm text-stone">
+      <label class="grid gap-2 text-sm text-stone" for="application-contact-method">
         Preferred Contact Method
-        <select class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="preferredContactMethod">
+        <select id="application-contact-method" class="field-control" name="preferredContactMethod">
           <option>No preference</option>
           <option>Email</option>
           <option>Phone</option>
@@ -57,9 +61,9 @@ const { formName = "puppy-application", netlify = false } = Astro.props;
   <fieldset class="grid gap-4">
     <legend class="font-heading text-2xl text-ivory">Placement Fit</legend>
     <div class="grid gap-4 sm:grid-cols-2">
-      <label class="grid gap-2 text-sm text-stone">
+      <label class="grid gap-2 text-sm text-stone" for="application-preferred-puppy">
         Preferred puppy
-        <select class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="preferredPuppy">
+        <select id="application-preferred-puppy" class="field-control" name="preferredPuppy" aria-describedby="application-preferred-puppy-help">
           <option>Unsure / Need Guidance</option>
           <option>Aang</option>
           <option>Azula</option>
@@ -74,27 +78,27 @@ const { formName = "puppy-application", netlify = false } = Astro.props;
           <option>Ty Lee</option>
           <option>Zuko</option>
         </select>
-        <span class="text-xs leading-5 text-stone">If you are unsure, select Need Guidance. Puppy recommendations can be discussed based on temperament, drive, and fit.</span>
+        <span id="application-preferred-puppy-help" class="field-help">If you are unsure, select Need Guidance. Puppy recommendations can be discussed based on temperament, drive, and fit.</span>
       </label>
-      <label class="grid gap-2 text-sm text-stone">
+      <label class="grid gap-2 text-sm text-stone" for="application-preferred-sex">
         Preferred sex
-        <select class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="preferredSex">
+        <select id="application-preferred-sex" class="field-control" name="preferredSex">
           <option>No preference</option>
           <option>Male</option>
           <option>Female</option>
         </select>
       </label>
-      <label class="grid gap-2 text-sm text-stone">
+      <label class="grid gap-2 text-sm text-stone" for="application-recommendations">
         Are you open to recommendations?
-        <select class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="openToRecommendations">
+        <select id="application-recommendations" class="field-control" name="openToRecommendations">
           <option>Yes</option>
           <option>No</option>
           <option>Unsure</option>
         </select>
       </label>
-      <label class="grid gap-2 text-sm text-stone">
-        Intended role
-        <select class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="intendedRole" required>
+      <label class="grid gap-2 text-sm text-stone" for="application-role">
+        Intended role <span class="text-gold" aria-hidden="true">*</span>
+        <select id="application-role" class="field-control" name="intendedRole" required aria-required="true" aria-describedby="application-role-help">
           <option value="">Select one</option>
           <option>Search and rescue prospect</option>
           <option>Detection-style working prospect</option>
@@ -105,53 +109,53 @@ const { formName = "puppy-application", netlify = false } = Astro.props;
           <option>Training companion</option>
           <option>Unsure / need guidance</option>
         </select>
-        <span class="text-xs leading-5 text-stone">This helps us understand whether you are looking for SAR, detection-style work, active companionship, or a carefully structured family protection placement.</span>
+        <span id="application-role-help" class="field-help">This helps us understand whether you are looking for SAR, detection-style work, active companionship, or a carefully structured family protection placement.</span>
       </label>
-      <label class="grid gap-2 text-sm text-stone">
+      <label class="grid gap-2 text-sm text-stone" for="application-timeline">
         Timeline
-        <input class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="timeline" />
+        <input id="application-timeline" class="field-control" name="timeline" />
       </label>
     </div>
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="application-experience">
       Working breed experience
-      <textarea class="min-h-28 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="workingBreedExperience"></textarea>
-      <span class="text-xs leading-5 text-stone">Prior working-breed experience is helpful, but not always required. Honest answers help us guide placement responsibly.</span>
+      <textarea id="application-experience" class="field-control min-h-28" name="workingBreedExperience" aria-describedby="application-experience-help"></textarea>
+      <span id="application-experience-help" class="field-help">Prior working-breed experience is helpful, but not always required. Honest answers help us guide placement responsibly.</span>
     </label>
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="application-trainer-experience">
       Have you worked with a professional trainer before?
-      <textarea class="min-h-24 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="professionalTrainerExperience"></textarea>
+      <textarea id="application-trainer-experience" class="field-control min-h-24" name="professionalTrainerExperience"></textarea>
     </label>
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="application-current-dogs">
       Current dogs in the home
-      <textarea class="min-h-24 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="currentDogs"></textarea>
+      <textarea id="application-current-dogs" class="field-control min-h-24" name="currentDogs"></textarea>
     </label>
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="application-children-pets">
       Children or other pets
-      <textarea class="min-h-28 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="childrenOtherPets"></textarea>
+      <textarea id="application-children-pets" class="field-control min-h-28" name="childrenOtherPets"></textarea>
     </label>
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="application-home-details">
       Type of home / fenced yard / household activity level
-      <textarea class="min-h-28 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="homeDetails"></textarea>
+      <textarea id="application-home-details" class="field-control min-h-28" name="homeDetails"></textarea>
     </label>
-    <label class="grid gap-2 text-sm text-stone">
-      Home environment and goals
-      <textarea class="min-h-32 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="homeEnvironment" required></textarea>
+    <label class="grid gap-2 text-sm text-stone" for="application-home-environment">
+      Home environment and goals <span class="text-gold" aria-hidden="true">*</span>
+      <textarea id="application-home-environment" class="field-control min-h-32" name="homeEnvironment" required aria-required="true"></textarea>
     </label>
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="application-training-goals">
       Training goals and plans
-      <textarea class="min-h-32 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="trainingGoals"></textarea>
+      <textarea id="application-training-goals" class="field-control min-h-32" name="trainingGoals"></textarea>
     </label>
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="application-training-support">
       Are you interested in Alliance K9 training support?
-      <select class="rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="trainingSupportInterest">
+      <select id="application-training-support" class="field-control" name="trainingSupportInterest">
         <option>Yes</option>
         <option>No</option>
         <option>Unsure</option>
       </select>
     </label>
-    <label class="grid gap-2 text-sm text-stone">
+    <label class="grid gap-2 text-sm text-stone" for="application-notes">
       Additional notes
-      <textarea class="min-h-28 rounded-md border border-gold/20 bg-midnight px-4 py-3 text-ivory" name="additionalNotes"></textarea>
+      <textarea id="application-notes" class="field-control min-h-28" name="additionalNotes"></textarea>
     </label>
   </fieldset>
 

@@ -41,14 +41,15 @@ const lightboxItems = [
 ---
 
 <BaseLayout
-  title="Gallery | Alliance K9 Dogs"
-  description="View the Alliance K9 gallery featuring Ranger x Mila puppies, parent dogs, training moments, outdoor exploration, and working-dog development."
+  title="Alliance K9 Gallery | Working-Line Puppies and Training Photos"
+  description="View Alliance K9 photos featuring Ranger x Mila working-line puppies, parent dogs, training moments, outdoor exploration, and puppy development near Birmingham, Alabama."
   image={galleryImage}
   imageAlt="Alliance K9 gallery image featuring puppies, parent dogs, or training moments."
 >
   <Section
     eyebrow="Alliance K9 Media"
     title="The Story in Photos"
+    headingLevel="h1"
     description="A visual look at the Ranger x Mila litter, parent dogs, training moments, and the everyday handling that shapes each Alliance K9 puppy."
   >
     <div class="mt-8 flex flex-wrap gap-3">
@@ -77,7 +78,7 @@ const lightboxItems = [
     <div class="mt-8 grid gap-4 md:grid-cols-2">
       {categories.slice(1).map(([title, body]) => (
         <div class="luxury-card p-5">
-          <h2 class="font-heading text-xl text-ivory">{title}</h2>
+          <h3 class="font-heading text-xl text-ivory">{title}</h3>
           <p class="mt-3 text-sm leading-6 text-stone">{body}</p>
         </div>
       ))}

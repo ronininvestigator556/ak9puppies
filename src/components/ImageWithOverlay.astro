@@ -5,6 +5,12 @@ interface Props {
   aspect?: string;
   focalPoint?: string;
   overlay?: boolean;
+  loading?: "eager" | "lazy";
+  fetchpriority?: "high" | "low" | "auto";
+  srcset?: string;
+  sizes?: string;
+  width?: number;
+  height?: number;
   class?: string;
 }
 
@@ -14,6 +20,12 @@ const {
   aspect = "aspect-[4/5]",
   focalPoint = "center",
   overlay = false,
+  loading = "lazy",
+  fetchpriority,
+  srcset,
+  sizes = "(min-width: 1024px) 45vw, 100vw",
+  width = 1200,
+  height = 1500,
   class: className = "",
 } = Astro.props;
 ---
@@ -21,7 +33,18 @@ const {
 <figure class:list={["image-treatment relative", aspect, className]}>
   {
     src ? (
-      <img src={src} alt={alt} loading="lazy" style={`object-position: ${focalPoint};`} />
+      <img
+        src={src}
+        alt={alt}
+        loading={loading}
+        fetchpriority={fetchpriority}
+        decoding="async"
+        srcset={srcset}
+        width={width}
+        height={height}
+        sizes={sizes}
+        style={`object-position: ${focalPoint};`}
+      />
     ) : (
       <div class="flex h-full min-h-64 items-center justify-center bg-midnight/70 px-6 text-center text-sm text-stone">
         Image pending

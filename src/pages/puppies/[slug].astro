@@ -36,7 +36,7 @@ const statusEyebrow = puppy.data.status === "Available"
       ? `SOLD - Found ${homePronounTitle} Home`
       : puppy.data.status;
 const traitLine = puppy.data.traits.slice(0, 3).join(" - ");
-const profileDescription = `${puppy.data.name} is one of the Ranger x Mila puppies being raised and evaluated through Alliance K9. Each puppy is observed for temperament, confidence, drive, sociability, handler engagement, environmental stability, recovery, and placement suitability to help guide the right long-term match.`;
+const profileDescription = `${puppy.data.name} is a working-line Dutch Shepherd / Belgian Malinois ${puppy.data.sex.toLowerCase()} puppy near Birmingham, Alabama, being evaluated for ${puppy.data.bestFit.slice(0, 3).join(", ").toLowerCase()}. Each puppy is observed for temperament, confidence, drive, sociability, handler engagement, environmental stability, recovery, and placement suitability to help guide the right long-term match.`;
 const available = puppy.data.status === "Available";
 const sold = puppy.data.status === "Sold";
 const primaryCta = available
@@ -48,9 +48,9 @@ const secondaryCta = available
   ? { href: "/contact/", label: `Ask About ${puppy.data.name}` }
   : { href: "/contact/", label: "Contact Alliance K9" };
 const metaDescription = sold
-  ? `Meet ${puppy.data.name}, a ${puppy.data.sex.toLowerCase()} puppy from the Ranger x Mila litter at Alliance K9. ${puppy.data.name} has found ${homePronoun} home, but similar puppies may still be available.`
-  : `Meet ${puppy.data.name}, a ${puppy.data.sex.toLowerCase()} puppy from the Ranger x Mila litter at Alliance K9, evaluated for temperament, drive, confidence, handler engagement, and placement fit.`;
-const siteOrigin = import.meta.env.PUBLIC_SITE_URL ?? Astro.site?.origin ?? "https://alliancek9dogs.com";
+  ? `Meet ${puppy.data.name}, a working-line ${puppy.data.sex.toLowerCase()} puppy from the Ranger x Mila litter near Birmingham, Alabama. ${puppy.data.name} has found ${homePronoun} home, but similar puppies may still be available.`
+  : `Meet ${puppy.data.name}, a working-line ${puppy.data.sex.toLowerCase()} puppy near Birmingham, Alabama, evaluated for temperament, drive, confidence, handler engagement, and placement fit.`;
+const siteOrigin = "https://alliancek9dogs.com";
 const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
 const absoluteHeroImage = heroImage
   ? new URL(heroImage, siteOrigin).href
@@ -58,7 +58,7 @@ const absoluteHeroImage = heroImage
 ---
 
 <BaseLayout
-  title={`${puppy.data.name} | ${puppy.data.sex} ${statusLabel} Puppy | Alliance K9 Dogs`}
+  title={`${puppy.data.name} | ${puppy.data.sex} Working-Line Puppy near Birmingham, Alabama | Alliance K9`}
   description={metaDescription}
   image={heroImage}
   imageAlt={`${puppy.data.name}, ${puppy.data.collar}-collar ${puppy.data.sex.toLowerCase()} puppy from Alliance K9.`}
@@ -67,6 +67,7 @@ const absoluteHeroImage = heroImage
   <Section
     eyebrow={statusEyebrow}
     title={`Meet ${puppy.data.name}`}
+    headingLevel="h1"
     description={traitLine}
   >
     <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">{profileDescription}</p>
@@ -95,6 +96,8 @@ const absoluteHeroImage = heroImage
           src={heroImage}
           alt={`${puppy.data.name}, ${puppy.data.collar}-collar ${puppy.data.sex.toLowerCase()} puppy.`}
           aspect="aspect-[4/5]"
+          loading="eager"
+          fetchpriority="high"
           class="mb-6"
         />
         <h2 class="font-heading text-2xl text-ivory">About {puppy.data.name}</h2>

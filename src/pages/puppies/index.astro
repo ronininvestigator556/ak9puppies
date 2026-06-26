@@ -12,15 +12,16 @@ const pageImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp")
 ---
 
 <BaseLayout
-  title="Available Puppies | Alliance K9 Dogs"
-  description="View the current Ranger x Mila litter from Alliance K9, featuring purpose-bred Dutch Shepherd and Belgian Malinois puppies evaluated for temperament, drive, confidence, and placement fit."
+  title="Available Working-Line Puppies near Birmingham, Alabama | Alliance K9"
+  description="View the Ranger x Mila working-line Dutch Shepherd and Belgian Malinois puppies near Birmingham, Alabama, evaluated for temperament, drive, confidence, and responsible placement fit."
   image={pageImage}
   imageAlt="Ranger x Mila puppy from Alliance K9."
 >
   <Section
     eyebrow="Current Litter"
     title="Ranger x Mila Puppies"
-    description="Purpose-bred Dutch Shepherd and Belgian Malinois puppies raised with early socialization, professional training insight, and careful placement priority for SAR, detection-style work, experienced active homes, and suitable family protection homes."
+    headingLevel="h1"
+    description="Purpose-bred Dutch Shepherd and Belgian Malinois puppies near Birmingham, Alabama, raised with early socialization, professional training insight, and careful placement priority for SAR, detection-style work, experienced active homes, and suitable family protection homes."
   >
     <div class="mt-8 flex flex-wrap gap-3">
       <CTAButton href="#puppy-profiles">View Puppy Profiles</CTAButton>
@@ -48,7 +49,7 @@ const pageImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp")
     class="pt-0"
   >
     <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
-      The goal is not simply to place puppies quickly. The goal is to help each puppy land in the right home with the right expectations, support, and long-term fit.
+      The goal is not simply to place puppies quickly. The goal is to help each puppy land in the right home with the right expectations, support, and long-term fit. Alliance K9 is based near Birmingham and Chelsea, Alabama, and works with approved homes throughout Alabama and the Southeast.
     </p>
   </Section>
 
@@ -121,7 +122,7 @@ const pageImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp")
         ].map((item, index) => (
           <div class="luxury-card p-5">
             <p class="text-xs uppercase tracking-[0.16em] text-gold">Step {index + 1}</p>
-            <h2 class="mt-3 font-heading text-xl text-ivory">{item}</h2>
+            <h3 class="mt-3 font-heading text-xl text-ivory">{item}</h3>
           </div>
         ))
       }
