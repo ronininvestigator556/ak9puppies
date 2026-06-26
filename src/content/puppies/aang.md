@@ -29,7 +29,7 @@ fullDescription: >-
   work-oriented, yet capable of appropriate social behavior in the right context. Aang should be placed with an
   experienced working home prepared to provide structure, maturity, and clear outlets. He may also suit a serious
   family protection home only if the handler is highly experienced and committed to channeling his drive responsibly.
-heroImage: /assets/processed/puppies/aang/aang-hero-1.webp
+heroImage: /assets/processed/puppies/aang/aang-12w-hero-029.webp
 gallery: []
 developmentChecklist:
   - Early handling

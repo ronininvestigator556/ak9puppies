@@ -28,7 +28,7 @@ fullDescription: >-
   puppy. Bumi needs a home prepared to develop and manage real drive, provide clear outlets, and stay realistic about
   the amount of dog they are taking on. He may suit a serious family protection home only if the handler is highly
   experienced, committed, and structured.
-heroImage: /assets/processed/puppies/bumi/bumi-6w-hero-010.webp
+heroImage: /assets/processed/puppies/bumi/bumi-12w-hero-004.webp
 gallery: []
 developmentChecklist:
   - Early handling
