@@ -36,7 +36,7 @@ const statusEyebrow = puppy.data.status === "Available"
       ? `SOLD - Found ${homePronounTitle} Home`
       : puppy.data.status;
 const traitLine = puppy.data.traits.slice(0, 3).join(" - ");
-const profileDescription = `${puppy.data.name} is a working-line Dutch Shepherd / Belgian Malinois ${puppy.data.sex.toLowerCase()} puppy near Birmingham, Alabama, being evaluated for ${puppy.data.bestFit.slice(0, 3).join(", ").toLowerCase()}. Each puppy is observed for temperament, confidence, drive, sociability, handler engagement, environmental stability, recovery, and placement suitability to help guide the right long-term match.`;
+const profileDescription = `${puppy.data.name} is a working-line Belgian Malinois / Dutch Shepherd ${puppy.data.sex.toLowerCase()} puppy in Alabama, near Birmingham, being evaluated for ${puppy.data.bestFit.slice(0, 3).join(", ").toLowerCase()}. Each puppy is observed for temperament, confidence, drive, sociability, handler engagement, environmental stability, recovery, and placement suitability to help guide the right long-term match.`;
 const available = puppy.data.status === "Available";
 const sold = puppy.data.status === "Sold";
 const primaryCta = available
@@ -48,21 +48,46 @@ const secondaryCta = available
   ? { href: "/contact/", label: `Ask About ${puppy.data.name}` }
   : { href: "/contact/", label: "Contact Alliance K9" };
 const metaDescription = sold
-  ? `Meet ${puppy.data.name}, a working-line ${puppy.data.sex.toLowerCase()} puppy from the Ranger x Mila litter near Birmingham, Alabama. ${puppy.data.name} has found ${homePronoun} home, but similar puppies may still be available.`
-  : `Meet ${puppy.data.name}, a working-line ${puppy.data.sex.toLowerCase()} puppy near Birmingham, Alabama, evaluated for temperament, drive, confidence, handler engagement, and placement fit.`;
+  ? `Meet ${puppy.data.name}, a Belgian Malinois / Dutch Shepherd puppy from Alliance K9 in Chelsea, Alabama. ${puppy.data.name} has found ${homePronoun} home, but similar puppies may still be available.`
+  : `Meet ${puppy.data.name}, an available Belgian Malinois / Dutch Shepherd puppy from Alliance K9 in Chelsea, Alabama. Evaluated for ${puppy.data.bestFit.slice(0, 3).join(", ").toLowerCase()}.`;
 const siteOrigin = "https://alliancek9dogs.com";
 const canonicalUrl = new URL(Astro.url.pathname, siteOrigin).href;
 const absoluteHeroImage = heroImage
   ? new URL(heroImage, siteOrigin).href
   : undefined;
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: `${siteOrigin}/`,
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Available Puppies",
+      item: `${siteOrigin}/puppies/`,
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: puppy.data.name,
+      item: canonicalUrl,
+    },
+  ],
+};
 ---
 
 <BaseLayout
-  title={`${puppy.data.name} | ${puppy.data.sex} Working-Line Puppy near Birmingham, Alabama | Alliance K9`}
+  title={`${puppy.data.name} | Belgian Malinois / Dutch Shepherd Puppy in Alabama`}
   description={metaDescription}
   image={heroImage}
-  imageAlt={`${puppy.data.name}, ${puppy.data.collar}-collar ${puppy.data.sex.toLowerCase()} puppy from Alliance K9.`}
+  imageAlt={`${puppy.data.name}, an available ${puppy.data.sex.toLowerCase()} Belgian Malinois Dutch Shepherd puppy in Alabama from Alliance K9.`}
   type="product"
+  schema={breadcrumbSchema}
 >
   <Section
     eyebrow={statusEyebrow}
@@ -94,7 +119,7 @@ const absoluteHeroImage = heroImage
       <div class="luxury-card p-6">
         <ImageWithOverlay
           src={heroImage}
-          alt={`${puppy.data.name}, ${puppy.data.collar}-collar ${puppy.data.sex.toLowerCase()} puppy.`}
+          alt={`${puppy.data.name}, ${puppy.data.collar}-collar ${puppy.data.sex.toLowerCase()} Belgian Malinois Dutch Shepherd puppy from Alliance K9 in Alabama.`}
           aspect="aspect-[4/5]"
           loading="eager"
           fetchpriority="high"
@@ -131,7 +156,7 @@ const absoluteHeroImage = heroImage
     <div class="mt-10 luxury-card p-6">
       <h2 class="font-heading text-2xl text-ivory">From Ranger x Mila</h2>
       <p class="mt-3 max-w-3xl text-sm leading-6 text-stone">
-        {puppy.data.name} is part of the Ranger x Mila litter, combining Ranger's KNPV Dutch Shepherd lineage with Mila's strong Belgian Malinois working background. Placement priority for this litter is SAR, detection-style work, experienced active homes, and carefully screened family protection homes.
+        {puppy.data.name} is part of the Ranger x Mila litter, combining Ranger's KNPV Dutch Shepherd lineage with Mila's strong Belgian Malinois working background. Placement priority for this litter is search and rescue homes, serious active family homes, carefully screened family protection homes, sport or training homes where the dog will be treated well, and experienced working-dog homes.
       </p>
       <div class="mt-5">
         <CTAButton href="/parents/" variant="secondary">Meet the Parents</CTAButton>
@@ -168,7 +193,7 @@ const absoluteHeroImage = heroImage
               id={`${puppy.data.slug}-gallery`}
               items={galleryImages.map((image) => ({
                 src: image,
-                alt: `${puppy.data.name} from the Ranger x Mila litter during puppy evaluation and development.`,
+                alt: `${puppy.data.name}, a Belgian Malinois Dutch Shepherd puppy from Alliance K9, during puppy evaluation and development in Alabama.`,
               }))}
             />
           </div>
@@ -183,7 +208,7 @@ const absoluteHeroImage = heroImage
         <p class="mt-4 max-w-2xl text-sm leading-6 text-stone">
           {sold
             ? `${puppy.data.name} is no longer available, but several puppies from the same litter may offer similar traits, drive, or placement potential. View the available puppies or reach out for help identifying the right match.`
-            : `The next step is to start the application process so we can discuss your goals, experience, and whether ${puppy.data.name} may be the right fit for SAR, detection-style work, active companionship, or a structured family protection home.`}
+            : `The next step is to start the application process so we can discuss your goals, experience, and whether ${puppy.data.name} may be the right fit for search and rescue, active companionship, serious training, or a structured family protection home.`}
         </p>
       </div>
       <div class="flex flex-wrap gap-3">
@@ -209,6 +234,7 @@ const absoluteHeroImage = heroImage
         ? "https://schema.org/InStock"
         : "https://schema.org/SoldOut",
       priceCurrency: "USD",
+      price: puppy.data.status === "Available" ? "1500" : undefined,
       url: canonicalUrl,
     },
   })} />

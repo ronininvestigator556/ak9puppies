@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTAButton from "../../components/CTAButton.astro";
+import Section from "../../components/Section.astro";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Dutch Shepherd Puppies: Temperament, Training, and Owner Fit",
+  mainEntityOfPage: "https://alliancek9dogs.com/resources/dutch-shepherd-puppies-temperament-training-owner-fit/",
+  author: { "@type": "Organization", name: "Alliance K9", url: "https://alliancek9dogs.com/" },
+  publisher: { "@type": "Organization", name: "Alliance K9", url: "https://alliancek9dogs.com/" },
+};
+---
+
+<BaseLayout
+  title="Dutch Shepherd Puppies: Temperament, Training, and Owner Fit"
+  description="Learn about Dutch Shepherd puppy temperament, training needs, family fit, working drive, and what responsible buyers should consider."
+  type="article"
+  schema={articleSchema}
+>
+  <Section
+    eyebrow="Breed Guide"
+    title="Dutch Shepherd Puppies: Temperament, Training, and Owner Fit"
+    headingLevel="h1"
+    description="Dutch Shepherd puppies can be smart, athletic, engaged, and highly trainable. They also need owners who are ready for a working dog."
+  >
+    <div class="prose prose-invert mt-8 max-w-3xl text-stone">
+      <p>Dutch Shepherds are known for versatility, intelligence, athleticism, and strong working potential. In the right home, a Dutch Shepherd puppy may become a strong active companion, training partner, SAR prospect, or family protection prospect.</p>
+      <p>They need structure, fair handling, consistency, and outlets for body and mind. A Dutch Shepherd family dog should still be treated as a working breed with real needs, not as a low-maintenance pet.</p>
+      <h2>What to Evaluate</h2>
+      <p>Buyers should consider confidence, recovery, food drive, toy drive, social engagement, ability to settle, and fit with the intended home. Alliance K9 evaluates each Dutch Shepherd / Belgian Malinois puppy individually instead of placing based on looks alone.</p>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="/puppies/">View Available Puppies</CTAButton>
+      <CTAButton href="/apply/" variant="secondary">Tell Us What You're Looking For</CTAButton>
+    </div>
+  </Section>
+</BaseLayout>

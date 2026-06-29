@@ -1,0 +1,75 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTAButton from "../../components/CTAButton.astro";
+import Section from "../../components/Section.astro";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://alliancek9dogs.com/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Puppies Near Birmingham",
+      item: "https://alliancek9dogs.com/locations/birmingham-alabama-puppies/",
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Belgian Malinois Puppies Near Birmingham, Alabama | Alliance K9"
+  description="Alliance K9 is located in Chelsea, Alabama, near Birmingham, raising Belgian Malinois and Dutch Shepherd working-line puppies for carefully screened homes."
+  image="/assets/processed/homepage/mila-puppy-hero.webp"
+  imageAlt="Belgian Malinois Dutch Shepherd puppy near Birmingham Alabama from Alliance K9."
+  schema={breadcrumbSchema}
+>
+  <Section
+    eyebrow="Local Puppy Placement"
+    title="Belgian Malinois & Dutch Shepherd Puppies Near Birmingham, AL"
+    headingLevel="h1"
+    description="Alliance K9 is located in Chelsea, Alabama, a short drive from Birmingham. We raise Belgian Malinois and Dutch Shepherd working-line puppies for carefully screened homes, including search and rescue prospects, active family homes, family protection prospects, and serious training homes."
+  >
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="/puppies/">View Available Puppies</CTAButton>
+      <CTAButton href="/contact/" variant="secondary">Contact Alliance K9 About Available Puppies</CTAButton>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Service Area"
+    title="Chelsea, Birmingham, Shelby County, and the Southeast"
+    description="Local buyers near Chelsea, Birmingham, Shelby County, Jefferson County, Tuscaloosa, Montgomery, Huntsville, and Central Alabama can begin with a placement conversation, puppy application, and review of available puppy profiles."
+    class="pt-0"
+  >
+    <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
+      Alliance K9 also works with serious buyers in Atlanta, Georgia, Tennessee, Mississippi, and the broader Southeast when the home, training plan, and puppy temperament appear to be a responsible match. Puppy visits, pickup, transport discussions, and training support are handled by appointment after initial screening.
+    </p>
+  </Section>
+
+  <Section
+    eyebrow="Placement"
+    title="Why Local Screening Matters"
+    description="Working-line Belgian Malinois and Dutch Shepherd puppies need more than a zip-code match. Alliance K9 evaluates temperament, drive, confidence, sociability, recovery, and home fit so each puppy has a better chance of succeeding long term."
+    class="pt-0"
+  >
+    <div class="mt-8 grid gap-4 md:grid-cols-3">
+      {
+        [
+          "Search and rescue puppy prospects",
+          "Active family working-dog homes",
+          "Family protection dog prospects",
+          "Serious obedience and training homes",
+          "Working-line puppy placement guidance",
+          "Training support near Birmingham",
+        ].map((item) => <div class="luxury-card p-5 text-sm leading-6 text-stone">{item}</div>)
+      }
+    </div>
+  </Section>
+</BaseLayout>

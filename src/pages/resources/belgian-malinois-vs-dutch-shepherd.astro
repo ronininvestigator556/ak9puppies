@@ -1,0 +1,43 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTAButton from "../../components/CTAButton.astro";
+import Section from "../../components/Section.astro";
+
+const articleUrl = "https://alliancek9dogs.com/resources/belgian-malinois-vs-dutch-shepherd/";
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Belgian Malinois vs Dutch Shepherd: Which Working Dog Fits You?",
+  mainEntityOfPage: articleUrl,
+  author: { "@type": "Organization", name: "Alliance K9", url: "https://alliancek9dogs.com/" },
+  publisher: { "@type": "Organization", name: "Alliance K9", url: "https://alliancek9dogs.com/" },
+};
+---
+
+<BaseLayout
+  title="Belgian Malinois vs Dutch Shepherd: Which Working Dog Fits You?"
+  description="Compare Belgian Malinois and Dutch Shepherd temperament, working style, appearance, handler needs, and owner fit before choosing a working-line puppy."
+  type="article"
+  schema={articleSchema}
+>
+  <Section
+    eyebrow="Breed Comparison"
+    title="Belgian Malinois vs Dutch Shepherd: Which Working Dog Fits You?"
+    headingLevel="h1"
+    description="Both breeds can be serious, athletic working dogs. The better choice depends less on labels and more on temperament, drive, nerves, handler goals, and daily structure."
+  >
+    <div class="prose prose-invert mt-8 max-w-3xl text-stone">
+      <p>Belgian Malinois and Dutch Shepherds are often compared because both are intelligent, athletic, handler-focused working breeds used in obedience, search and rescue, detection, sport, and protection development. They are not low-effort family pets, and neither breed should be chosen only because of appearance.</p>
+      <h2>Similarities</h2>
+      <p>Both breeds can show strong food drive, toy drive, prey drive, environmental confidence, trainability, and a need for clear leadership. In the right home, those traits can become useful work ethic. In the wrong home, they can become frustration, anxiety, reactivity, or destructive behavior.</p>
+      <h2>Differences</h2>
+      <p>Belgian Malinois are typically fawn or mahogany with a black mask. Dutch Shepherds are commonly brindle and may be short, long, or rough coated. Working style varies by line and individual dog, so buyers should evaluate the puppy in front of them instead of assuming every Malinois or Dutch Shepherd will behave the same way.</p>
+      <h2>Owner Fit</h2>
+      <p>The best working dog breed for you is the dog whose temperament and drive match your real life. Alliance K9 evaluates puppies individually and helps buyers consider active family homes, search and rescue goals, family protection prospects, and serious training homes with honest expectations.</p>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="/puppies/">View Available Puppies</CTAButton>
+      <CTAButton href="/contact/" variant="secondary">Contact Alliance K9</CTAButton>
+    </div>
+  </Section>
+</BaseLayout>

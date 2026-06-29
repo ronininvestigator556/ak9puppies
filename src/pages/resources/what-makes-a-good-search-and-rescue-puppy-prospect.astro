@@ -1,0 +1,41 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTAButton from "../../components/CTAButton.astro";
+import Section from "../../components/Section.astro";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "What Makes a Good Search and Rescue Puppy Prospect?",
+  mainEntityOfPage: "https://alliancek9dogs.com/resources/what-makes-a-good-search-and-rescue-puppy-prospect/",
+  author: { "@type": "Organization", name: "Alliance K9", url: "https://alliancek9dogs.com/" },
+  publisher: { "@type": "Organization", name: "Alliance K9", url: "https://alliancek9dogs.com/" },
+};
+---
+
+<BaseLayout
+  title="What Makes a Good Search and Rescue Puppy Prospect?"
+  description="Learn common SAR puppy prospect traits including confidence, hunt drive, toy interest, food drive, recovery, resilience, and handler engagement."
+  type="article"
+  schema={articleSchema}
+>
+  <Section
+    eyebrow="SAR Prospects"
+    title="What Makes a Good Search and Rescue Puppy Prospect?"
+    headingLevel="h1"
+    description="A good SAR puppy prospect needs more than energy. Confidence, curiosity, resilience, hunt drive, reward interest, and a strong relationship with the handler all matter."
+  >
+    <div class="prose prose-invert mt-8 max-w-3xl text-stone">
+      <p>No breeder can guarantee that a puppy will become a finished search and rescue dog. SAR success depends on genetics, temperament, health, training, handler skill, maturity, and the work the team puts in over time.</p>
+      <h2>Traits Worth Watching</h2>
+      <p>Common traits in a promising working-line puppy for search and rescue include environmental curiosity, willingness to explore, recovery after surprise, food drive, toy interest, hunt behavior, social engagement, and the ability to keep working through mild frustration.</p>
+      <p>A high-drive puppy for SAR should also have the nerves and resilience to handle new surfaces, sounds, places, people, and problem-solving demands. Drive without stability is not enough.</p>
+      <h2>How Alliance K9 Evaluates</h2>
+      <p>Alliance K9 observes puppies individually during handling, play, exploration, early obedience foundations, and everyday environmental exposure. Those observations help identify which puppies may be worth considering as search and rescue Belgian Malinois / Dutch Shepherd puppy prospects.</p>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="/puppies/">View Available Puppies</CTAButton>
+      <CTAButton href="/contact/" variant="secondary">Ask About SAR Prospects</CTAButton>
+    </div>
+  </Section>
+</BaseLayout>
