@@ -1,0 +1,46 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTAButton from "../../components/CTAButton.astro";
+import Section from "../../components/Section.astro";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Are Belgian Malinois Good Family Dogs?",
+  mainEntityOfPage: "https://alliancek9dogs.com/resources/are-belgian-malinois-good-family-dogs/",
+  author: { "@type": "Organization", name: "Alliance K9", url: "https://alliancek9dogs.com/" },
+  publisher: { "@type": "Organization", name: "Alliance K9", url: "https://alliancek9dogs.com/" },
+};
+---
+
+<BaseLayout
+  title="Are Belgian Malinois Good Family Dogs? | Alliance K9"
+  description="Belgian Malinois can be strong family dogs for active, structured homes, but they are not casual pets for everyone. Learn what buyers should consider."
+  type="article"
+  schema={articleSchema}
+>
+  <Section
+    eyebrow="Buyer Education"
+    title="Are Belgian Malinois Good Family Dogs?"
+    headingLevel="h1"
+    description="A Belgian Malinois can be a loyal, trainable family dog in the right home. The important phrase is: in the right home."
+  >
+    <div class="prose prose-invert mt-8 max-w-3xl text-stone">
+      <p>Belgian Malinois are intense, athletic, intelligent working dogs. They often bond deeply with their people and can thrive in active family homes that provide structure, training, exercise, and mental engagement.</p>
+      <p>They are not a good fit for every family. A casual household that wants an easy weekend pet may be overwhelmed by a high-drive puppy. Families should be honest about time, consistency, children, other pets, fencing, training plans, and willingness to work through normal adolescent behavior.</p>
+      <h2>What the Right Home Usually Provides</h2>
+      <ul>
+        <li>Daily training and clear household rules.</li>
+        <li>Appropriate exercise and mental work.</li>
+        <li>Supervision around children and other pets.</li>
+        <li>A willingness to work with a qualified trainer.</li>
+        <li>Realistic expectations for a working-line puppy.</li>
+      </ul>
+      <p>Alliance K9 evaluates each puppy for temperament, drive, confidence, sociability, and ability to settle so buyers can consider whether a specific puppy may fit an active family home.</p>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="/puppies/">View Available Puppies</CTAButton>
+      <CTAButton href="/apply/" variant="secondary">Start the Placement Conversation</CTAButton>
+    </div>
+  </Section>
+</BaseLayout>

@@ -1,0 +1,96 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CTAButton from "../components/CTAButton.astro";
+import FAQAccordion from "../components/FAQAccordion.astro";
+import Section from "../components/Section.astro";
+
+const faqItems = [
+  {
+    question: "Are Belgian Malinois good family dogs?",
+    answer:
+      "Belgian Malinois can be good family dogs for the right active, structured, committed home, but they are not casual pets for everyone. They need training, exercise, mental engagement, boundaries, and owners who understand working-breed intensity.",
+  },
+  {
+    question: "Are Dutch Shepherds good family dogs?",
+    answer:
+      "Dutch Shepherds can thrive in family homes when the match is right. They are intelligent, athletic, and often highly engaged with their people, but they still need structure, training, daily outlets, and a temperament suited to the household.",
+  },
+  {
+    question: "What is the difference between a Belgian Malinois and a Dutch Shepherd?",
+    answer:
+      "Belgian Malinois and Dutch Shepherds are both athletic working breeds with high intelligence, drive, and handler focus. Dutch Shepherds are commonly brindle and can vary in coat type, while Belgian Malinois are typically fawn or mahogany with a black mask. Individual temperament, nerves, drive, and training matter more than breed label alone.",
+  },
+  {
+    question: "Are these puppies pure Belgian Malinois or Dutch Shepherd?",
+    answer:
+      "The current Ranger x Mila litter is a Belgian Malinois / Dutch Shepherd working-line cross. Ranger brings Dutch Shepherd working heritage, and Mila brings a strong Belgian Malinois working background. Alliance K9 is clear about the cross because transparency matters in responsible placement.",
+  },
+  {
+    question: "How much are the puppies?",
+    answer:
+      "Available puppies are currently priced at $1,500, with all homes screened for fit. A $500 deposit may be required to reserve a puppy or hold placement position once fit and availability are discussed.",
+  },
+  {
+    question: "Are these puppies good for search and rescue?",
+    answer:
+      "Some puppies show SAR-relevant traits such as confidence, environmental curiosity, toy interest, food drive, engagement, and resilience. No puppy can be guaranteed as a finished search and rescue dog, but Alliance K9 can discuss which puppies may be worth considering as SAR puppy prospects.",
+  },
+  {
+    question: "Are these puppies good for protection?",
+    answer:
+      "Some puppies may be suitable as future family protection prospects with the right genetics, temperament, training, handler skill, and development. They are not finished protection dogs as puppies, and Alliance K9 does not promise protection outcomes.",
+  },
+  {
+    question: "Do you ship puppies?",
+    answer:
+      "Pickup and transport options should be discussed directly with Alliance K9. Because placement fit matters, travel arrangements are handled after the initial screening and placement conversation.",
+  },
+  {
+    question: "Where is Alliance K9 located?",
+    answer:
+      "Alliance K9 is based in Chelsea, Alabama, near Birmingham. The program works with approved puppy buyers and training clients throughout Alabama and the Southeast.",
+  },
+  {
+    question: "How do I choose the right puppy?",
+    answer:
+      "Alliance K9 helps match puppies based on temperament, drive, confidence, handler goals, home environment, intended training path, and the puppy's ability to settle. The best puppy is not always the flashiest puppy; it is the puppy most likely to succeed in your real life.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.answer,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="Belgian Malinois & Dutch Shepherd Puppy FAQ | Alliance K9"
+  description="Questions about Belgian Malinois and Dutch Shepherd puppies? Learn about price, temperament, family suitability, working drive, SAR potential, protection training, and puppy placement from Alliance K9 in Alabama."
+  image="/assets/processed/homepage/mila-puppy-hero.webp"
+  imageAlt="Belgian Malinois Dutch Shepherd puppy from Alliance K9 in Alabama."
+  schema={faqSchema}
+>
+  <Section
+    eyebrow="Puppy FAQ"
+    title="Belgian Malinois & Dutch Shepherd Puppy FAQ"
+    headingLevel="h1"
+    description="Honest answers for buyers considering a working-line Belgian Malinois / Dutch Shepherd puppy from Alliance K9 in Chelsea, Alabama."
+  >
+    <div class="mt-8 max-w-4xl">
+      <FAQAccordion items={faqItems} />
+    </div>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="/puppies/">View Available Puppies</CTAButton>
+      <CTAButton href="/apply/" variant="secondary">Start Puppy Application</CTAButton>
+      <CTAButton href="/contact/" variant="secondary">Contact Alliance K9</CTAButton>
+    </div>
+  </Section>
+</BaseLayout>

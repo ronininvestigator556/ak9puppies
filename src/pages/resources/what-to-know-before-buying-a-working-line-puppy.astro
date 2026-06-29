@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTAButton from "../../components/CTAButton.astro";
+import Section from "../../components/Section.astro";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "What to Know Before Buying a Working-Line Puppy",
+  mainEntityOfPage: "https://alliancek9dogs.com/resources/what-to-know-before-buying-a-working-line-puppy/",
+  author: { "@type": "Organization", name: "Alliance K9", url: "https://alliancek9dogs.com/" },
+  publisher: { "@type": "Organization", name: "Alliance K9", url: "https://alliancek9dogs.com/" },
+};
+---
+
+<BaseLayout
+  title="What to Know Before Buying a Working-Line Puppy"
+  description="Before buying a working-line Belgian Malinois or Dutch Shepherd puppy, understand drive, structure, training needs, home fit, and responsible placement."
+  type="article"
+  schema={articleSchema}
+>
+  <Section
+    eyebrow="Working-Line Guide"
+    title="What to Know Before Buying a Working-Line Puppy"
+    headingLevel="h1"
+    description="A working-line puppy can become a remarkable partner, but only when the buyer understands what the genetics are built to do."
+  >
+    <div class="prose prose-invert mt-8 max-w-3xl text-stone">
+      <p>Working-line puppies are bred for engagement, athleticism, problem-solving, reward motivation, and the ability to do real work. Those traits can be valuable for SAR, active homes, protection development, obedience, and serious training, but they require daily direction.</p>
+      <h2>Questions to Ask Yourself</h2>
+      <ul>
+        <li>Do I have time for training every day?</li>
+        <li>Am I prepared for a high-drive puppy with real outlets?</li>
+        <li>Will I work with a trainer when needed?</li>
+        <li>Does my household fit this puppy's temperament?</li>
+        <li>Am I choosing based on fit rather than color or photos?</li>
+      </ul>
+      <p>Responsible placement means matching puppy temperament to buyer goals. Alliance K9 screens homes because the right home gives the dog the best chance to succeed.</p>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="/puppies/">View Available Puppies</CTAButton>
+      <CTAButton href="/apply/" variant="secondary">Start Puppy Application</CTAButton>
+    </div>
+  </Section>
+</BaseLayout>

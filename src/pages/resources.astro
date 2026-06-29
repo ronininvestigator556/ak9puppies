@@ -2,6 +2,58 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import CTAButton from "../components/CTAButton.astro";
 import Section from "../components/Section.astro";
+
+const resources = [
+  {
+    eyebrow: "Starter Guide",
+    title: "Is a Belgian Malinois or Dutch Shepherd Right for Your Home?",
+    href: "/resources/is-a-belgian-malinois-or-dutch-shepherd-right-for-your-home/",
+    summary:
+      "A responsible buyer guide for people considering a working-line Belgian Malinois, Dutch Shepherd, or Malinois / Dutch Shepherd puppy.",
+  },
+  {
+    eyebrow: "Breed Comparison",
+    title: "Belgian Malinois vs Dutch Shepherd: Which Working Dog Fits You?",
+    href: "/resources/belgian-malinois-vs-dutch-shepherd/",
+    summary:
+      "Compare temperament, appearance, working style, handler needs, and owner fit before choosing a working dog puppy.",
+  },
+  {
+    eyebrow: "Family Fit",
+    title: "Are Belgian Malinois Good Family Dogs?",
+    href: "/resources/are-belgian-malinois-good-family-dogs/",
+    summary:
+      "Learn when a Belgian Malinois may thrive with an active family and when the breed may be too much for a casual home.",
+  },
+  {
+    eyebrow: "SAR Prospects",
+    title: "What Makes a Good Search and Rescue Puppy Prospect?",
+    href: "/resources/what-makes-a-good-search-and-rescue-puppy-prospect/",
+    summary:
+      "Understand SAR puppy prospect traits such as confidence, hunt drive, reward interest, resilience, and handler engagement.",
+  },
+  {
+    eyebrow: "Working-Line Guide",
+    title: "What to Know Before Buying a Working-Line Puppy",
+    href: "/resources/what-to-know-before-buying-a-working-line-puppy/",
+    summary:
+      "A practical guide to drive, structure, training plans, home fit, and responsible working-line puppy placement.",
+  },
+  {
+    eyebrow: "Price Guide",
+    title: "Belgian Malinois Puppy Price: What Responsible Buyers Should Understand",
+    href: "/resources/belgian-malinois-puppy-price/",
+    summary:
+      "Understand puppy price, deposits, screening, training costs, and why responsible placement matters more than bargain shopping.",
+  },
+  {
+    eyebrow: "Breed Guide",
+    title: "Dutch Shepherd Puppies: Temperament, Training, and Owner Fit",
+    href: "/resources/dutch-shepherd-puppies-temperament-training-owner-fit/",
+    summary:
+      "Learn about Dutch Shepherd puppy temperament, training needs, family fit, and working drive.",
+  },
+];
 ---
 
 <BaseLayout
@@ -15,29 +67,18 @@ import Section from "../components/Section.astro";
     description="Practical guidance for people considering a Dutch Shepherd, Belgian Malinois, or working-line puppy from Alliance K9."
   >
     <div class="mt-8 grid gap-5 md:grid-cols-2">
-      <article class="luxury-card p-6">
-        <p class="eyebrow">Starter Guide</p>
-        <h2 class="mt-3 font-heading text-2xl text-ivory">Is a Belgian Malinois or Dutch Shepherd Right for Your Home?</h2>
-        <p class="mt-4 text-sm leading-6 text-stone">
-          Working-line Malinois and Dutch Shepherd puppies can be exceptional partners in the right home, but they need structure, outlets, engagement, and owners who are honest about time, handling, and training.
-        </p>
-        <p class="mt-4 text-sm leading-6 text-stone">
-          Before choosing a puppy based on looks, buyers should consider drive, recovery, confidence, sociability, household activity level, training plans, and whether the dog is being considered for SAR, detection-style work, active companionship, or a carefully structured family protection path.
-        </p>
-        <div class="mt-5">
-          <CTAButton href="/resources/is-a-belgian-malinois-or-dutch-shepherd-right-for-your-home/" variant="secondary">Read the Guide</CTAButton>
-        </div>
-      </article>
-      <div class="luxury-card p-6">
-        <h2 class="font-heading text-2xl text-ivory">Future Topics</h2>
-        <ul class="mt-4 grid gap-3 text-sm leading-6 text-stone">
-          <li>What makes a good search and rescue puppy prospect</li>
-          <li>Understanding drive, nerve, and environmental confidence</li>
-          <li>Why placement should be based on temperament, not looks</li>
-          <li>Preparing your home for a working-line puppy</li>
-          <li>Family protection dog versus pet dog expectations</li>
-        </ul>
-      </div>
+      {
+        resources.map((resource) => (
+          <article class="luxury-card p-6">
+            <p class="eyebrow">{resource.eyebrow}</p>
+            <h2 class="mt-3 font-heading text-2xl text-ivory">{resource.title}</h2>
+            <p class="mt-4 text-sm leading-6 text-stone">{resource.summary}</p>
+            <div class="mt-5">
+              <CTAButton href={resource.href} variant="secondary">Read the Guide</CTAButton>
+            </div>
+          </article>
+        ))
+      }
     </div>
     <div class="mt-8 flex flex-wrap gap-3">
       <CTAButton href="/puppies/">View Current Puppies</CTAButton>

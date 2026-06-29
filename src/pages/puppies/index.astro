@@ -8,24 +8,37 @@ import { publicAsset } from "../../lib/assets";
 import { sortPuppies } from "../../lib/puppies";
 
 const puppies = sortPuppies(await getCollection("puppies"));
+const availableCount = puppies.filter((puppy) => puppy.data.status === "Available").length;
 const pageImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp");
 ---
 
 <BaseLayout
-  title="Available Working-Line Puppies near Birmingham, Alabama | Alliance K9"
-  description="View the Ranger x Mila working-line Dutch Shepherd and Belgian Malinois puppies near Birmingham, Alabama, evaluated for temperament, drive, confidence, and responsible placement fit."
+  title="Available Belgian Malinois & Dutch Shepherd Puppies in Alabama"
+  description="View available Belgian Malinois and Dutch Shepherd puppies from Alliance K9 in Chelsea, Alabama. Puppies are evaluated for search and rescue, active family homes, family protection, and serious training homes."
   image={pageImage}
   imageAlt="Ranger x Mila puppy from Alliance K9."
 >
   <Section
     eyebrow="Current Litter"
-    title="Ranger x Mila Puppies"
+    title="Available Belgian Malinois & Dutch Shepherd Puppies"
     headingLevel="h1"
-    description="Purpose-bred Dutch Shepherd and Belgian Malinois puppies near Birmingham, Alabama, raised with early socialization, professional training insight, and careful placement priority for SAR, detection-style work, experienced active homes, and suitable family protection homes."
+    description="We currently have a limited number of puppies available from our Belgian Malinois / Dutch Shepherd working-line litter. These puppies are being raised with daily handling, environmental exposure, toy engagement, early obedience foundations, and individual temperament evaluation."
   >
     <div class="mt-8 flex flex-wrap gap-3">
       <CTAButton href="#puppy-profiles">View Puppy Profiles</CTAButton>
-      <CTAButton href="/apply/" variant="secondary">Start an Application</CTAButton>
+      <CTAButton href="/contact/" variant="secondary">Contact Alliance K9 About Placement</CTAButton>
+    </div>
+  </Section>
+
+  <Section
+    eyebrow="Current Availability"
+    title={`${availableCount} Puppies Currently Available`}
+    description="Because this is a working-line litter, we are screening homes carefully. Some puppies may be better suited for search and rescue, some for active family homes, and some for protection or sport development. We are happy to discuss which puppy may fit your goals."
+    class="pt-0"
+  >
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="#puppy-profiles">Meet Available Puppies</CTAButton>
+      <CTAButton href="/apply/" variant="secondary">Tell Us What You're Looking For</CTAButton>
     </div>
   </Section>
 
@@ -36,7 +49,7 @@ const pageImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp")
     class="pt-0"
   >
     <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
-      {["12 Puppies", "6 Males", "6 Females", "Ranger x Mila", "Applications Open", "Born 03.21.2026"].map((item) => (
+      {["12 Puppies", "6 Males", "6 Females", "Ranger x Mila", `${availableCount} Available`, "Born 03.21.2026"].map((item) => (
         <div class="luxury-card p-5 text-sm font-semibold text-ivory">{item}</div>
       ))}
     </div>
@@ -45,12 +58,17 @@ const pageImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp")
   <Section
     eyebrow="Placement"
     title="Each Puppy Is Evaluated as an Individual"
-    description="No two puppies in this litter are exactly alike. Several are showing traits that may translate well to SAR or detection-style work, while others may be better suited for active companion homes or structured family protection placements. Alliance K9 evaluates each puppy's natural drives, nerves, social engagement, handler focus, and ability to settle so buyers can make a more informed decision."
+    description="No two puppies in this litter are exactly alike. Several are showing traits that may translate well to search and rescue work, while others may be better suited for active family homes, serious training homes, or structured family protection placements. Alliance K9 evaluates each puppy's natural drives, nerves, social engagement, handler focus, and ability to settle so buyers can make a more informed decision."
     class="pt-0"
   >
     <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
-      The goal is not simply to place puppies quickly. The goal is to help each puppy land in the right home with the right expectations, support, and long-term fit. Alliance K9 is based near Birmingham and Chelsea, Alabama, and works with approved homes throughout Alabama and the Southeast.
+      Our focus is not simply selling puppies quickly. It is placing each puppy where they are most likely to thrive. Alliance K9 is based in Chelsea, Alabama, near Birmingham, and works with approved homes throughout Alabama and the Southeast.
     </p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <CTAButton href="/parents/" variant="secondary">Meet the Parents</CTAButton>
+      <CTAButton href="/training/" variant="secondary">Explore Training Support</CTAButton>
+      <CTAButton href="/faq/" variant="secondary">Read Puppy FAQ</CTAButton>
+    </div>
   </Section>
 
   <Section
@@ -64,21 +82,44 @@ const pageImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp")
       {puppies.map((puppy) => <PuppyCard puppy={puppy} />)}
     </div>
     <p class="mt-8 max-w-3xl text-sm leading-6 text-stone">
-      As puppies are matched and reserved, their status will be updated here. SAR handlers, detection handlers, experienced active homes, and suitable family protection homes are encouraged to begin the conversation early so there is time to discuss goals, experience, and fit.
+      As puppies are matched and reserved, their status will be updated here. Search and rescue handlers, experienced active homes, family protection homes, and serious training homes are encouraged to begin the conversation early so there is time to discuss goals, experience, and fit.
+    </p>
+  </Section>
+
+  <Section
+    eyebrow="Search Intent"
+    title="Search and Rescue Puppy Prospects"
+    description="Several puppies in this litter show traits that may be valuable for search and rescue development, including confidence, environmental curiosity, toy interest, food drive, human engagement, and resilience."
+    class="pt-0"
+  >
+    <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
+      While no young puppy can be guaranteed as a finished SAR dog, we can help identify puppies with the right foundation for handlers or teams looking for a serious SAR puppy prospect, working-line puppy for search and rescue, high-drive puppy for SAR, or confident puppy for search work.
     </p>
   </Section>
 
   <Section
     eyebrow="Recommended Fit"
-    title="SAR, Detection, Family Protection, and Active Homes"
-    description="This litter is being matched thoughtfully, not sold casually. Several puppies show strong potential for SAR or detection-style work because of their hunt drive, confidence, problem-solving, resilience, and reward motivation. Select puppies may also be appropriate for experienced family protection homes where temperament, structure, and handler commitment align."
+    title="Active Family Homes"
+    description="Some puppies are showing the balance needed for active family homes: social engagement, trainability, confidence, and an ability to settle after activity."
     class="pt-0"
   >
     <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
-      If you are unsure which puppy may be the best fit, the application process is designed to compare your goals, experience, and home environment with each puppy's temperament and drive profile.
+      Belgian Malinois and Dutch Shepherd family dogs are not couch-potato breeds, but the right puppy can thrive with an owner committed to training, structure, exercise, and leadership. These puppies may be a strong fit for experienced owners looking for an active family puppy or working dog for an active home.
     </p>
-    <div class="mt-6">
+  </Section>
+
+  <Section
+    eyebrow="Recommended Fit"
+    title="Family Protection Prospects"
+    description="Some puppies may be suitable for future family protection development with the right training and handling. We do not sell finished protection dogs as puppies."
+    class="pt-0"
+  >
+    <p class="mt-5 max-w-3xl text-sm leading-6 text-stone">
+      We evaluate each Belgian Malinois protection puppy or Dutch Shepherd protection prospect honestly and help buyers understand which traits matter for future protection training, including confidence, nerve strength, engagement, possession, prey drive, and handler bond. Future personal protection dog prospect suitability depends on development, training, handler skill, and the individual dog.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-3">
       <CTAButton href="/apply/">Start the Placement Conversation</CTAButton>
+      <CTAButton href="/resources/what-makes-a-good-search-and-rescue-puppy-prospect/" variant="secondary">Read About SAR Traits</CTAButton>
     </div>
   </Section>
 
@@ -136,7 +177,7 @@ const pageImage = publicAsset("/assets/processed/homepage/mila-puppy-hero.webp")
         <p class="eyebrow">Next Step</p>
         <h2 class="mt-3 font-heading text-3xl text-ivory">Ready to Meet Your Future Partner?</h2>
         <p class="mt-4 max-w-2xl text-sm leading-6 text-stone">
-          If one of the puppies catches your eye, the next step is to start the application process. Tell us about your goals, experience, and home environment so we can help guide you toward the right match for SAR, detection-style work, active companionship, or a structured family protection home.
+          If one of the puppies catches your eye, the next step is to start the application process. Tell us about your goals, experience, and home environment so we can help guide you toward the right match for search and rescue, active companionship, serious training, or a structured family protection home.
         </p>
       </div>
       <div class="flex flex-wrap gap-3">

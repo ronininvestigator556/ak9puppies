@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CTAButton from "../../components/CTAButton.astro";
+import Section from "../../components/Section.astro";
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: "Belgian Malinois Puppy Price: What Responsible Buyers Should Understand",
+  mainEntityOfPage: "https://alliancek9dogs.com/resources/belgian-malinois-puppy-price/",
+  author: { "@type": "Organization", name: "Alliance K9", url: "https://alliancek9dogs.com/" },
+  publisher: { "@type": "Organization", name: "Alliance K9", url: "https://alliancek9dogs.com/" },
+};
+---
+
+<BaseLayout
+  title="Belgian Malinois Puppy Price: What Responsible Buyers Should Understand"
+  description="Understand Belgian Malinois puppy price, deposits, buyer screening, training costs, and why responsible placement matters more than bargain shopping."
+  type="article"
+  schema={articleSchema}
+>
+  <Section
+    eyebrow="Price Guide"
+    title="Belgian Malinois Puppy Price: What Responsible Buyers Should Understand"
+    headingLevel="h1"
+    description="Price matters, but responsible buyers should look at the whole picture: genetics, raising, evaluation, support, training plans, and long-term fit."
+  >
+    <div class="prose prose-invert mt-8 max-w-3xl text-stone">
+      <p>People often search for Belgian Malinois puppy price or Belgian Malinois puppies for sale price before they understand what a working-line puppy requires. The purchase price is only one part of ownership.</p>
+      <p>Available Alliance K9 puppies are currently priced at $1,500, with homes screened for fit. A $500 deposit may be required to reserve a puppy or placement position after fit and availability are discussed.</p>
+      <h2>Beyond the Purchase Price</h2>
+      <p>Responsible buyers should budget for veterinary care, food, equipment, training, travel or pickup, safe containment, and ongoing development. A working-line puppy can become expensive quickly if the home is not prepared for structure and training.</p>
+      <p>Alliance K9 is focused on placement quality, not quick transactions. The right match helps protect both the puppy and the buyer.</p>
+    </div>
+    <div class="mt-8 flex flex-wrap gap-3">
+      <CTAButton href="/puppies/">View Available Puppies</CTAButton>
+      <CTAButton href="/contact/" variant="secondary">Ask About Placement</CTAButton>
+    </div>
+  </Section>
+</BaseLayout>

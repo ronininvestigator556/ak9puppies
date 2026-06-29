@@ -35,7 +35,7 @@ const organizationSchema = {
   name: "Alliance K9",
   url: `${siteOrigin}/`,
   description:
-    "Alliance K9 is a working-dog puppy placement and K9 training program based near Birmingham and Chelsea, Alabama.",
+    "Alliance K9 is a working-dog puppy placement and K9 training program based in Chelsea, Alabama, near Birmingham.",
   areaServed: [
     "Birmingham, Alabama",
     "Chelsea, Alabama",
@@ -45,6 +45,12 @@ const organizationSchema = {
     "Southeast United States",
   ],
 };
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Alliance K9",
+  url: `${siteOrigin}/`,
+};
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -52,7 +58,13 @@ const localBusinessSchema = {
   url: `${siteOrigin}/`,
   image: absoluteImageUrl,
   description:
-    "Purpose-bred working-line puppies and K9 training support near Birmingham and Chelsea, Alabama, with careful placement for SAR prospects, detection-style work, active homes, and structured family protection homes.",
+    "Working-line Belgian Malinois and Dutch Shepherd puppy placement and K9 training support in Chelsea, Alabama, near Birmingham, with careful placement for search and rescue prospects, active homes, family protection prospects, and serious training homes.",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Chelsea",
+    addressRegion: "AL",
+    addressCountry: "US",
+  },
   areaServed: [
     "Birmingham",
     "Chelsea",
@@ -65,16 +77,22 @@ const localBusinessSchema = {
     "Southeast United States",
   ],
   serviceType: [
+    "Dog training",
+    "Puppy placement",
     "Working-line puppy placement",
+    "Working dog training",
     "K9 training",
     "Puppy foundations",
     "Obedience",
+    "Obedience training",
+    "Protection dog training",
     "Behavior modification",
     "Working-dog evaluation",
+    "Search and rescue puppy evaluation",
   ],
 };
 const pageSchema = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
-const jsonLd = [organizationSchema, localBusinessSchema, ...pageSchema];
+const jsonLd = [organizationSchema, websiteSchema, localBusinessSchema, ...pageSchema];
 ---
 
 <!doctype html>
