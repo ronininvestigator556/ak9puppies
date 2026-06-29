@@ -18,10 +18,28 @@ import Section from "../components/Section.astro";
     <div class="mt-6 max-w-3xl space-y-4 text-sm leading-6 text-stone">
       <p>For puppy applications, we review each application with the goal of matching the right puppy to the right home and will follow up to discuss availability, fit, and next steps.</p>
       <p>For training inquiries, Alliance K9 will review your message and follow up to discuss your dog, your goals, and possible next steps.</p>
+      <div class="luxury-card p-5">
+        <h2 class="font-heading text-2xl text-ivory">Direct Follow-Up</h2>
+        <p class="mt-3">
+          If you would like to reach out directly, Thomas may be contacted at <span class="font-semibold text-ivory" data-phone-display data-a="256" data-b="453" data-c="3894" aria-label="Alliance K9 phone number">phone number loading</span>.
+        </p>
+        <p class="mt-3">
+          If you requested a reply by text or email, please keep an eye on your spam, junk, filtered messages, or unknown sender folders in case the follow-up lands there.
+        </p>
+      </div>
     </div>
     <div class="mt-8 flex flex-wrap gap-3">
       <CTAButton href="/puppies/">View Puppies</CTAButton>
       <CTAButton href="/contact/" variant="secondary">Back to Contact</CTAButton>
     </div>
   </Section>
+  <script is:inline>
+    document.querySelectorAll("[data-phone-display]").forEach((element) => {
+      const { a, b, c } = element.dataset;
+
+      if (a && b && c) {
+        element.textContent = `${a}-${b}-${c}`;
+      }
+    });
+  </script>
 </BaseLayout>
